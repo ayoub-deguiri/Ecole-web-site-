@@ -52,6 +52,17 @@ a {
 
 /* style header starts */
 
+.home-header99 {
+  color: rgb(53, 43, 42);
+  font-size: 31px;
+  font-style: normal;
+  text-align: left;
+  font-family: Cormorant Infant;
+  font-weight: 700;
+  line-height: 36px;
+  position: absolute;
+  left: 164px;
+}
 .header {
   position: -webkit-sticky;
   position: sticky;
