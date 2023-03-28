@@ -7,10 +7,17 @@
    <title>contact</title>
 
    <!-- font awesome cdn link  -->
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
    <!-- swiper css link  -->
-   <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+   
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+   integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+   integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+   
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
@@ -22,268 +29,263 @@
 
 <header class="header">
 
-   <a href="#" class="logo"> <i class="fas fa-lightbulb"></i> educa </a>
+   <div class="logo">  <img src="images/LOGO.jpg" alt=""> </div>
 
    <nav class="navbar">
       <div id="close-navbar" class="fas fa-times"></div>
-      <a href="home.html">home</a>
-      <a href="about.html">about</a>
-      <a href="courses.html">courses</a>
-      <a href="contact.html">contact</a>
+      <a href=""> <i class="fas fa-home"></i> acceuil </a>
+      <a href="about.html"><i class="fa-solid fa-certificate"></i> Diplomes</a>
+      <a href="courses.html"> <i class="fa-solid fa-book"></i> formations</a>
+     
+      <a href="contact.html"> <i class="fa-solid fa-image"></i>Albumes</a>
+      <a href="contact.html"> <i class="fa-solid fa-comment"></i> contact</a>
    </nav>
 
-   <div class="icons">
-      <div id="account-btn" class="fas fa-user"></div>
-      <div id="menu-btn" class="fas fa-bars"></div>
-   </div>
+
 
 </header>
 
 <!-- account form section starts  -->
+<div class="profile-contact">
+   <div class="profile-container09">
+     <div class="profile-form">
+       <h2 class="profile-text18 HeadingOne">
+         <span>Dis salut!</span>
+        
+       </h2>
+       <span class="profile-text20 Lead">
+         Nous  aimerions parler avec vous.
+       </span>
+       <form class="profile-form1">
+         <label class="profile-text21 Label">Mon nom est</label>
+         <input
+           type="text"
+           placeholder="Nom et prénom"
+           class="profile-textinput Small input" required
+         />
+         <label class="profile-text21 Label">Email</label>
+         <input
+           type="text"
+           placeholder="votre email"
+           class="profile-textinput Small input" required
+         />
+         <label class="profile-text22 Label">
+            Objet du message
+         </label>
+         <input
+           type="text"
+           placeholder="Objet "
+           class="profile-textinput1 Small input" required
+         />
+         <label class="profile-text23 Label">Votre message</label>
+         <textarea
+           rows="8"
+           placeholder="Je veux dire que..."
+           class="profile-textarea textarea Small" required
+         ></textarea>
+      
+       <div class="profile-container10">
+         <div class="profile-container11">
 
-<div class="account-form">
+            <input type="submit" value="envoyer" class="primary-blue-button-button button ButtonSmall"/>
+               
+             
 
-   <div id="close-form" class="fas fa-times"></div>
-
-   <div class="buttons">
-      <span class="btn active login-btn">login</span>
-      <span class="btn register-btn">register</span>
-   </div>
-
-   <form class="login-form active" action="">
-      <h3>login now</h3>
-      <input type="email" placeholder="enter your email" class="box">
-      <input type="password" placeholder="enter your password" class="box">
-      <div class="flex">
-         <input type="checkbox" name="" id="remember-me">
-         <label for="remember-me">remember me</label>
-         <a href="#">forgot password?</a>
-      </div>
-      <input type="submit" value="login now" class="btn">
-   </form>
-
-   <form class="register-form" action="">
-      <h3>register now</h3>
-      <input type="email" placeholder="enter your email" class="box">
-      <input type="password" placeholder="enter your password" class="box">
-      <input type="password" placeholder="confirm your password" class="box">
-      <input type="submit" value="register now" class="btn">
-   </form>
-
-</div>
-
-<!-- account form section ends -->
-
-<!-- header section ends -->
-
-<section class="heading-link">
-   <h3>contact us</h3>
-   <p> <a href="home.html">home</a> / contact </p>
-</section>
-
-<!-- contact section starts  -->
-
-<section class="contact">
-
-   <h1 class="heading"> get in touch </h1>
-
-   <div class="icons-container">
-
-      <div class="icons">
-         <i class="fas fa-clock"></i>
-         <h3>opening hours :</h3>
-         <p>00:07am to 00:06pm</p>
-      </div>
-
-      <div class="icons">
-         <i class="fas fa-phone"></i>
-         <h3>phone :</h3>
-         <p>+123-456-7890</p>
-         <p>+111-222-3333</p>
-      </div>
-
-      <div class="icons">
-         <i class="fas fa-envelope"></i>
-         <h3> email : </h3>
-         <p>shaikhanas@gmail.com</p>
-         <p>anasbhai@gmail.com</p>
-      </div>
-
-      <div class="icons">
-         <i class="fas fa-map"></i>
-         <h3>address :</h3>
-         <p>mumbai, india - 400104</p>
-      </div>
-
-   </div>
-
-   <div class="row">
-
-      <div class="image">
-         <img src="images/contact-img.png" alt="">
-      </div>
-
-      <form action="">
-         <h3>send us a message</h3>
-         <input type="text" placeholder="name" class="box">
-         <input type="email" placeholder="email" class="box">
-         <input type="number" placeholder="phone" class="box">
-         <textarea name="" class="box" placeholder="message" id="" cols="30" rows="10"></textarea>
-         <input type="submit" value="send message" class="btn">
+         </div>
+       </div>
       </form>
-
+     </div>
+     <div class="profile-info">
+       <div class="profile-container12">
+         <h3 class="HeadingTwo">
+           <span>
+             Contact
+             
+           </span>
+           <span>Information</span>
+         </h3>
+         <span class="profile-text27 Small">
+            Remplissez le formulaire et notre équipe vous répondra dans les 24
+            heures.
+         </span>
+         <div class="profile-container13">
+           <div class="profile-container14">
+             <svg viewBox="0 0 1024 1024" class="profile-icon02">
+               <path d="M742 460l-94-94q-18-18-10-44 24-72 24-152 0-18 12-30t30-12h150q18 0 30 12t12 30q0 300-213 513t-513 213q-18 0-30-12t-12-30v-150q0-18 12-30t30-12q80 0 152-24 24-10 44 10l94 94q186-96 282-282z"></path>
+             </svg>
+             <a href="tel:+40 772 100 200" class="profile-link Small">
+               (+212) 6 61 72 98 87
+             </a>
+           </div>
+           <div class="profile-container15">
+             <svg viewBox="0 0 1024 1024" class="profile-icon04">
+               <path d="M854 342v-86l-342 214-342-214v86l342 212zM854 170q34 0 59 26t25 60v512q0 34-25 60t-59 26h-684q-34 0-59-26t-25-60v-512q0-34 25-60t59-26h684z"></path>
+             </svg>
+             <a
+               href="mailto:hello@creative-tim.com?subject="
+               class="profile-link1 Small"
+             >
+             jah.informatique@gmail.com
+             </a>
+           </div>
+           <div class="profile-container16">
+             <svg viewBox="0 0 1024 1024" class="profile-icon06">
+               <path d="M512 490q44 0 75-31t31-75-31-75-75-31-75 31-31 75 31 75 75 31zM512 86q124 0 211 87t87 211q0 62-31 142t-75 150-87 131-73 97l-32 34q-12-14-32-37t-72-92-91-134-71-147-32-144q0-124 87-211t211-87z"></path>
+             </svg>
+             <a
+             href="https://www.google.com/maps/place/Ecole+JAH+INFORMATIQUE/@31.592697,-8.052067,16z/data=!4m6!3m5!1s0xdafe8d18b749813:0x9ac46dc2e7ce5f94!8m2!3d31.592697!4d-8.0520666!16s%2Fg%2F11clyv15vr?hl=en"
+             class="profile-link1 Small"
+           >
+           jah.informatique@gmail.com
+           </a>
+           </div>
+         </div>
+         <div class="profile-container17">
+           <svg
+             viewBox="0 0 877.7142857142857 1024"
+             class="profile-icon08"
+           >
+             <path d="M713.143 73.143c90.857 0 164.571 73.714 164.571 164.571v548.571c0 90.857-73.714 164.571-164.571 164.571h-107.429v-340h113.714l17.143-132.571h-130.857v-84.571c0-38.286 10.286-64 65.714-64l69.714-0.571v-118.286c-12-1.714-53.714-5.143-101.714-5.143-101.143 0-170.857 61.714-170.857 174.857v97.714h-114.286v132.571h114.286v340h-304c-90.857 0-164.571-73.714-164.571-164.571v-548.571c0-90.857 73.714-164.571 164.571-164.571h548.571z"></path>
+           </svg>
+        
+           <svg
+             viewBox="0 0 877.7142857142857 1024"
+             class="profile-icon14"
+           >
+             <path d="M585.143 512c0-80.571-65.714-146.286-146.286-146.286s-146.286 65.714-146.286 146.286 65.714 146.286 146.286 146.286 146.286-65.714 146.286-146.286zM664 512c0 124.571-100.571 225.143-225.143 225.143s-225.143-100.571-225.143-225.143 100.571-225.143 225.143-225.143 225.143 100.571 225.143 225.143zM725.714 277.714c0 29.143-23.429 52.571-52.571 52.571s-52.571-23.429-52.571-52.571 23.429-52.571 52.571-52.571 52.571 23.429 52.571 52.571zM438.857 152c-64 0-201.143-5.143-258.857 17.714-20 8-34.857 17.714-50.286 33.143s-25.143 30.286-33.143 50.286c-22.857 57.714-17.714 194.857-17.714 258.857s-5.143 201.143 17.714 258.857c8 20 17.714 34.857 33.143 50.286s30.286 25.143 50.286 33.143c57.714 22.857 194.857 17.714 258.857 17.714s201.143 5.143 258.857-17.714c20-8 34.857-17.714 50.286-33.143s25.143-30.286 33.143-50.286c22.857-57.714 17.714-194.857 17.714-258.857s5.143-201.143-17.714-258.857c-8-20-17.714-34.857-33.143-50.286s-30.286-25.143-50.286-33.143c-57.714-22.857-194.857-17.714-258.857-17.714zM877.714 512c0 60.571 0.571 120.571-2.857 181.143-3.429 70.286-19.429 132.571-70.857 184s-113.714 67.429-184 70.857c-60.571 3.429-120.571 2.857-181.143 2.857s-120.571 0.571-181.143-2.857c-70.286-3.429-132.571-19.429-184-70.857s-67.429-113.714-70.857-184c-3.429-60.571-2.857-120.571-2.857-181.143s-0.571-120.571 2.857-181.143c3.429-70.286 19.429-132.571 70.857-184s113.714-67.429 184-70.857c60.571-3.429 120.571-2.857 181.143-2.857s120.571-0.571 181.143 2.857c70.286 3.429 132.571 19.429 184 70.857s67.429 113.714 70.857 184c3.429 60.571 2.857 120.571 2.857 181.143z"></path>
+           </svg>
+         </div>
+       </div>
+       <img
+         alt="image"
+         src="./images/wave-1.svg"
+         class="profile-image1"
+       />
+       <div class="profile-container18"> </div>
+     </div>
    </div>
+ </div>
 
-</section>
 
-<!-- contact section ends -->
-
-<!-- faq section starts  -->
-
-<section class="faq">
-
-   <h1 class="heading">frequently asked questions</h1>
-
-   <div class="accordion-container">
-
-      <div class="accordion active">
-         <div class="accordion-heading">
-            <h3>how to contact for help?</h3>
-            <i class="fas fa-angle-down"></i>
-         </div>
-         <p class="accordion-content">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit consequatur molestias deserunt facere laborum doloremque fuga, quae aut. Recusandae officia quis temporibus! Magnam mollitia nostrum voluptatibus deserunt quidem. Natus, quo.
-         </p>
-      </div>
-
-      <div class="accordion">
-         <div class="accordion-heading">
-            <h3>what is the best career in 2022?</h3>
-            <i class="fas fa-angle-down"></i>
-         </div>
-         <p class="accordion-content">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit consequatur molestias deserunt facere laborum doloremque fuga, quae aut. Recusandae officia quis temporibus! Magnam mollitia nostrum voluptatibus deserunt quidem. Natus, quo.
-         </p>
-      </div>
-
-      <div class="accordion">
-         <div class="accordion-heading">
-            <h3>how much fees for web development?</h3>
-            <i class="fas fa-angle-down"></i>
-         </div>
-         <p class="accordion-content">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit consequatur molestias deserunt facere laborum doloremque fuga, quae aut. Recusandae officia quis temporibus! Magnam mollitia nostrum voluptatibus deserunt quidem. Natus, quo.
-         </p>
-      </div>
-
-      <div class="accordion">
-         <div class="accordion-heading">
-            <h3>can I choose my own tutor?</h3>
-            <i class="fas fa-angle-down"></i>
-         </div>
-         <p class="accordion-content">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit consequatur molestias deserunt facere laborum doloremque fuga, quae aut. Recusandae officia quis temporibus! Magnam mollitia nostrum voluptatibus deserunt quidem. Natus, quo.
-         </p>
-      </div>
-
-      <div class="accordion">
-         <div class="accordion-heading">
-            <h3>what payment methods are availabe?</h3>
-            <i class="fas fa-angle-down"></i>
-         </div>
-         <p class="accordion-content">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit consequatur molestias deserunt facere laborum doloremque fuga, quae aut. Recusandae officia quis temporibus! Magnam mollitia nostrum voluptatibus deserunt quidem. Natus, quo.
-         </p>
-      </div>
-
-      <div class="accordion">
-         <div class="accordion-heading">
-            <h3>can I have free trial for a month?</h3>
-            <i class="fas fa-angle-down"></i>
-         </div>
-         <p class="accordion-content">
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit consequatur molestias deserunt facere laborum doloremque fuga, quae aut. Recusandae officia quis temporibus! Magnam mollitia nostrum voluptatibus deserunt quidem. Natus, quo.
-         </p>
-      </div>
-
+ 
+<section class="contact-ct">
+   <div class="map">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d6797.004340106605!2d-8.052067!3d31.592697000000005!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xdafe8d18b749813%3A0x9ac46dc2e7ce5f94!2sEcole%20JAH%20INFORMATIQUE!5e0!3m2!1sen!2sma!4v1679574574635!5m2!1sen!2sma" 
+   width="600" height="450" style="border:0;" allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
    </div>
-
-</section>
-
-<!-- faq section ends -->
-
-<!-- logo slider starts  -->
-
-<section class="logo-container">
-   <div class="swiper logo-slider">
-      <div class="swiper-wrapper">
-         <div class="swiper-slide"> <img src="images/partner-logo-1.png" alt=""> </div>
-         <div class="swiper-slide"> <img src="images/partner-logo-2.png" alt=""> </div>
-         <div class="swiper-slide"> <img src="images/partner-logo-3.png" alt=""> </div>
-         <div class="swiper-slide"> <img src="images/partner-logo-4.png" alt=""> </div>
-         <div class="swiper-slide"> <img src="images/partner-logo-5.png" alt=""> </div>
+   <div class="flayer">
+   <div id="carouselExampleDark" class="carousel carousel-dark slide" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="1" aria-label="Slide 2"></button>
+        <button type="button" data-bs-target="#carouselExampleDark" data-bs-slide-to="2" aria-label="Slide 3"></button>
       </div>
-   </div>
+   
+         <div class="carousel-inner test">
+            <div class="carousel-item active " data-bs-interval="4000">
+              <img src="flayer/gestion/image1.jpg" class="d-block w-100" alt="...">
+             
+            </div>
+            <div class="carousel-item" data-bs-interval="4000">
+              <img src="flayer/hijama/image1.jpg" class="d-block w-100 " alt="...">
+              
+            </div>
+            <div class="carousel-item" data-bs-interval="2000">
+              <img src="flayer/license/image1.jpg" class="d-block w-100" alt="...">
+              
+            </div>
+          </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleDark" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+           
+          </button>
+        </div>
+      </div>
 </section>
-
-<!-- logo slider ends -->
-
-
-
-
-
 
 
 <!-- footer section starts  -->
+<svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
+   <defs><linearGradient id="sw-gradient-0" x1="0" x2="0" y1="1" y2="0"><stop stop-color="rgba(193, 235, 226, 1)" offset="0%"></stop>
+      <stop stop-color="rgba(193, 235, 226, 1)" offset="100%"></stop></linearGradient></defs><path style="transform:translate(0, 0px); opacity:1" 
+      fill="url(#sw-gradient-0)" d="M0,50L60,43.3C120,37,240,23,360,15C480,7,600,3,720,16.7C840,30,960,60,1080,73.3C1200,87,1320,83,1440,76.7C1560,
+      70,1680,60,1800,51.7C1920,43,2040,37,2160,41.7C2280,47,2400,63,2520,73.3C2640,83,2760,87,2880,73.3C3000,60,3120,30,3240,18.3C3360,7,3480,13,
+      3600,20C3720,27,3840,33,3960,30C4080,27,4200,13,4320,20C4440,27,4560,53,4680,68.3C4800,83,4920,87,5040,80C5160,73,5280,57,5400,55C5520,53,5640,
+      67,5760,65C5880,63,6000,47,6120,41.7C6240,37,6360,43,6480,46.7C6600,50,6720,50,6840,56.7C6960,63,7080,77,7200,78.3C7320,80,7440,70,7560,56.7C7680,
+      43,7800,27,7920,30C8040,33,8160,57,8280,70C8400,83,8520,87,8580,88.3L8640,90L8640,100L8580,100C8520,100,8400,100,8280,100C8160,100,8040,100,7920,
+      100C7800,100,7680,100,7560,100C7440,100,7320,100,7200,100C7080,100,6960,100,6840,100C6720,100,6600,100,6480,100C6360,100,6240,100,6120,100C6000,100,
+      5880,100,5760,100C5640,100,5520,100,5400,100C5280,100,5160,100,5040,100C4920,100,4800,100,4680,100C4560,100,4440,100,4320,100C4200,100,4080,100,3960,
+      100C3840,100,3720,100,3600,100C3480,100,3360,100,3240,100C3120,100,3000,100,2880,100C2760,100,2640,100,2520,100C2400,100,2280,100,2160,100C2040,100,
+      1920,100,1800,100C1680,100,1560,100,1440,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z">
+   </path></svg>
 
 <section class="footer">
+   <div class="container">
+      <div class="row">
+            <div class="col">
+               <div class="box">
+                  <h3> <i class="fas fa-lightbulb"></i> Jah informatiques plus </h3>
+                  <p>JAH INFORMATIQUE PLUS est une école de formation professionnelle privée.</p>
+                  <div class="share">
+                     <a href="#" class="fab fa-facebook-f"> </a>
+                     <a href="#" class="fab fa-instagram"></a>
+                     <a href="#" class="fab fa-youtube"></a>
+                  </div>
+               </div>
+            </div>
 
-   <div class="box-container">
+            <div class="col">
+               <div class="box lien-rapid">
+                  <h3>Liens rapides</h3>
+                  <a href="home.html" class="link">acceuil</a>
+                  <a href="about.html" class="link">diplomes</a>
+                  <a href="courses.html" class="link">formations</a>
+                  <a href="contact.html" class="link">contact</a>
+                  <a href="contact.html" class="link">Albumes</a>
+               </div>
+            </div>
+            <div class="col">
+                     
+            <div class="box">
+               <h3> Contactez-nous</h3>
+               <a href="#" class="link"><i class="fa-solid fa-envelope"></i>&nbsp; jah.informatique@gmail.com </a>
+               <a href="#" class="link"><i class="fa-solid fa-location-dot"></i> &nbsp; Lo Houssna 2 Mhamid (coté de mosquéé al mouhcinine Marrakech) </a>
+               <a href="#" class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 5 24 37 16 19</a>
+               <a href="#" class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 6 61 72 98 87</a>
+              
+         
+            </div>
+            </div>
 
-      <div class="box">
-         <h3> <i class="fas fa-lightbulb"></i> educa </h3>
-         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, voluptatem.</p>
-         <div class="share">
-            <a href="#" class="fab fa-facebook-f"></a>
-            <a href="#" class="fab fa-twitter"></a>
-            <a href="#" class="fab fa-instagram"></a>
-            <a href="#" class="fab fa-linkedin"></a>
-         </div>
+            <div class="col">
+                     
+               <div class="box">
+                  <h3>Liens utiles</h3>
+                  <a href="https://www.facebook.com/profile.php?id=100086303923903" class="link"> <i class="fab fa-facebook-f"> </i> Ecole Jah Marrakech Département Santé et Beauté</a>
+                  <a href="https://www.facebook.com/EcoleJahModeliste" class="link">  <i class="fab fa-facebook-f"> </i> Ecole JAH Marrakech Modélisme Stylisme</a>  
+                  <a href="https://www.facebook.com/EcoleJahEPS" class="link">   <i class="fab fa-facebook-f"> </i>Ecole JAH Education Physique et Sportive</a>
+                  <a href="https://www.facebook.com/profile.php?id=100086481996373" class="link">  <i class="fab fa-facebook-f"> </i>Ecole JAH des Métiers Marrakech</a>
+            
+               </div>
+               </div>
       </div>
+    </div>
 
-      <div class="box">
-         <h3>quick links</h3>
-         <a href="home.html" class="link">home</a>
-         <a href="about.html" class="link">about</a>
-         <a href="courses.html" class="link">courses</a>
-         <a href="contact.html" class="link">contact</a>
+
+
+
+   <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus  -all right reserved by - ayoub-deguiri abdelghafouuur
       </div>
-
-      <div class="box">
-         <h3>useful links</h3>
-         <a href="#" class="link">help center</a>
-         <a href="#" class="link">ask questions</a>
-         <a href="#" class="link">send feedback</a>
-         <a href="#" class="link">private policy</a>
-         <a href="#" class="link">terms of use</a>
-      </div>
-
-      <div class="box">
-         <h3>newsletter</h3>
-         <p>subscribe for latest upadates</p>
-         <form action="">
-            <input type="email" name="" placeholder="enter your email" id="" class="email">
-            <input type="submit" value="subscribe" class="btn">
-         </form>
-      </div>
-
-   </div>
-
-   <div class="credit"> created by <span>mr. web designer</span> | all rights reserved! </div>
 
 </section>
 
+
 <!-- footer section ends -->
+
+
 
 
 
@@ -297,3 +299,4 @@
 
 </body>
 </html>
+
