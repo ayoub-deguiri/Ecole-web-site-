@@ -1029,7 +1029,7 @@ a {
 
 .courses .box-container .box .content {
   padding: 2rem;
-  text-align: center;
+  
   border: 0.1rem solid #0eb582;
 }
 
@@ -1646,13 +1646,15 @@ a {
 }
 .diplomes-ct p{
   font-size: 2em;
-    /* text-align: center; */
+   
     letter-spacing: 2px;
     color: black;
     /* padding: 1em; */
     padding: 1em 0em 1em 1em;
 }
-
+#des{
+  text-align: justify;
+}
 .title-partieo1{
   position: relative;
 }
@@ -1667,4 +1669,11 @@ a {
   bottom: 0;
 }
 
+#carousel-inner2{
+  margin-top: 10em;
+}
 
+
+#LICENCE-img{
+  padding-top: 13em;
+}
