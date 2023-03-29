@@ -1664,6 +1664,7 @@ a {
   bottom: 0;
 }
 
+
 #carousel-inner2{
   margin-top: 10em;
 }
@@ -1677,6 +1678,7 @@ a {
   margin: 0px 100px;
 }
 
+<<<<<<< HEAD
 /*   FORMATIONS .html   */
 .formation{
   margin-top: 6em;
@@ -1743,3 +1745,59 @@ a {
     height: 90vh;
     overflow: hidden;
 }
+=======
+
+/* ProgrammeTSGE css */
+.myProgramm{
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 36px;
+}
+.MysectionPrg .img1{
+    margin-left: 40px;
+    margin-top: 20px;
+    height:200px;
+    width:800px;
+}
+.MysectionPrg .table{
+  margin-bottom: 50px;
+}
+.MysectionPrg .table th {
+  background-color: ghostwhite;
+}
+.MysectionPrg .table .h2{
+  font-size: 26px;
+  margin-top: 20px;
+  font-weight: bold
+
+}
+.MysectionPrg .table .myp1{
+  font-size: 18px;
+  margin-top: 40px;
+  font-weight:lighter;
+  float:right
+}
+.MysectionPrg .table button
+  {
+    font-size: 17px;
+    font-weight:lighter;
+    border-radius: 10px 10px;
+    background-color: #c1ebe2;
+    border-color: #c1ebe2;
+  }
+  .MysectionPrg .table button a{
+    color: black;
+  }
+  .MysectionPrg .table button:hover
+  {
+    background-color: #80dfcb;
+    border-color: #80dfcb;
+  }
+ 
+  .MysectionPrg .table h1
+  {
+    text-align: center;
+    font-size: 20px;
+    font-weight:500;
+  }
+>>>>>>> d5127f215dc3734f07973db8744acd829f0ddd32
