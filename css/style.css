@@ -1678,7 +1678,6 @@ a {
   margin: 0px 100px;
 }
 
-<<<<<<< HEAD
 /*   FORMATIONS .html   */
 .formation{
   margin-top: 6em;
@@ -1745,12 +1744,11 @@ a {
     height: 90vh;
     overflow: hidden;
 }
-=======
 
 /* ProgrammeTSGE css */
 .myProgramm{
-    font-size: 16px;
-    font-weight: 900;
+    font-size: 1.7em;
+    font-weight: 500;
     line-height: 36px;
 }
 .MysectionPrg .img1{
@@ -1772,11 +1770,12 @@ a {
 
 }
 .MysectionPrg .table .myp1{
-  font-size: 18px;
+  font-size: 1.1em;
   margin-top: 40px;
-  font-weight:lighter;
+  font-weight:700;
   float:right
 }
+
 .MysectionPrg .table button
   {
     font-size: 17px;
@@ -1784,6 +1783,7 @@ a {
     border-radius: 10px 10px;
     background-color: #c1ebe2;
     border-color: #c1ebe2;
+    margin-bottom: 10px;
   }
   .MysectionPrg .table button a{
     color: black;
@@ -1800,4 +1800,31 @@ a {
     font-size: 20px;
     font-weight:500;
   }
->>>>>>> d5127f215dc3734f07973db8744acd829f0ddd32
+
+
+/* ProgrammeSecourisme css */
+.MysectionPrg .img2{
+  margin-top: 20px;
+  margin-left: 40px;
+  height:400px;
+  width: 800px;
+}
+
+.MysectionPrg .table .myh1{
+  margin-left: 30px;
+  font-size: 26px;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  font-weight:lighter;
+}
+.MysectionPrg .table .Div-arabe{
+    padding-left: 70px;
+    padding-right: 140px;
+}
+.MysectionPrg .table .Div-arabe2{
+  padding-left: 70px;
+  padding-right: 220px;
+}
+.MysectionPrg .table .Div-arabe3{
+  text-align: center;
+}
