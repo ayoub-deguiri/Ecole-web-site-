@@ -1072,10 +1072,7 @@ a {
 }
 
 
-.courses .box-container .box .content .icons span img {
 
-
-}
 
 .courses .box-container .box .content .icons span i {
   color: #0eb582;
@@ -1678,7 +1675,6 @@ a {
   margin: 0px 100px;
 }
 
-<<<<<<< HEAD
 /*   FORMATIONS .html   */
 .formation{
   margin-top: 6em;
@@ -1745,7 +1741,7 @@ a {
     height: 90vh;
     overflow: hidden;
 }
-=======
+
 
 /* ProgrammeTSGE css */
 .myProgramm{
@@ -1800,4 +1796,179 @@ a {
     font-size: 20px;
     font-weight:500;
   }
->>>>>>> d5127f215dc3734f07973db8744acd829f0ddd32
+
+
+
+  /* master .html */
+  .master{
+    margin-bottom: 8em;
+    margin-top: 7em;
+}
+ 
+
+  .master .partie01 #p-fr{
+    line-height: 1.9em;
+    width: 90%;
+    font-size: 1.8em;
+    font-weight: 700;
+    letter-spacing: 2px;
+    padding: 1em 3em;
+    text-align: justify;
+  }
+  .master .partie01 #p-ar{
+    width: 90%;
+    font-size: 1.8em;
+    font-weight: 500;
+    line-height: 1.8em;
+    padding: 0em 3em;
+    margin-bottom: 5em;
+  }
+  
+
+
+  .master .partie01 .list-formation{
+    list-style-type: none;
+   
+    margin: 1em;
+    font-size: 1.5em;
+    
+  }
+  .master .partie01 .list-formation li a {
+    font-size: 1.4em;
+    padding: 0px 5px;
+    color: blue;
+    font-weight: 500;
+    position: relative;
+  }
+  .master .partie01 .list-formation li a:hover{
+    color: red;
+  }
+  
+  .master .partie01 .list-formation li  span{
+    color: black;
+    text-align: justify;
+    padding: 0px 0.5em;
+    font-size: 1.3em;
+  }
+
+  /* inscrtiption form formations*/
+
+  .Inscription-form{
+    
+    width: 50%;
+   margin-top: 2em;
+   margin-bottom: 5em;
+   padding: 7em;
+   
+
+
+   
+   border-radius: var(--dl-radius-radius-radius1);
+   box-shadow: 2px 4px 9px rgb(157 149 149 / 10%);
+   background-color:#f9fbfa;
+
+  }
+  #title{
+    border-bottom: 3.5px solid gold;
+    border-radius: 8px;
+    width: fit-content;
+    text-align: center;
+    display: flex;
+    /* justify-content: center; */
+    margin: auto;
+    margin-top: 1em;
+    font-size: 3.8em;
+    margin-bottom: 0.3em;
+  }
+  .Inscription-form .labelInput{
+    font-size: 1.9em;
+    
+    padding-left: 0.4em;
+ 
+    font-weight: 500;
+    color: black;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+  }
+   .Inscription-form input[type="text"]{
+    width: 100%;
+    height: 3em;
+    padding: 0px 12m;
+    /* margin: 0 1em; */
+    border: 1px solid #67748eff;
+    background: #f9fbfa;
+    border-radius: 13px;
+    font-size: 1.3em;
+    padding: 1.3em;
+  }
+
+   .Inscription-form input[type="text"]:focus{
+    
+    border: 1px solid black;
+    outline: 0;
+    box-shadow: 0 0 0 1px black;
+    border-color: black;
+    
+    
+  }
+
+
+  .Inscription-form select{
+    width: 100%;
+ height: 3em;
+ padding: 0px 1.3em;
+ /* margin: 0 1em; */
+ 
+ border: 1px solid #67748eff;
+
+ border-radius: 13px;
+ font-size: 1.3em;
+ background-color: #f9fbfa;
+}
+
+.Inscription-form select:focus{
+ 
+ 
+ border: 1px solid black;
+ outline: 0;
+ box-shadow: 0 0 0 2px black;
+ border-color: black;
+ 
+ 
+}
+  
+.radio {
+  font-size: 1.5em;
+}
+
+
+#label{
+  font-size: 1.8em !important;
+  padding-left: 0.4em;
+  font-weight: 400;
+  color: black;
+  margin-bottom: 0.5em;
+  margin-top: 0.5em;
+}
+.Inscription-form input[type="file"]{
+  width: 75%;
+
+padding: 0px 12m;
+/* margin: 0 1em; */
+
+border: 1px solid #67748eff;
+
+border-radius: 5px;
+font-size: 1.3em;
+background-color: #f9fbfa;
+}
+.btn-info{
+  width: 81px;
+  text-align: center;
+  height: 42px;
+  font-size: 1.8em;
+  /* padding: 1em; */
+  /* padding: 0.6em; */
+  border-radius: 5px;
+  margin-top: 1em;
+}
