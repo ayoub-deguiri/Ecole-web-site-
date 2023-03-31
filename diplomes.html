@@ -4,11 +4,14 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>diplomes</title>
+   <title>Diplômes</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
+    <!-- incos page link -->
+    <link rel="shortcut icon" href="images/LOGO.jpg" type="image/x-icon">
+    
    <!-- swiper css link  -->
    
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
@@ -16,21 +19,18 @@
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
-
-   
-
    <!-- custom css file link  -->
-   <link rel="stylesheet" href="css/style.css">
+   <link rel="stylesheet" href="assets/css/style.css">
 
 </head>
 <body>
    
-<!-- header section starts  -->
-<header class="HeaderTop"> 
-    <a href="#" class="link"><i class="fa-solid fa-location-dot"></i> &nbsp; Lo Houssna 2 Mhamid (coté de mosquéé al mouhcinine Marrakech) </a>
-    <a href="#" class="link"><i class="fa-solid fa-envelope"></i>&nbsp; jah.informatique@gmail.com </a>
-    <a href="#" class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 5 24 37 16 19</a>
-    <a href="#" class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 6 61 72 98 87</a>
+ <!-- header section starts  -->
+ <header class="HeaderTop"> 
+    <span class="link"><i class="fa-solid fa-location-dot"></i> &nbsp; Lo Houssna 2 Mhamid (coté de mosquéé al mouhcinine Marrakech) </span>
+    <span class="link"><i class="fa-solid fa-envelope"></i>&nbsp; jah.informatique@gmail.com </span>
+    <span class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 5 24 37 16 19</span>
+    <span class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 6 61 72 98 87</span>
  </header>
  <div class="header">
     <div class="logo">  
@@ -43,25 +43,22 @@
        
        <div id="close-navbar" class="fas fa-times"></div>
        <a href="acceuil.html"> <i class="fas fa-home"></i> Acceuil </a>
-       <a href="diplomes.html"><i class="fa-solid fa-certificate"></i> Diplomes</a>
+       <a href="diplomes.html"><i class="fa-solid fa-certificate"></i> Diplômes</a>
        <a href="formations.html"> <i class="fa-solid fa-book"></i> Formations</a>
-       <a href="albumes.html"> <i class="fa-solid fa-image"></i> Albumes</a>
-       <a href="contact.html"> <i class="fa-solid fa-comment"></i> Contact</a>
+       <a href="albums.html"> <i class="fa-solid fa-image"></i> Albums</a>
+       <a href="contact.html"> <i class="fa-solid fa-comment"></i> Contactez nous</a>
     </nav>
+    <div class="icons">
+       <div id="account-btn" ></div>
+       <div id="menu-btn"></div>
+    </div>
+ </div>
 
-   <div class="icons">
-        <div id="account-btn" ></div>
-        <div id="menu-btn"></div>
-     
-   </div>
-
-</div>
+ <!-- header section ends -->
 
 <!-- start dimplomes container -->    
 
 <div class="container-md diplomes-ct">
-  
-
    <div class="row">
       <div class="col-md-8" >
             <div class="diplome-partie01">
@@ -99,7 +96,7 @@
                             <p>Diplôme : Technicien Spécialisé en Gestion d’Entreprise
                             
                             <span class="coloranimate"> (Possibilité d'avoir de la Bourse jusqu'a 4000dh) </span>...  </p>
-                            <a href="#" class="btn">En savoir plus</a>
+                            <a href="Programme/Diplome/FormationProfessionnelle/programmeTSGE.html" class="btn">En savoir plus</a>
                             <div class="icons">
                             <span>  Diplôme Reconnu par l’Etat <img src="images/fppa.png" width="50px" height="50px" alt=""></span>
                             </div>
@@ -116,7 +113,7 @@
                             <p>
                                 Ce profil est destiné à former des techniciens en gestion informatisée capables d’utiliser et/ou participer ...
                                 </p>
-                            <a href="#" class="btn">En savoir plus</a>
+                            <a href="Programme/Diplome/FormationProfessionnelle/programmeTGI.html" class="btn">En savoir plus</a>
                             <div class="icons">
                                 <span>  Diplôme Reconnu par l’Etat <img src="images/fppa.png" width="50px" height="50px" alt=""></span>
                             </div>
@@ -129,24 +126,16 @@
                             </h3>
                         </div>
                         <div class="content">
-                            
-                            <p >	Ce profil est destiné à former des opérateurs de saisie capables de exécuter des opérations de saisie avec dextérité...</p>
-                            <a href="#" class="btn">En savoir plus</a>
+                            <p>	Ce profil est destiné à former des opérateurs de saisie capables de exécuter des opérations de saisie avec dextérité...</p>
+                            <a href="Programme/Diplome/FormationProfessionnelle/programmeQOS.html" class="btn">En savoir plus</a>
                             <div class="icons">
                                 <span>  Diplôme Reconnu par l’Etat <img src="images/fppa.png" width="50px" height="50px" alt=""></span>
                             </div>
                         </div>
                     </div>
-                
-                    
                     </div>
-
                 </div>
         </section>
-
-  
-
-
       </div>
       <div class="col-md-4" >
          <div id="carouselExampleFade">
@@ -168,10 +157,6 @@
               </div>
             </div>
           </div>
-
-
-        
-      
     </div>
 </div>
 </div>
@@ -210,7 +195,7 @@
                             <div class="content">
                             
                             <p >	MASTÈRE EUROPÉEN est Une formation professionnalisante de 2 ans après l'obtention ...</p>
-                            <a href="#" class="btn">En savoir plus</a>
+                            <a href="master.html" class="btn">En savoir plus</a>
                             <div class="icons">
                                 <span id="fede-img"><img src="images/fede.png" width="50px" height="50px"></span>
                                 </div>
@@ -225,7 +210,7 @@
                         </div>
                         <div class="content">
                         
-                        <p >	MASTÈRE EUROPÉEN est Une formation professionnalisante de 2 ans après l'obtention...</p>
+                        <p > La Licence Professionnelle Européenne (FEDE) est un diplôme d'un an reconnu en Europe.. </p>
                         <a href="#" class="btn">En savoir plus</a>
                         <div class="icons">
                             <span id="fede-img">  <img src="images/fede.png" width="50px" height="50px"></span>
@@ -274,67 +259,56 @@
       100C3840,100,3720,100,3600,100C3480,100,3360,100,3240,100C3120,100,3000,100,2880,100C2760,100,2640,100,2520,100C2400,100,2280,100,2160,100C2040,100,
       1920,100,1800,100C1680,100,1560,100,1440,100C1320,100,1200,100,1080,100C960,100,840,100,720,100C600,100,480,100,360,100C240,100,120,100,60,100L0,100Z">
    </path></svg>
-
-<section class="footer">
-   <div class="container">
-      <div class="row">
-            <div class="col">
-               <div class="box">
-                  <h3> <i class="fas fa-lightbulb"></i> Jah informatiques plus </h3>
-                  <p>JAH INFORMATIQUE PLUS est une école de formation professionnelle privée.</p>
-                  <div class="share">
-                     <a href="#" class="fab fa-facebook-f"> </a>
-                     <a href="#" class="fab fa-instagram"></a>
-                     <a href="#" class="fab fa-youtube"></a>
-                  </div>
-               </div>
-            </div>
-
-            <div class="col">
-               <div class="box lien-rapid">
-                  <h3>Liens rapides</h3>
-                  <a href="home.html" class="link">acceuil</a>
-                  <a href="about.html" class="link">diplomes</a>
-                  <a href="courses.html" class="link">formations</a>
-                  <a href="contact.html" class="link">contact</a>
-                  <a href="contact.html" class="link">Albumes</a>
-               </div>
-            </div>
-            <div class="col">
-                     
-            <div class="box">
-               <h3> Contactez-nous</h3>
-               <a href="#" class="link"><i class="fa-solid fa-envelope"></i>&nbsp; jah.informatique@gmail.com </a>
-               <a href="#" class="link"><i class="fa-solid fa-location-dot"></i> &nbsp; Lo Houssna 2 Mhamid (coté de mosquéé al mouhcinine Marrakech) </a>
-               <a href="#" class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 5 24 37 16 19</a>
-               <a href="#" class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 6 61 72 98 87</a>
-              
-         
-            </div>
-            </div>
-
-            <div class="col">
-                     
-               <div class="box">
-                  <h3>Liens utiles</h3>
-                  <a href="https://www.facebook.com/profile.php?id=100086303923903" class="link"> <i class="fab fa-facebook-f"> </i> Ecole Jah Marrakech Département Santé et Beauté</a>
-                  <a href="https://www.facebook.com/EcoleJahModeliste" class="link">  <i class="fab fa-facebook-f"> </i> Ecole JAH Marrakech Modélisme Stylisme</a>  
-                  <a href="https://www.facebook.com/EcoleJahEPS" class="link">   <i class="fab fa-facebook-f"> </i>Ecole JAH Education Physique et Sportive</a>
-                  <a href="https://www.facebook.com/profile.php?id=100086481996373" class="link">  <i class="fab fa-facebook-f"> </i>Ecole JAH des Métiers Marrakech</a>
-            
-               </div>
-               </div>
-      </div>
+   <section class="footer">
+    <div id="Myfooter">
+       <div class="container">
+          <div class="row">
+                <div class="col">
+                   <div class="box">
+                      <h3> <i class="fas fa-lightbulb"></i> Jah informatiques plus </h3>
+                      <p>JAH INFORMATIQUE PLUS est une école de formation professionnelle privée.</p>
+                      <div class="share">
+                         <a href="https://www.facebook.com/EcoleJahInformatique" class="fab fa-facebook-f"></a>
+                         <a href="https://www.youtube.com/@jahinformatique" class="fab fa-youtube"></a>
+                      </div>
+                   </div>
+                </div>
+    
+                <div class="col">
+                   <div class="box lien-rapid">
+                      <h3>Liens rapides</h3>
+                      <a href="acceuil.html" class="link">acceuil</a>
+                      <a href="diplomes.html" class="link">diplomes</a>
+                      <a href="formations.html" class="link">formations</a>
+                      <a href="albums.html" class="link">Albums</a>
+                      <a href="contact.html" class="link">contact</a>
+                   </div>
+                </div>
+                <div class="col">
+                <div class="box">
+                   <h3> Contactez-nous</h3>
+                   <span class="link"><i class="fa-solid fa-envelope"></i>&nbsp; jah.informatique@gmail.com </span>
+                   <span class="link"><i class="fa-solid fa-location-dot"></i> &nbsp; Lo Houssna 2 Mhamid (coté de mosquéé al mouhcinine Marrakech) </span>
+                   <span  class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 5 24 37 16 19</span>
+                   <span class="link"> <i class="fa-solid fa-phone"></i> &nbsp; +212 6 61 72 98 87</span>
+                </div>
+                </div>
+                <div class="col">
+                   <div class="box">
+                      <h3>Liens utiles</h3>
+                      <a href="https://www.facebook.com/profile.php?id=100086303923903" class="link"> <i class="fab fa-facebook-f"> </i> Ecole Jah Marrakech Département Santé et Beauté</a>
+                      <a href="https://www.facebook.com/EcoleJahModeliste" class="link">  <i class="fab fa-facebook-f"> </i> Ecole JAH Marrakech Modélisme Stylisme</a>  
+                      <a href="https://www.facebook.com/EcoleJahEPS" class="link">   <i class="fab fa-facebook-f"> </i>Ecole JAH Education Physique et Sportive</a>
+                      <a href="https://www.facebook.com/profile.php?id=100086481996373" class="link">  <i class="fab fa-facebook-f"> </i>Ecole JAH des Métiers Marrakech</a>
+                
+                   </div>
+                   </div>
+          </div>
+       </div>
+       <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus  -all right reserved by - ayoub-deguiri/abdelghafour-lahnida
+       </div>
     </div>
-
-
-
-
-   <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus  -all right reserved by - ayoub-deguiri abdelghafouuur
-      </div>
-
-</section>
-
+ </section>
 
 <!-- footer section ends -->
 
@@ -348,7 +322,7 @@
 <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<script src="assets/js/script.js"></script>
 
 </body>
 </html>

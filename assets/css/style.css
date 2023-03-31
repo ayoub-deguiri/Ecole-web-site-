@@ -65,13 +65,13 @@ a {
     font-style: normal;
     line-height: 36px;
 }
-.HeaderTop a {
+.HeaderTop span {
   margin-left: 20px;
   color: #eee;
 }
 .home-header99 {
   color: rgb(53, 43, 42);
-  font-size: 31px;
+  font-size: 25px;
   font-style: normal;
   text-align: left;
   font-family: Cormorant Infant;
@@ -865,7 +865,7 @@ a {
 
 .footer  .box .link:hover {
   color: #2f00ff;
-  text-decoration: underline;
+  text-decoration: none;
 }
 
 .footer  .box p {
@@ -1741,10 +1741,7 @@ a {
     height: 90vh;
     overflow: hidden;
 }
-<<<<<<< HEAD
-=======
 
->>>>>>> a5dca9701b61df86f97fa7f05a824e062115b2f2
 
 /* ProgrammeTSGE css */
 .myProgramm{
@@ -1803,7 +1800,6 @@ a {
   }
 
 
-<<<<<<< HEAD
 /* ProgrammeSecourisme css */
 .MysectionPrg .img2{
   margin-top: 20px;
@@ -1830,7 +1826,6 @@ a {
 .MysectionPrg .table .Div-arabe3{
   text-align: center;
 }
-=======
 
   /* master .html */
   .master{
@@ -2005,4 +2000,3 @@ background-color: #f9fbfa;
   border-radius: 5px;
   margin-top: 1em;
 }
->>>>>>> a5dca9701b61df86f97fa7f05a824e062115b2f2
