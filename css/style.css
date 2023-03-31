@@ -1941,6 +1941,13 @@ a {
   font-size: 1.5em;
 }
 
+.radio input[type="radio"] {
+  margin-left: 5px;
+}
+.label-radio{
+  margin-left: 10px;
+}
+
 
 #label{
   font-size: 1.8em !important;
@@ -1950,25 +1957,79 @@ a {
   margin-bottom: 0.5em;
   margin-top: 0.5em;
 }
-.Inscription-form input[type="file"]{
-  width: 75%;
 
-padding: 0px 12m;
-/* margin: 0 1em; */
 
-border: 1px solid #67748eff;
 
-border-radius: 5px;
-font-size: 1.3em;
-background-color: #f9fbfa;
-}
 .btn-info{
-  width: 81px;
+  width: 100px;
   text-align: center;
   height: 42px;
   font-size: 1.8em;
   /* padding: 1em; */
   /* padding: 0.6em; */
   border-radius: 5px;
-  margin-top: 1em;
+  margin-top: 2em;
+  
 }
+
+
+
+.inputfile {
+  width: 0.1px;
+  height: 0.1px;
+  opacity: 0;
+  overflow: hidden;
+  position: absolute;
+  z-index: -1;
+}
+
+.inputfile + label {
+  max-width: 100%;
+  
+  /* 20px */
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+  display: inline-block;
+  overflow: hidden;
+  padding-top: 0.2em;
+  /* 10px 20px */
+}
+
+
+
+.inputfile:focus + label,
+.inputfile.has-focus + label {
+  outline: 1px dotted #000;
+  outline: -webkit-focus-ring-color auto 5px;
+}
+
+
+
+.inputfile + label svg {
+  width: 1.4em;
+  height: 1.4em;
+  vertical-align: middle;
+  fill: currentColor;
+ 
+  /* 4px */
+}
+
+
+/* style 1 */
+
+.inputfile-1 + label {
+ 
+
+  width: 100%;
+    height: 2em;
+    text-align: center;
+    /* margin: 0 1em; */
+    border: 1px solid #67748eff;
+    background: #f9fbfa;
+    border-radius: 13px;
+    font-size: 1.7em;
+    
+}
+

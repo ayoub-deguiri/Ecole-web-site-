@@ -4,7 +4,7 @@
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Licence Professionnelle Européenne</title>
+   <title>inscription  fede</title>
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -17,13 +17,17 @@
    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
 
+
+
    
 
    <!-- custom css file link  -->
    <link rel="stylesheet" href="css/style.css">
    <link rel="shortcut icon" href="images/LOGO.jpg" type="image/x-icon">
 
-
+   <style>
+    
+    </style>
 </head>
 <body>
    
@@ -64,48 +68,46 @@
 <h1 id="title">formailer d'inscription</h1>
 <div class="container-md Inscription-form" >
     
-    <form action="" >
+    <form action="">
         <div class="mb-3 mt-3">
-            <label class="labelInput">Nom et Prénom </label>
+            <label class="labelInput ">Nom et Prénom </label>
             
-            <input type="text" class="form-control " id="nom" name="nom" placeholder="Nom et prenom">
+            <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom et prenom">
+         
           </div>
           <div class="mb-3 mt-3">
             <label class="labelInput" >Numéro de CIN  </label>&ensp;
-            <input type="text" class="form-control" id="carte" name="carte" placeholder="Numéro de CIN">
+            <input type="text" class="form-control" id="carte" name="carte" placeholder="Numéro de CIN" >
           </div>
           <div class="mb-3 mt-3">
             <label class="labelInput" >Adresse </label>&ensp;
             
-            <input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="Adresse">
+            <input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="Adresse" >
           </div>
           
           <div class="mb-3 mt-3">
             <label class="labelInput">Numéro de téléphone</label>&ensp;
             
-            <input type="text" class="form-control" id="tel" name="tel"  pattern="[0-9]{10}" placeholder="Numéro de téléphone">
+            <input type="text" class="form-control" id="tel" name="tel"  pattern="[0-9]{10}" placeholder="Numéro de téléphone"  >
           </div>
           
           <div class="mb-3 radio">
             <label for="pwd" id="label">Niveau Scolaire &nbsp;</label>&ensp;
            
+            
+           
+           
             <div class="form-check">
                 <input type="radio" class="form-check-input" value="aucun" name='niveau'  id="r4" >
-               <label class="form-check-label label-radio"> Aucun&nbsp; بدون</label>
+               <label class="form-check-label label-radio">  BAC +2(Technicien / Technicien spécialisé / DEUG) </label>
               </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input" value="9AEF" name='niveau' onclick="fun0()" id="r3" >
-                <label class="form-check-label label-radio">9AEF &nbsp; الثالثة اعدادي</label>
+                <label class="form-check-label label-radio"> BAC +3(Licence / Bachelor) </label>
               </div>
             
-              <div class="form-check">
-                <input type="radio" class="form-check-input" value="2ème Année BAC" name='niveau' onclick="fun0()" id="r2">
-               <label class="form-check-label label-radio" for="radio2">2ème Année BAC   الثانية بكالوريا</label>
-              </div>
-              <div class="form-check">
-               <input type="radio" class="form-check-input" value="BAC ou Plus" name='niveau' onclick="fun0()" id="r1">
-                <label class="form-check-label label-radio" for="radio1"> BAC ou Plus &nbsp; بكالوريا فما فوق</label>
-              </div>
+             
+              
           </div>
          
           <div class="mb-3 mt-3">
@@ -119,14 +121,14 @@
           
           <div class="mb-3 mt-3">
             <label class="labelInput" >Email :</label>&ensp;
-            <input type="text" class="form-control" id="email" name="email" placeholder="Email">
+            <input type="text" class="form-control" id="email" name="email" placeholder="Email" >
           </div>
           <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Photo de la CIN    :</label>
             <div>
                <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
                <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
-                  <span>  sélectionner un fichier&hellip;</span>
+                  <span>sélectionner un fichier&hellip;</span>
                </label>
           </div>
           </div>
@@ -140,8 +142,39 @@
                </label>
           </div>
           </div>
-         
-          <button type="button" class="btn-info" >Inscrire</button>
+          <div class="mb-3 mt-3">
+            <label for="name " class="labelInput">Photo d'acte de naissance'    :</label>
+            
+            <div>
+               <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+                  <span>sélectionner un fichier&hellip;</span>
+               </label>
+          </div>
+          </div>
+          <div class="mb-3 mt-3">
+            <label for="name " class="labelInput">Certificat Scolaire (bac) :</label>
+            
+            <div>
+               <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+                  <span>sélectionner un fichier&hellip;</span>
+               </label>
+          </div>
+          </div>
+
+          <div class="mb-3 mt-3">
+            <label for="name " class="labelInput">Diplome (autres) :</label>
+            
+            <div>
+               <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+                  <span>sélectionner un fichier&hellip;</span>
+               </label>
+          </div>
+          </div>
+
+          <button type="button" class="btn-info">Inscrire</button>
     </form>
     
 </div>
@@ -230,38 +263,7 @@
 
 
 
-<script>
-   /*
-    By Osvaldas Valutis, www.osvaldas.info
-    Available for use under the MIT License
- */
- 
- 'use strict';
- 
- ;( function ( document, window, index )
- {
-    var inputs = document.querySelectorAll( '.inputfile' );
-    Array.prototype.forEach.call( inputs, function( input )
-    {
-       var label	 = input.nextElementSibling,
-          labelVal = label.innerHTML;
- 
-       input.addEventListener( 'change', function( e )
-       {
-          var fileName = '';
-          if( this.files && this.files.length > 1 )
-             fileName = ( this.getAttribute( 'data-multiple-caption' ) || '' ).replace( '{count}', this.files.length );
-          else
-             fileName = e.target.value.split( '\\' ).pop();
- 
-          if( fileName )
-             label.querySelector( 'span' ).innerHTML = fileName;
-          else
-             label.innerHTML = labelVal;
-       });
-    });
- }( document, window, 0 ));
- </script>
+
 
 
 
