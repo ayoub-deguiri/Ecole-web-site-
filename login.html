@@ -18,7 +18,7 @@
     <div class="container">
         <form action="">
         <div class="card">
-            <a class="login">Login form</a>
+            <a class="login">Login </a>
             <div class="inputBox">
                 <input type="text" required="required">
                 <span class="user">Username</span>
@@ -28,7 +28,9 @@
             <div class="inputBox">
                 <input type="password" required="required" id="password">
                 <span>Password</span>
-                <i class="fa-solid fa-lock" id="togglePassword"></i>
+                <i class="fa-solid fa-lock" ></i>
+
+                <i class="fa-solid fa-eye-slash" id="togglePassword"></i>
                 
             </div>
             <a href="#" id="forgot-ps"> forgot password ?</a>
@@ -47,12 +49,14 @@
             const type = password.getAttribute("type") === "password" ? "text" : "password";
             password.setAttribute("type", type);
             
-            // toggle the icon
-            
-            
+            this.classList.toggle("fa-eye");
         });
 
         // prevent form submit
+        const form = document.querySelector("form");
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+        });
        
     </script>
 </body>
