@@ -333,7 +333,12 @@ a {
   font-family: Cormorant Infant;
   font-weight: 600;
   line-height: 50px;
-  width: 120%;
+  width: 150%;
+  margin-left: 50px;
+  
+}
+.newcls{
+  margin-left: -70px;
 }
 .home-caption03 {
   color: rgb(53, 43, 42);
