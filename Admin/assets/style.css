@@ -119,7 +119,6 @@
   width: 100%;
 }
 
-
 .sidebar li a{
   display: flex;
   height: 100%;
@@ -238,8 +237,6 @@
     display: none;
   }
 }
-
-<<<<<<< HEAD
 .sidebar .NavSelect a .links_name,
 .sidebar .NavSelect a i{
   transition: all 0.5s ease;
@@ -250,11 +247,9 @@
 }
 .chit-chat-layer1-rit {
   padding:0em 0em 0em 0.5em;
-=======
-
+}
 .chit-chat-layer1-left {
   padding: 0em 0.5em 0em 0em;
->>>>>>> 2941afcfa445794cd7e495967b41e8bbdda00f54
 }
 .geo-chart {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -265,10 +260,10 @@ section#charts1 {
   padding: 0px;
 }
 
-<<<<<<< HEAD
 .text i{
   margin-bottom: -5px;
 }
+
 /* Modifier Profile Css Start */
 
 .signup-head h1 {
@@ -354,7 +349,8 @@ transition: 0.5s all;
 }
 
 /* Modifier Nombres Css Ens */
-=======
+
+/* inscription Css Ens */
 
 .work-progres {
   box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
@@ -450,15 +446,8 @@ transition: 0.5s all;
   width:200px !important
 }
 
-
-
-
-
-
 .modal-dialog-scrollable .modal-body::-webkit-scrollbar  {
   width: 0.7em;
-
-  
 }
 
 .modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
@@ -469,8 +458,4 @@ transition: 0.5s all;
   background: rgb(69, 67, 67);
 }
 
-
-
-
-
->>>>>>> 2941afcfa445794cd7e495967b41e8bbdda00f54
+/* inscription Css Ens */
