@@ -119,6 +119,7 @@
   width: 100%;
 }
 
+
 .sidebar li a{
   display: flex;
   height: 100%;
@@ -227,130 +228,31 @@
 .home-section .text{
   display: inline-block;
   color: #11101d;
-  font-size: 32px;
-  font-weight: 700;
-  margin: 18px;
-  font-family: 'Rubik';
+  font-size: 25px;
+  font-weight: 500;
+  margin: 18px
 }
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;
   }
 }
-.sidebar .NavSelect a .links_name,
-.sidebar .NavSelect a i{
-  transition: all 0.5s ease;
-  color: #11101D;
-}
-.sidebar .NavSelect a{
-  background: #FFF;
-}
-.chit-chat-layer1-rit {
-  padding:0em 0em 0em 0.5em;
-}
+
+
 .chit-chat-layer1-left {
   padding: 0em 0.5em 0em 0em;
 }
+
 .geo-chart {
-  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
   padding: 1em 1em;
   background: #fff;
 }
+
 section#charts1 {
   padding: 0px;
 }
 
-.text i{
-  margin-bottom: -5px;
-}
-
-/* Modifier Profile Css Start */
-
-.signup-head h1 {
-  font-size:2.3em;
-  color: black;
-  padding: 1em 0em 0em 0em;
-  text-align: center;
-  font-family: 'Rubik';
-  margin-bottom: 20px;
-  font-weight: 600;
-}
-
-.signup-block input[type="text"], .signup-block input[type="password"] , .signup-block input[type="email"] {
-  font-size: 0.9em;
-  padding: 10px 20px;
-  width: 80%;
-  color:#686967;
-  outline: none;
-  border: 1px solid #D3D3D3;   
-   border-radius: 5px;
--ms-border-radius: 5px;
--moz-border-radius: 5px;
--o-border-radius: 5px;
-  background:#F5F5F5;
-  margin: 0em 5em 1.5em;
-}
-.signup-block input[type="submit"] {
-  border: none;
-  outline: none;
-  cursor: pointer;
-  color: #fff;
-  background: blue;
-  width: 25%;
-  margin: 0 auto;
-  border-radius: 10px 10px;
-  padding: 0.5em 1em;
-  font-size: 1em;
-  display: block;
-  font-family: 'Carrois Gothic', sans-serif;
-}
-.signup-block input[type="submit"]:hover{
-background:rgb(43, 43, 172);
-transition: 0.5s all;
--webkit-transition: 0.5s all;
--moz-transition: 0.5s all;
--o-transition: 0.5s all ;
--ms-transition: 0.5s all;
-}
-.signup-head h1 i{
-  margin-bottom: -6px;
-}
-
-/* Modifier Profile Css End */
-
-
-/* Modifier Nombres Css Start */
-
-.signup-head .h1{
-  margin-bottom: 50px;
-  font-size:2.2em;
-}
-
-.signup-block label {
-  font-size:1.1em;
-  color: black;
-  text-align: center;
-  font-family: 'Headland One';
-  font-weight: 600;
-}
-.signup-block  .div input[type="text"] {
-  font-size: 0.9em;
-  padding: 10px 20px;
-  width: 70%;
-  color:#686967;
-  outline: none;
-  border: 1px solid #D3D3D3;   
-   border-radius: 5px;
--ms-border-radius: 5px;
--moz-border-radius: 5px;
--o-border-radius: 5px;
-  background:#F5F5F5;
-  margin-left: 0px;
-}
-
-/* Modifier Nombres Css Ens */
-
-/* inscription Css Ens */
 
 .work-progres {
   box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
@@ -446,8 +348,15 @@ transition: 0.5s all;
   width:200px !important
 }
 
+
+
+
+
+
 .modal-dialog-scrollable .modal-body::-webkit-scrollbar  {
   width: 0.7em;
+
+  
 }
 
 .modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
@@ -455,7 +364,10 @@ transition: 0.5s all;
 }
 
 .modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb {
-  background: rgb(69, 67, 67);
+  background: rgb(46, 45, 45);
 }
 
-/* inscription Css Ens */
+
+
+
+
