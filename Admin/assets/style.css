@@ -239,6 +239,7 @@
   }
 }
 
+<<<<<<< HEAD
 .sidebar .NavSelect a .links_name,
 .sidebar .NavSelect a i{
   transition: all 0.5s ease;
@@ -249,6 +250,11 @@
 }
 .chit-chat-layer1-rit {
   padding:0em 0em 0em 0.5em;
+=======
+
+.chit-chat-layer1-left {
+  padding: 0em 0.5em 0em 0em;
+>>>>>>> 2941afcfa445794cd7e495967b41e8bbdda00f54
 }
 .geo-chart {
   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
@@ -259,6 +265,7 @@ section#charts1 {
   padding: 0px;
 }
 
+<<<<<<< HEAD
 .text i{
   margin-bottom: -5px;
 }
@@ -347,3 +354,123 @@ transition: 0.5s all;
 }
 
 /* Modifier Nombres Css Ens */
+=======
+
+.work-progres {
+  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
+  padding: 1.34em 1em;
+  background: #fff;
+}
+.chit-chat-heading {
+  font-size: 1.2em;
+  font-weight: 700;
+  color: #5F5D5D;
+  text-transform: uppercase;
+  font-family: 'Carrois Gothic', sans-serif;
+  margin-bottom: 1em;
+  
+}
+.table-responsive table {
+  border-radius: 0.25rem;
+}
+.table-responsive table thead th{
+  background-color: aliceblue;
+  
+}
+
+.work-progres .filtrage{
+  display: flex;
+  margin-bottom: 1em;
+  
+}
+.work-progres .filtrage .select{
+  display: flex;
+  width: fit-content;
+}
+.work-progres .filtrage .select label{
+  
+  width: 11em;
+}
+.form-select{
+  width: 58% !important;
+}
+.work-progres .filtrage .date label{
+  width: 5em;
+  
+  margin-left: 3em;
+  
+}
+.work-progres .filtrage .date input{
+
+  
+  width: fit-content;
+  padding: 0.375rem ;
+  -moz-padding-start: calc(0.75rem - 3px);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  background-color: #fff;
+  background-size: 16px 12px;
+  border: 1px solid #ced4da;
+  border-radius: 0.25rem;
+  box-shadow: 1px 1px 2px aliceblue;
+
+}
+
+.work-progres .filtrage .date input:focus{
+
+  outline: none;
+  
+  box-shadow: 2px -4px 1px 6px #c2dbfe;
+  border: 1.5px solid #c2dbfe;
+
+  
+
+}
+
+/* model box */
+.modal-header{
+  
+  background-color: aliceblue;
+  
+}
+.modal-header h5{
+  
+  text-align: center;
+  margin: auto;
+  
+}
+.modal .photos {
+  text-align:center;
+}
+.modal .photos img{
+  padding-bottom: 3px;
+  height:100px !important ;
+  width:200px !important
+}
+
+
+
+
+
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar  {
+  width: 0.7em;
+
+  
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-dialog-scrollable .modal-body::-webkit-scrollbar-thumb {
+  background: rgb(69, 67, 67);
+}
+
+
+
+
+
+>>>>>>> 2941afcfa445794cd7e495967b41e8bbdda00f54
