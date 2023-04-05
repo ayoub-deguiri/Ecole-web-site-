@@ -634,3 +634,28 @@ font-size: 1.2em;
   transform: translateY(-2px);
 }
 /*index .html  css end  */
+
+/* 
+
+admin/formation.html start css 
+*/
+
+
+.modal-body02{
+  margin: auto;
+  width: 70%;
+}
+.modal-body02 input{
+  border: none;
+    border: 2px solid #2691d9;
+    border-radius: 5px;
+    width: 100%;
+    outline: none;
+    padding: 2px;
+    padding-left: 10px;
+}
+
+/* 
+
+admin/formation.html end css 
+*/
