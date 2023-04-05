@@ -6,9 +6,19 @@
   box-sizing: border-box;
   font-family: "Poppins" , sans-serif;
 }
-body{
-  overflow: hidden;
+.body::-webkit-scrollbar{
+  display: none;
 }
+body::-webkit-scrollbar  {
+  width: 0;
+
+  
+}
+
+
+
+
+
 .sidebar{
   position: fixed;
   left: 0;
@@ -222,6 +232,7 @@ body{
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
+  overflow-x: hidden;
 }
 .sidebar.open ~ .home-section{
   left: 250px;
@@ -344,7 +355,7 @@ transition: 0.5s all;
   color:#686967;
   outline: none;
   border: 1px solid #D3D3D3;   
-   border-radius: 5px;
+  border-radius: 5px;
 -ms-border-radius: 5px;
 -moz-border-radius: 5px;
 -o-border-radius: 5px;
@@ -361,6 +372,8 @@ transition: 0.5s all;
   box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
   padding: 1.34em 1em;
   background: #fff;
+  
+  margin-bottom: 10em;
 }
 .chit-chat-heading {
   font-size: 1.2em;
@@ -371,6 +384,7 @@ transition: 0.5s all;
   margin-bottom: 1em;
   
 }
+
 .table-responsive table {
   border-radius: 0.25rem;
 }
@@ -415,7 +429,8 @@ transition: 0.5s all;
   background-size: 16px 12px;
   border: 1px solid #ced4da;
   border-radius: 0.25rem;
-  box-shadow: 1px 1px 2px aliceblue;
+  
+
 
 }
 
@@ -423,7 +438,7 @@ transition: 0.5s all;
 
   outline: none;
   
-  box-shadow: 2px -4px 1px 6px #c2dbfe;
+  box-shadow: -6px 2px 0px #c2dbfe;
   border: 1.5px solid #c2dbfe;
 
   
@@ -526,3 +541,98 @@ transition: 0.5s all;
   margin-top: 40px !important;
 }
 /* Gestion Users css end */
+
+
+/*index .html  css start */
+.row-container{
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3em;
+}
+.market-update-block {
+  padding: 2em 2em;
+  background: #999;
+  
+}
+.market-update-block h3 {
+  color: #fff;
+  font-size: 2.5em;
+  font-family: 'Carrois Gothic', sans-serif;
+}
+.market-update-block h4 {
+font-size: 1.2em;
+  color: #fff;
+  margin: 0.3em 0em;
+  font-family: 'Carrois Gothic', sans-serif;
+}
+
+.market-update-block.clr-block-1 {
+  background: #337AB7;
+  margin-right: 0.8em;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.5s all;
+-webkit-transition: 0.5s all;
+-moz-transition: 0.5s all;
+-o-transition: 0.5s all;
+}
+.market-update-block.clr-block-2 {
+  background:#337AB7;
+  margin-right: 0.8em;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16), 0 2px 10px 0 rgba(0, 0, 0, 0.12);
+  transition: 0.5s all;
+-webkit-transition: 0.5s all;
+-moz-transition: 0.5s all;
+-o-transition: 0.5s all;
+}
+
+.market-update-block.clr-block-1:hover {
+  background: #3C3C3C;
+ transition: 0.5s all;
+-webkit-transition: 0.5s all;
+-moz-transition: 0.5s all;
+-o-transition: 0.5s all;
+}
+.market-update-block.clr-block-2:hover {
+  background: #3C3C3C;
+ transition: 0.5s all;
+-webkit-transition: 0.5s all;
+-moz-transition: 0.5s all;
+-o-transition: 0.5s all;
+}
+
+.market-update-right i.fa.fa-eye {
+  font-size: 3em;
+  color:#000;
+  width: 80px;
+  height: 80px;
+  background: #fff;
+  text-align: center;
+  border-radius: 49px;
+  -webkit-border-radius: 49px;
+  -moz-border-radius:49px;
+  -o-border-radius:49px;
+  line-height: 1.7em;
+}
+
+.market-update-left {
+  padding: 0px;
+}
+
+.table-responsive .btn-actions{
+  
+  border: none;
+  background-color: transparent;
+
+  transition: 700ms;
+  
+}
+.table-responsive .btn-actions i{
+  font-size: 35px;
+  transition: 700ms;
+}
+.table-responsive .btn-actions:hover>i{
+  transform: translateY(-2px);
+}
+/*index .html  css end  */
