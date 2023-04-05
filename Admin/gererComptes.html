@@ -15,6 +15,10 @@
    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
+   <!-- awesome file link  -->
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+
    </head>
 <body>
   <!-- start  slide bar-->
@@ -33,11 +37,11 @@
           <span class="tooltip">Acceuil</span>
         </li>
         <li>
-        <a href="#">
+        <a href="inscription.html">
           <i class='bx bx-user' ></i>
-          <span class="links_name">User</span>
+          <span class="links_name">Inscriptions</span>
         </a>
-        <span class="tooltip">User</span>
+        <span class="tooltip">Inscriptions</span>
       </li>
       <li>
         <a href="#">
@@ -84,44 +88,72 @@
     <section class="home-section">
         <div class="text"> <i class='bx bx-user'></i> Bonjour Mr Jamal Alfaa </div>
         <div class="row">
-          <div class="col-md-2"></div>
-          <div class="col-md-8 chit-chat-layer1-rit">    	
-              <div class="geo-chart">
-                <section id="charts1">
-                  <!--inner block start here-->
-                      <div>  	
-                        <div class="signup-head">
-                          <h1 class="h1"><i class='bx bx-edit-alt'></i> Gestion des comptes</h1>
-                        </div>
-                        <div class="signup-block">
-                          <form class="div">
-                            <div class="row">
-                              <div class="col-md-2"></div>
-                              <div class="col-md-4"><label>Nombre Des Formations :</label></div>
-                              <div class="col-md-5"><input type="text" name="Nom" placeholder="Nom" required=""><br/></div>
-                              <div class="col-md-1"></div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-2"></div>
-                              <div class="col-md-4"><label>Nombre Des Etudiants :</label></div>
-                              <div class="col-md-5"><input type="text" name="Nom" placeholder="Nom" required=""><br/></div>
-                              <div class="col-md-1"></div>
-                            </div>
-                            <div class="row">
-                              <div class="col-md-2"></div>
-                              <div class="col-md-4"><label>Nombre Des Certificates :</label></div>
-                              <div class="col-md-5"><input type="text" name="Nom" placeholder="Nom" required=""><br/></div>
-                              <div class="col-md-1"></div>
-                            </div>
-                            <input type="submit" name="Sign In"  value="Valider">														
-                          </form>
-                        </div>
-                      </div>
-                  <!--inner block end here-->
-                </section>				
-              </div>
+          <div class="col-md-1"></div>
+          <div class="col-md-10 chit-chat-layer1-rit ourmarg">    	
+            <div class="work-progres">
+                <div class="chit-chat-heading"> <i class="fa-solid fa-users" style="color: #000000;"></i> Gestion Des Comptes</div>
+                <button type="button" class="btn btn-secondary" style="float: right; margin-bottom: 10px;"> Ajouter <i class="fa-solid fa-user-plus" style="color: #ffffff; margin-left: 7px;"></i> </button>
+                <div style="clear: both;"></div>
+                <div class="table-responsive">
+                    <table class="table table-hover tableGer">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Nom </th>
+                                <th>Prenom </th>
+                                <th>Nom d'utilisateur</th>
+                                <th>Email</th>
+                                <th>Mot De Passe</th>
+                                <th>Role</th>
+                                <th colspan="2">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Lahnida</td>
+                                <td>Abdelghafour</td>
+                                <td>Amanuuuuu </td>
+                                <td>AbdelghafourLahnida1@gmail.com</td>
+                                <td>abdou123</td>
+                                <td><span class="label label-danger">Admin</span></td>
+                                <td>
+                                    <button class="btn01"> <i class='fa-solid fa-user-pen' style='color:black;font-size:32px'></i></button></td><td>
+                                    <button class="btn02"> <i class="fa-solid fa-trash-can" style='color:black;font-size:32px '></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>deguiri</td>
+                                <td>Ayoub</td>
+                                <td>ayouuubuu </td>
+                                <td>Ayouuubdeghiuit1@gmail.com</td>
+                                <td>ab678u3</td>
+                                <td><span class="label label-primary">User</span></td>
+                                <td>
+                                    <button class="btn01"> <i class='fa-solid fa-user-pen' style='color:black;font-size:32px'></i></button></td><td>
+                                    <button class="btn02"> <i class="fa-solid fa-trash-can" style='color:black;font-size:32px '></i></button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>haliki</td>
+                                <td>khadija</td>
+                                <td>khdija11 </td>
+                                <td>Akhadijaa01ida1@gmail.com</td>
+                                <td>khadijah78</td>
+                                <td><span class="label label-primary">User</span></td>
+                                <td>
+                                    <button class="btn01"> <i class='fa-solid fa-user-pen' style='color:black;font-size:32px'></i></button></td><td>
+                                    <button class="btn02"> <i class="fa-solid fa-trash-can" style='color:black;font-size:32px '></i></button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
           </div>   	
-          <div class="col-md-2"></div>
+          <div class="col-md-1"></div>
         </div>
     </section>
   <!-- end  home section-->

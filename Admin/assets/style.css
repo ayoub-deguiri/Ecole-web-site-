@@ -471,12 +471,58 @@ transition: 0.5s all;
 }
 
 
-
-
-
 /* inscription Css Ens */
 
 /* Gestion Users css start */
 
 
+
+
+.label {
+  display: block;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 75%;
+  font-weight: bold;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+  width: 75px;
+  height: 23px;
+  text-align: center;
+  margin-top: 3px;
+}
+
+.label-primary {
+  background-color: #337ab7;
+}
+.label-primary[href]:hover,
+.label-primary[href]:focus {
+  background-color: #286090;
+}
+.label-danger {
+  background-color: #d9534f;
+}
+.label-danger[href]:hover,
+.label-danger[href]:focus {
+  background-color: #c9302c;
+}
+
+.tableGer button i:hover{
+  transform: translateY(-2px);
+}
+
+.tableGer .btn01{
+  border: none !important; 
+  background: none !important;
+   
+}
+.tableGer .btn02{
+  border: none !important; 
+  background: none !important;
+}
+.ourmarg{
+  margin-top: 40px !important;
+}
 /* Gestion Users css end */
