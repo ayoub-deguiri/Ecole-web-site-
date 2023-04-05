@@ -369,7 +369,7 @@ transition: 0.5s all;
 
 
 .work-progres {
-  box-shadow: 0px 0px 2px 1px rgba(0,0,0,0.15);
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
   padding: 1.34em 1em;
   background: #fff;
   
