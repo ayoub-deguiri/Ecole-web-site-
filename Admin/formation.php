@@ -21,15 +21,9 @@ if (isset($_POST['modifier'])) {
     $pdo_statement->execute();
     header("location:formation.php");
 }
-
-
 ?>
-
-
 <!DOCTYPE html>
-
 <html lang="en" dir="ltr">
-
 <head>
     <meta charset="UTF-8" />
     <title>Formations </title>
@@ -71,7 +65,7 @@ if (isset($_POST['modifier'])) {
             $('.delete-intern').on('click', function() {
                 // Get the ID of the intern to delete from the data-id attribute
                 var internId = $(this).data('id');
-                alert(internId);
+              
                 // Show the confirmation dialog to the user
                 $('#confirmation-dialog').show();
 
@@ -87,17 +81,16 @@ if (isset($_POST['modifier'])) {
                         },
                         success: function(response) {
                             // Handle success
-                            
+                            window.location.reload();
                         },
                         error: function(xhr, status, error) {
                             // Handle error
+
                         }
                     });
-
                     // Hide the confirmation dialog
                     $('#confirmation-dialog').hide();
                 });
-
                 $('.confirm-no').on('click', function() {
                     // If the user cancels the deletion, hide the confirmation dialog
                     $('#confirmation-dialog').hide();
@@ -188,6 +181,7 @@ if (isset($_POST['modifier'])) {
             echo $_SESSION['Nom'] . " " . $_SESSION['Prenom'];
             ?>
         </div>
+        
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8 chit-chat-layer1-left">

@@ -1,5 +1,6 @@
 <?php
 // Retrieve the intern ID from the query string
+include("../db/db.php");
 $internId = $_GET['internId'];
 
 // TODO: Delete the intern with the specified ID from your database
@@ -9,7 +10,15 @@ $internId = $_GET['internId'];
     // var_dump($idcompte);
     $pdo_statement->execute();
 
-// Redirect back to the intern list page
-header('Location: intern_list.php');
-exit();
+
+        
+
+    
+
 ?>
+<?php
+
+//header("location:../Admin/inscription.html");
+
+?>
+
