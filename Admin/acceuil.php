@@ -208,8 +208,13 @@ if(!isset($_SESSION['Role']))
                 <div class="date">
                 <form method="POST" action="">
                     <label for="date">Date</label>
+<<<<<<< HEAD
                     <input name="FilterDate" onchange="this.form.submit()" type="date" id="date" />
                 </form>
+=======
+                    <input type="date" name="date" id="date" />
+                    
+>>>>>>> 0f8049e5f68c9752922953754ceaf89e3c7c5f30
                 </div>
             </div>
             <form method="POST" action="" onclick="this.form.submit()">
