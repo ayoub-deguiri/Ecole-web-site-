@@ -1,8 +1,67 @@
 <?php
 // Start the session
 session_start();
+if(!isset($_SESSION['Role']))
+    {
+        header("location:Acceuil.php");
+    }
 ?>
+<?php
+                include('../db/db.php');
+                $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'jjjjjj' order by DateInscription DESC");
+                $pdo_statement->execute();
+                $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                $DefaultRes = $result;
 
+                $mydate = date('m');
+                $pdo_statement1 = $pdo_conn->prepare("SELECT COUNT(1)  FROM `inscription` as Total WHERE MONTH(DateInscription) = ?");
+                $pdo_statement1 -> bindParam(1,$mydate);
+                $pdo_statement1->execute();
+                $CountMounth = $pdo_statement1->fetchColumn();
+
+                $myDay = date("Y-m-d");
+                $pdo_statement1 = $pdo_conn->prepare("SELECT COUNT(*)  FROM `inscription` as Total2 WHERE  DateInscription = ?");
+                $pdo_statement1 -> bindParam(1,$myDay);
+                $pdo_statement1->execute();
+                $CountDay = $pdo_statement1->fetchColumn();
+
+
+
+                if($_SERVER['REQUEST_METHOD'] == "POST" )
+                      {   
+                            if(isset($_POST["FilterType"])){
+                                if($_POST['FilterType'] == 'tous' )
+                                  {
+                                    $result = $DefaultRes;
+                                  }
+                                else
+                                {
+                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'jjjjjj' and TypeFormation = ? order by DateInscription DESC");
+                                  $pdo_statement -> bindParam(1,$_POST['FilterType']);
+                                  $pdo_statement->execute();
+                                  $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                                }
+                              }
+                            if(isset($_POST["FilterDate"])){
+                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'jjjjjj' and DateInscription = ?");
+                                  $pdo_statement -> bindParam(1,$_POST['FilterDate']);
+                                  $pdo_statement->execute();
+                                  $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                              }
+                            if(isset($_POST["btn1"])){
+                                  $pdo_statement = $pdo_conn->prepare("UPDATE inscription SET Type = 'Accepter' WHERE `inscription`.`Id` = ?");
+                                  $pdo_statement -> bindParam(1,$_POST['btn1']);
+                                  $pdo_statement->execute();
+                                header("location:acceuil.php");
+                              }
+                              if(isset($_POST["btn2"])){
+                                $pdo_statement = $pdo_conn->prepare("DELETE FROM `inscription` WHERE `inscription`.`Id` = ?");
+                                $pdo_statement -> bindParam(1,$_POST['btn2']);
+                                $pdo_statement->execute();
+                                header("location:acceuil.php");
+                              }
+                      }
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -93,10 +152,9 @@ session_start();
       </li>
     </ul>
   </div>
-
   <!-- end slide bar-->
-
   <!-- start home section-->
+
   <section class="home-section">
     <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
     <div class="row row-container">
@@ -104,7 +162,7 @@ session_start();
         <div class="market-update-block clr-block-1">
           <div class="row">
           <div class="col-md-8 market-update-left">
-            <h3>13</h3>
+            <h3><?php echo $CountMounth;  ?></h3>
             <h4>inscriptions  de ce mois</h4>
           </div>
           <div class="col-md-4 market-update-right">
@@ -118,9 +176,8 @@ session_start();
         <div class="market-update-block clr-block-2">
           <div class="row">
           <div class="col-md-8 market-update-left">
-            <h3>3</h3>
+            <h3><?php echo $CountDay; ?></h3>
             <h4>inscriptions quotidiens</h4>
-            
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-eye"> </i>
@@ -137,34 +194,31 @@ session_start();
             <div class="chit-chat-heading"></div>
             <div class="filtrage">
                 <div class="select">
+                  <form method="POST" action="">
                     <label for="select"> Type Formation</label>
-                    <select class="form-select form-select-sm" aria-label=".form-select-lg example">
-                        <option selected>Open this select menu</option>
-                        <option value="1">One</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                    </select>
+                      <select name="FilterType" onchange="this.form.submit()" class="form-select form-select-sm" aria-label=".form-select-lg example">
+                          <option value="" disabled selected>Open this select menu</option>
+                          <option value="tous">All</option>
+                          <option value="Diplome">Diplome</option>
+                          <option value="Formation">Formation</option>
+                          <option value="FEDE">FEDE</option>
+                      </select>
+                  </form>
                 </div>
                 <div class="date">
+                <form method="POST" action="">
                     <label for="date">Date</label>
-                    <input type="date" name="date" id="date" />
+                    <input name="FilterDate" onchange="this.form.submit()" type="date" id="date" />
+                </form>
                 </div>
             </div>
-
-        <?php
-                include('../db/db.php');
-                $pdo_statement = $pdo_conn->prepare("select * from inscription");
-                $pdo_statement->execute();
-                $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
-                if(!empty($result))
-                {
-                        echo '
-                        <div class="table-responsive">
+            <form method="POST" action="" onclick="this.form.submit()">
+            <div class="table-responsive">
                           <table class="table table-hover">
                             <thead>
                                 <tr>
                                     <th>#</th>
-                                    <th>Date</th>
+                                    <th>Date D'inscription</th>
                                     <th>Nom Complet</th>
                                     <th>Telephone</th>
                                     <th>Email</th>
@@ -173,12 +227,16 @@ session_start();
                                     <th colspan="2">action</th>
                                 </tr>
                             </thead>
-                            <tbody>';
+                            <tbody>
+        <?php
+                if(!empty($result))
+                {
+                            $parID = 1;
                   foreach($result as $row)
                           {
                               echo '<tr>
-                                          <td>' .$row["Id"]. '</td>
-                                          <td>' .$row["Id"]. '</td>
+                                          <td>' .$parID. '</td>
+                                          <td>' .$row["DateInscription"]. '</td>
                                           <td>' .$row["NomComplete"]. '</td>
                                           <td>' .$row["Tele"]. '</td>
                                           <td>' .$row["Email"]. '</td>
@@ -190,18 +248,25 @@ session_start();
                                               </button>
                                           </td>
                                           <td>
-                                          <button class="btn-actions"> <i class="bx bxs-user-check"></i></button>
+                                          
+                                          <button value="'.$row["Id"].'" name="btn1" class="btn-actions"> <i class="bx bxs-user-check"></i></button>
                                           </td>
                                           <td>
-                                            <button class="btn-actions"><i class="bx bxs-trash-alt"></i></button>
+                                          
+                                            <button value="'.$row["Id"].'" name="btn2" class="btn-actions"><i class="bx bxs-trash-alt"></i></button>
+                                          
                                           </td>
+                                          
                                   </tr>';
+                                  $parID = $parID + 1;
                           }
                   echo '</tbody>
-                  </table>
-              </div>' ;
+                  ' ;
                 }
         ?>
+        </form>
+        </table>
+              </div>
         </div>
     </div>
     <div class="col-md-1"></div>
