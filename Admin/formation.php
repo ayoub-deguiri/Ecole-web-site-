@@ -1,3 +1,21 @@
+<?php
+session_start();
+if(!isset($_SESSION['Role']))
+    {
+        header("location:login.php");
+    }
+?>
+<?php
+    include ('db/db.php');
+	$pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
+    
+	$pdo_statement->execute();
+	$reservations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+
+ 
+?>
+
+
 <!DOCTYPE html>
 
 <html lang="en" dir="ltr">
@@ -93,7 +111,11 @@
 
     <!-- start home section-->
     <section class="home-section">
-        <div class="text">Bonjour Mr Jamal Alfaa</div>
+        <div class="text">Bonjour Mr 
+        <?php
+            echo $_SESSION['Nom']." ".$_SESSION['Prenom'];
+        ?> 
+        </div>
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8 chit-chat-layer1-left">

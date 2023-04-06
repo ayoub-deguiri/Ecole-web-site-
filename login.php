@@ -1,3 +1,40 @@
+<?php
+session_start();
+include('db/db.php');
+$erreur="";
+if($_SERVER['REQUEST_METHOD'] == "POST" )
+{ 
+    if(isset($_POST['seConnecter']))
+    {
+        $Sql = "SELECT * from compte  WHERE UserName=? and Password=? ";
+        $pdo_statement = $pdo_conn->prepare($Sql);
+        $pdo_statement -> bindParam(1,$_POST['UserName']);
+        $pdo_statement -> bindParam(2,$_POST['Password']);
+        $pdo_statement->execute();
+        $compte = $pdo_statement->fetch();
+        $n = $pdo_statement->rowCount();
+        if ($n != 0)
+        {
+            if(!empty($compte))
+            {
+                $_SESSION['Role'] = $compte['Role'];
+                $_SESSION['Id'] = $compte['Id'];
+                $_SESSION['Nom'] = $compte['Nom'];
+                $_SESSION['Prenom'] = $compte['Prenom'];
+                    header("location:Admin/acceuil.php");
+                
+            }
+        }
+        else
+        {
+            $erreur =" password or user name are incoreecrt";
+        }    
+    }
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,26 +44,20 @@
     <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <title>Document</title>
-    <style>
-
-
-
-
-    </style>
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <form action="" method="POST"  >
         <div class="card">
             <a class="login">Login </a>
             <div class="inputBox">
-                <input type="text" required="required">
+                <input type="text" required="required" name="UserName" autocomplete="off">
                 <span class="user">Username</span>
                 <i class="fa-solid fa-user"></i>
             </div>
 
             <div class="inputBox">
-                <input type="password" required="required" id="password">
+                <input type="password" required="required" id="Password" name="Password">
                 <span>Password</span>
                 <i class="fa-solid fa-lock" ></i>
 
@@ -34,7 +65,11 @@
                 
             </div>
             <a href="#" id="forgot-ps"> forgot password ?</a>
-            <button class="enter">login</button>
+            <input type="submit" value="login" name="seConnecter" class="enter">
+            <?php
+            echo $erreur;
+            
+            ?>
 
         </div>
     </form>
@@ -42,22 +77,14 @@
     <script>
        
         const togglePassword = document.querySelector("#togglePassword");
-        const password = document.querySelector("#password");
+        const password = document.querySelector("#Password");
 
         togglePassword.addEventListener("click", function () {
             // toggle the type attribute
             const type = password.getAttribute("type") === "password" ? "text" : "password";
-            password.setAttribute("type", type);
-            
+            password.setAttribute("type", type); 
             this.classList.toggle("fa-eye");
         });
-
-        // prevent form submit
-        const form = document.querySelector("form");
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-        });
-       
     </script>
 </body>
 </html>
