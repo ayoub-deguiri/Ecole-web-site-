@@ -6,11 +6,11 @@ if(!isset($_SESSION['Role']))
     }
 ?>
 <?php
-    include ('db/db.php');
+    include ('../db/db.php');
 	$pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
     
 	$pdo_statement->execute();
-	$reservations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+	$mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
 
  
 ?>
@@ -143,7 +143,30 @@ if(!isset($_SESSION['Role']))
                                 </tr>
                             </thead>
                             <tbody>
+                                
+                            <?php
+                                foreach($mesformations as $formation)
+                                {
+                                ?>
                                 <tr>
+                                    <td><?= $formation['Id'] ?></td>
+                                    <td><?= $formation['Nom'] ?></td>
+                                    <td><?= $formation['type'] ?></td>
+                                    <td>
+                                    
+                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
+                                        
+                                    </td>
+                                    <td>
+                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
+                                        </i>
+                                    </td>
+
+                                    </tr>
+                                <?php
+                                            }
+                                        ?>
+                               <!-- <tr>
                                     <td>1</td>
                                     <td>Presse et Média الصحافة والاعلام</td>
                                     <td>formation</td>
@@ -288,6 +311,7 @@ if(!isset($_SESSION['Role']))
                                         </i>
                                     </td>
                                 </tr>
+                                -->
                             </tbody>
                         </table>
                     </div>
