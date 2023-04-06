@@ -690,3 +690,30 @@ admin/formation.html start css
 
 admin/formation.html end css 
 */
+
+#confirmation-dialog {
+  display: none;
+  position: fixed;
+  z-index: 99999;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #4e4e51;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  height: 183px;
+  padding-top: 42px;
+  padding: 42px 44px;
+  text-align: center;
+  border-radius: 5px;
+  color: white;
+}
+
+#confirmation-dialog p {
+  margin: 0 0 10px;
+}
+
+#confirmation-dialog .btn {
+  margin-right: 10px;
+  margin-top: 25px;
+}

@@ -148,6 +148,7 @@ session_start();
                 <div class="date">
                     <label for="date">Date</label>
                     <input type="date" name="date" id="date" />
+                    
                 </div>
             </div>
 

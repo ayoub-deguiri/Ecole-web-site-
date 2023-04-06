@@ -1,18 +1,28 @@
 <?php
 session_start();
-if(!isset($_SESSION['Role']))
-    {
-        header("location:login.php");
-    }
+if (!isset($_SESSION['Role'])) {
+    header("location:login.php");
+}
 ?>
 <?php
-    include ('../db/db.php');
-	$pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
-    
-	$pdo_statement->execute();
-	$mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+include('../db/db.php');
+$pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
+$pdo_statement->execute();
+$mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
 
- 
+if (isset($_POST['modifier'])) {
+    $Sql = " UPDATE formation
+                        SET Nom = ? 
+                        WHERE Id = ? ";
+    $pdo_statement =  $pdo_conn->prepare($Sql);
+    $pdo_statement->bindParam(1, $_POST['nomformation']);
+    $pdo_statement->bindParam(2, $_POST['idformation']);
+    // var_dump($idcompte);
+    $pdo_statement->execute();
+    header("location:formation.php");
+}
+
+
 ?>
 
 
@@ -29,11 +39,73 @@ if(!isset($_SESSION['Role']))
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <!--  bootstrap links-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script src="./scripts/jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //ajax modla 
+            $('#staticBackdrop').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var internId = button.data('id');
+                
+                // Make an AJAX request to retrieve intern information
+                $.ajax({
+                    url: '../inc/ajaxModal.php',
+                    type: 'GET',
+                    data: {
+                        internId: internId
+                    },
+                    success: function(response) {
+                        // Display the retrieved intern information in the modal body
+                        $('#staticBackdrop .modal-body').html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                    }
+                });
+            });
+            // ajax deleting formation
+            // Add a click event listener to the delete button
+            $('.delete-intern').on('click', function() {
+                // Get the ID of the intern to delete from the data-id attribute
+                var internId = $(this).data('id');
+                alert(internId);
+                // Show the confirmation dialog to the user
+                $('#confirmation-dialog').show();
+
+                // Add click event listeners to the confirmation buttons
+                $('.confirm-yes').on('click', function() {
+                    
+                    // If the user confirms the deletion, make an AJAX request to delete the intern
+                    $.ajax({
+                        url: '../inc/deleteFormation.php',
+                        type: 'GET',
+                        data: {
+                            internId: internId
+                        },
+                        success: function(response) {
+                            // Handle success
+                            
+                        },
+                        error: function(xhr, status, error) {
+                            // Handle error
+                        }
+                    });
+
+                    // Hide the confirmation dialog
+                    $('#confirmation-dialog').hide();
+                });
+
+                $('.confirm-no').on('click', function() {
+                    // If the user cancels the deletion, hide the confirmation dialog
+                    $('#confirmation-dialog').hide();
+                });
+            });
+
+        });
+    </script>
 </head>
 
 <body>
@@ -44,7 +116,7 @@ if(!isset($_SESSION['Role']))
             <div class="logo_name">Ecole Jah Informatique </div>
             <i class='bx bx-menu' id="btn"></i>
         </div>
-        <ul  class="nav-list">
+        <ul class="nav-list">
             <li>
                 <a href="acceuil.html">
                     <i class='bx bx-home'></i>
@@ -52,7 +124,7 @@ if(!isset($_SESSION['Role']))
                 </a>
                 <span class="tooltip">Acceuil</span>
             </li>
-            <li >
+            <li>
                 <a href="inscription.html">
                     <i class='bx bx-book-bookmark'></i>
                     <span class="links_name">Inscriptions</span>
@@ -111,10 +183,10 @@ if(!isset($_SESSION['Role']))
 
     <!-- start home section-->
     <section class="home-section">
-        <div class="text">Bonjour Mr 
-        <?php
-            echo $_SESSION['Nom']." ".$_SESSION['Prenom'];
-        ?> 
+        <div class="text">Bonjour Mr
+            <?php
+            echo $_SESSION['Nom'] . " " . $_SESSION['Prenom'];
+            ?>
         </div>
         <div class="row">
             <div class="col-md-2"></div>
@@ -143,175 +215,25 @@ if(!isset($_SESSION['Role']))
                                 </tr>
                             </thead>
                             <tbody>
-                                
-                            <?php
-                                foreach($mesformations as $formation)
-                                {
+                                <?php
+                                foreach ($mesformations as $formation) {
                                 ?>
-                                <tr>
-                                    <td><?= $formation['Id'] ?></td>
-                                    <td><?= $formation['Nom'] ?></td>
-                                    <td><?= $formation['type'] ?></td>
-                                    <td>
-                                    
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-
+                                    <tr>
+                                        <td><?= $formation['Id'] ?></td>
+                                        <td><?= $formation['Nom'] ?></td>
+                                        <td><?= $formation['type'] ?></td>
+                                        <td>
+                                            <button class="btn-actions" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="<?= $formation['Id']; ?>"> <i class='bx bx-pencil'></i></button>
+                                        </td>
+                                        <td>
+                                            
+                                                <button class="btn-actions  delete-intern" name="delete"   data-id="<?= $formation['Id']; ?>"><i class='bx bx-trash-alt'></i></button>
+                                            
+                                        </td>
                                     </tr>
                                 <?php
-                                            }
-                                        ?>
-                               <!-- <tr>
-                                    <td>1</td>
-                                    <td>Presse et Média الصحافة والاعلام</td>
-                                    <td>formation</td>
-                                    <td>
-                                       
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>2</td>
-                                    <td>Professeurs de l'Education Physique et Sportive (EPS) تكوين اساتذة التربية البدنية</td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>3</td>
-                                    <td>Préparateur Physique مـعــد بـدني</td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>4</td>
-                                    <td>Secourisme الاسعافات الاولية</td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>5</td>
-                                    <td>Engins de Chantiers الات الحفر والشحن والرافعات الشوكية</td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>6</td>
-                                    <td>Modéliste et Styliste مجال الازياء الفصالة والخياطة</td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>7</td>
-                                    <td>Pâtisserie Confiserie et Chocolaterie الحلويات</td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>8</td>
-                                    <td>الحجامة العصرية والعلاج الناري</td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td>9</td>
-                                    <td>Langues Vivantes</td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> 10 </td>
-                                    <td>Cours Supplémentaires dans toutes les matières </td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td> 11 </td>
-                                    <td>Gestion </td>
-                                    <td>formation</td>
-                                    <td>
-                                        <button class="btn-actions"> <i class='bx bx-pencil' data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i></button>
-                                        
-                                    </td>
-                                    <td>
-                                        <button class="btn-actions"><i class='bx bx-trash-alt' ></i></button>
-                                        </i>
-                                    </td>
-                                </tr>
-                                -->
+                                }
+                                ?>
                             </tbody>
                         </table>
                     </div>
@@ -325,25 +247,38 @@ if(!isset($_SESSION['Role']))
     <!-- Modal
     -->
     <!-- Modal -->
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true" >
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="staticBackdropLabel">Nom Formation</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Nom Formation</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form action="" method="post">
+                    <div class="modal-body modal-body02">
+
+                        <!--    content de modal  -->
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">retour</button>
+                        <button type="submit" class="btn btn-primary" name="modifier">modifier</button>
+                    </div>
+                </form>
+            </div>
         </div>
-        <div class="modal-body modal-body02">
-          <input type="text" id="Nom-formation">
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">retour</button>
-          <button type="button" class="btn btn-primary">modifier</button>
-        </div>
-      </div>
     </div>
-  </div>
+
+
+    <!-- Confirmation dialog box -->
+    <div id="confirmation-dialog">
+        <p>Voulez-vous vraiment supprimer ce formation?</p>
+        <button class="btn btn-primary confirm-yes">oui</button>
+        <button class="btn btn-secondary confirm-no">No</button>
+    </div>
 
     <script src="./assets/script.js"></script>
+
 </body>
 
 </html>
