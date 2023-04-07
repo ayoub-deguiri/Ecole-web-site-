@@ -64,23 +64,51 @@ if(!isset($_SESSION['Role']))
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-<head>
-  <meta charset="UTF-8">
-  <title> Acceuil </title>
-  <link rel="stylesheet" href="./assets/style.css">
-  <!-- Boxicons CDN Link -->
-  <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+            <meta charset="UTF-8">
+            <title> Acceuil </title>
+            <link rel="stylesheet" href="./assets/style.css">
+            <!-- Boxicons CDN Link -->
+            <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!--  bootstrap links-->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-    crossorigin="anonymous"></script>
+              <!--  bootstrap links-->
+              <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+              integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
+          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+              integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+              crossorigin="anonymous">
+            </script>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-
+              <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+              <script src="./scripts/jquery-3.6.3.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            //ajax modla 
+            $('#exampleModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var internId = button.data('id');
+                
+                // Make an AJAX request to retrieve intern information
+                $.ajax({
+                    url: '../inc/ajaxModal.php',
+                    type: 'GET',
+                    data: {
+                        internId: internId
+                    },
+                    success: function(response) {
+                        // Display the retrieved intern information in the modal body
+                        $('#exampleModal .modal-body').html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                    }
+                });
+            });
+          });
+            // ajax deleting formation
+        </script>
+  </head>
 <body>
 
   <!-- start  slide bar-->
@@ -208,13 +236,8 @@ if(!isset($_SESSION['Role']))
                 <div class="date">
                 <form method="POST" action="">
                     <label for="date">Date</label>
-<<<<<<< HEAD
                     <input name="FilterDate" onchange="this.form.submit()" type="date" id="date" />
                 </form>
-=======
-                    <input type="date" name="date" id="date" />
-                    
->>>>>>> 0f8049e5f68c9752922953754ceaf89e3c7c5f30
                 </div>
             </div>
             <form method="POST" action="" onclick="this.form.submit()">
@@ -247,7 +270,7 @@ if(!isset($_SESSION['Role']))
                                           <td>' .$row["Email"]. '</td>
                                           <td>' .$row["TypeFormation"]. '</td>
                                           <td>
-                                              <button type="button" class="btn btn-info" data-bs-toggle="modal"
+                                              <button type="button" data-id="'.$row['Id'] .'" class="btn btn-info" data-bs-toggle="modal"
                                                   data-bs-target="#exampleModal">
                                                   details
                                               </button>
@@ -289,53 +312,7 @@ if(!isset($_SESSION['Role']))
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                  <table class="table table-hover">
-                      <tbody>
-                          <tr>
-                              <th>Nom Complet</th>
-                              <td>test test</td>
-                          </tr>
-                          <tr>
-                              <th>CIN</th>
-                              <td>ee670894</td>
-                          </tr>
-                          <tr>
-                              <th>Adresse</th>
-                              <td>loudaya city</td>
-                          </tr>
-                          <tr>
-                              <th>Telephone</th>
-                              <td>066578945</td>
-                          </tr>
-                          <tr>
-                              <th>Email</th>
-                              <td>vodka@gmail.com</td>
-                          </tr>
-                          <tr>
-                              <th>Niveau Scolaire</th>
-                              <td>bdoun</td>
-                          </tr>
-                          <tr>
-                              <th>Type</th>
-                              <td>formation</td>
-                          </tr>
-                          <tr>
-                              <th>Le Choix</th>
-                              <td>choix choix xhoix 1</td>
-                          </tr>
-                          <tr>
-                              <th>Date</th>
-                              <td>22/11/2002</td>
-                          </tr>
-                      </tbody>
-                  </table>
-                  <div class="photos">
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                  </div>
+                  
               </div>
               <div class="modal-footer">
                   <button type="button" class="btn btn-info" data-bs-dismiss="modal">
