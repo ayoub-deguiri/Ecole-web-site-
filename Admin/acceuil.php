@@ -6,7 +6,7 @@ if(!isset($_SESSION['Role']))
         header("location:Acceuil.php");
     }
 ?>
-<?php
+<?php 
                 include('../db/db.php');
                 $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'jjjjjj' order by DateInscription DESC");
                 $pdo_statement->execute();
