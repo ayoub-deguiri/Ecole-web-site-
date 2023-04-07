@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION['Role'])) {
-    header("location:login.php");
+    header("location:../login.php");
 }
 ?>
 <?php
@@ -167,7 +167,9 @@ if (isset($_POST['modifier'])) {
                         <div class="job">Web designer</div>
                     </div>
                 </div>
+                <a href="seDeconnecter.php">
                 <i class='bx bx-log-out' id="log_out"></i>
+    </a>
             </li>
         </ul>
     </div>
