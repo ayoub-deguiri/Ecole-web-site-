@@ -1,26 +1,43 @@
 <?php
-session_start();
-if (!isset($_SESSION['Role'])) {
-    header("location:../login.php");
-}
+        session_start();
+        if (!isset($_SESSION['Role'])) {
+            header("location:../login.php");
+        }
 ?>
 <?php
-include('../db/db.php');
-$pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
-$pdo_statement->execute();
-$mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+        include('../db/db.php');
+        $pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
+        $pdo_statement->execute();
+        $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+        $DefaultRes = $mesformations;
+        if($_SERVER['REQUEST_METHOD'] == "POST" )
+        { 
 
-if (isset($_POST['modifier'])) {
-    $Sql = " UPDATE formation
-                        SET Nom = ? 
-                        WHERE Id = ? ";
-    $pdo_statement =  $pdo_conn->prepare($Sql);
-    $pdo_statement->bindParam(1, $_POST['nomformation']);
-    $pdo_statement->bindParam(2, $_POST['idformation']);
-    // var_dump($idcompte);
-    $pdo_statement->execute();
-    header("location:formation.php");
-}
+            if (isset($_POST['modifier'])) {
+                $Sql = " UPDATE formation
+                                    SET Nom = ? 
+                                    WHERE Id = ? ";
+                $pdo_statement =  $pdo_conn->prepare($Sql);
+                $pdo_statement->bindParam(1, $_POST['nomformation']);
+                $pdo_statement->bindParam(2, $_POST['idformation']);
+                // var_dump($idcompte);
+                $pdo_statement->execute();
+                header("location:formation.php");
+            }
+            if(isset($_POST["FilterType"])){
+                if($_POST['FilterType'] == 'tous' )
+                  {
+                    $mesformations = $DefaultRes;
+                  }
+                else
+                {
+                  $pdo_statement = $pdo_conn->prepare("SELECT * from formation  WHERE type = ?");
+                  $pdo_statement -> bindParam(1,$_POST['FilterType']);
+                  $pdo_statement->execute();
+                  $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                }
+              }
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -111,49 +128,49 @@ if (isset($_POST['modifier'])) {
         </div>
         <ul class="nav-list">
             <li>
-                <a href="acceuil.html">
+                <a href="acceuil.php">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Acceuil</span>
                 </a>
                 <span class="tooltip">Acceuil</span>
             </li>
             <li>
-                <a href="inscription.html">
+                <a href="inscription.php">
                     <i class='bx bx-book-bookmark'></i>
                     <span class="links_name">Inscriptions</span>
                 </a>
                 <span class="tooltip">Inscriptions</span>
             </li>
             <li class="NavSelect">
-                <a href="formation.html">
+                <a href="formation.php">
                     <i class='bx bx-chat'></i>
                     <span class="links_name">Formations</span>
                 </a>
                 <span class="tooltip">Formations</span>
             </li>
             <li>
-                <a href="modifierNombres.html">
+                <a href="modifierNombres.php">
                     <i class='bx bx-pie-chart-alt-2'></i>
                     <span class="links_name">Modifier Nombres</span>
                 </a>
                 <span class="tooltip">Modifier Nombres</span>
             </li>
             <li>
-                <a href="gererimages.html">
+                <a href="gererimages.php">
                     <i class='bx bx-images'></i>
                     <span class="links_name">Gestion Des Images</span>
                 </a>
                 <span class="tooltip">Gestion Des Images</span>
             </li>
             <li>
-                <a href="gererComptes.html">
+                <a href="gererComptes.php">
                     <i class='bx bx-user'></i>
                     <span class="links_name">Gestion Des Comptes</span>
                 </a>
                 <span class="tooltip">Gestion Des Comptes</span>
             </li>
             <li>
-                <a href="modifierProfile.html">
+                <a href="modifierProfile.php">
                     <i class='bx bx-cog'></i>
                     <span class="links_name">Modifier Profile</span>
                 </a>
@@ -169,7 +186,7 @@ if (isset($_POST['modifier'])) {
                 </div>
                 <a href="seDeconnecter.php">
                 <i class='bx bx-log-out' id="log_out"></i>
-    </a>
+                </a>
             </li>
         </ul>
     </div>
@@ -178,11 +195,7 @@ if (isset($_POST['modifier'])) {
 
     <!-- start home section-->
     <section class="home-section">
-        <div class="text">Bonjour Mr
-            <?php
-            echo $_SESSION['Nom'] . " " . $_SESSION['Prenom'];
-            ?>
-        </div>
+    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
         
         <div class="row">
             <div class="col-md-2"></div>
@@ -191,13 +204,17 @@ if (isset($_POST['modifier'])) {
                     <div class="chit-chat-heading">Manage Formations</div>
                     <div class="filtrage">
                         <div class="select">
-                            <label for="select"> Choisir Type </label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-lg example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                        
+                    <label for="select"> Type Formation</label>
+                    <form action="" class="form-test" method="post">
+                      <select name="FilterType"  onchange="this.form.submit()" class="form-select form-select-sm" aria-label=".form-select-lg example">
+                          <option value="" disabled selected>Open this select menu</option>
+                          <option value="tous">All</option>
+                          <option value="Diplome">Diplome</option>
+                          <option value="Formation">Formation</option>
+                          <option value="FEDE">FEDE</option>
+                      </select>
+                      </form>
                         </div>
                     </div>
                     <div class="table-responsive">

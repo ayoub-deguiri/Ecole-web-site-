@@ -222,8 +222,9 @@ if(!isset($_SESSION['Role']))
             <div class="chit-chat-heading"></div>
             <div class="filtrage">
                 <div class="select">
+                <label for="select"> Type Formation</label>
                   <form method="POST" action="">
-                    <label for="select"> Type Formation</label>
+                    
                       <select name="FilterType" onchange="this.form.submit()" class="form-select form-select-sm" aria-label=".form-select-lg example">
                           <option value="" disabled selected>Open this select menu</option>
                           <option value="tous">All</option>
@@ -301,7 +302,7 @@ if(!isset($_SESSION['Role']))
   </div>
   </section>
   <!-- end  home section-->
-   <!-- Modal -->
+    <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-scrollable">
           <div class="modal-content">
