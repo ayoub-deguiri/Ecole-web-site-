@@ -24,6 +24,8 @@ if(!isset($_SESSION['Role']))
                 $pdo_statement1 -> bindParam(1,$myDay);
                 $pdo_statement1->execute();
                 $CountDay = $pdo_statement1->fetchColumn();
+                $TypeFormation = '';
+                $dateMYY = '';
 
 
 
@@ -33,6 +35,7 @@ if(!isset($_SESSION['Role']))
                                 if($_POST['FilterType'] == 'tous' )
                                   {
                                     $result = $DefaultRes;
+                                    $TypeFormation = 'tous';
                                   }
                                 else
                                 {
@@ -40,13 +43,16 @@ if(!isset($_SESSION['Role']))
                                   $pdo_statement -> bindParam(1,$_POST['FilterType']);
                                   $pdo_statement->execute();
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                                  $TypeFormation = $_POST['FilterType'];
                                 }
+                                
                               }
                             if(isset($_POST["FilterDate"])){
                                   $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'jjjjjj' and DateInscription = ?");
                                   $pdo_statement -> bindParam(1,$_POST['FilterDate']);
                                   $pdo_statement->execute();
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                                  $dateMYY = $_POST["FilterDate"];
                               }
                             if(isset($_POST["btn1"])){
                                   $pdo_statement = $pdo_conn->prepare("UPDATE inscription SET Type = 'Accepter' WHERE `inscription`.`Id` = ?");
@@ -66,7 +72,7 @@ if(!isset($_SESSION['Role']))
 <html lang="en" dir="ltr">
   <head>
             <meta charset="UTF-8">
-            <title> Acceuil </title>
+            <title> Inscription </title>
             <link rel="stylesheet" href="./assets/style.css">
             <!-- Boxicons CDN Link -->
             <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -91,7 +97,7 @@ if(!isset($_SESSION['Role']))
                 
                 // Make an AJAX request to retrieve intern information
                 $.ajax({
-                    url: '../inc/ajaxModal.php',
+                    url: '../inc/ajaxModal2.php',
                     type: 'GET',
                     data: {
                         internId: internId
@@ -120,64 +126,66 @@ if(!isset($_SESSION['Role']))
     </div>
     <ul class="nav-list">
       <li class="NavSelect">
-        <a href="acceuil.html">
+        <a href="acceuil.php">
           <i class='bx bx-home'></i>
           <span class="links_name">Acceuil</span>
         </a>
         <span class="tooltip">Acceuil</span>
       </li>
       <li>
-        <a href="inscription.html">
+        <a href="inscription.php">
           <i class='bx bx-book-bookmark'></i>
           <span class="links_name">Inscriptions</span>
         </a>
         <span class="tooltip">Inscriptions</span>
       </li>
       <li>
-        <a href="formation.html">
+        <a href="formation.php">
           <i class='bx bx-chat'></i>
           <span class="links_name">Formations</span>
         </a>
         <span class="tooltip">Formations</span>
       </li>
       <li>
-        <a href="modifierNombres.html">
+        <a href="modifierNombres.php">
           <i class='bx bx-pie-chart-alt-2'></i>
           <span class="links_name">Modifier Nombres</span>
         </a>
         <span class="tooltip">Modifier Nombres</span>
       </li>
       <li>
-        <a href="gererimages.html">
+        <a href="gererimages.php">
           <i class='bx bx-images'></i>
           <span class="links_name">Gestion Des Images</span>
         </a>
         <span class="tooltip">Gestion Des Images</span>
       </li>
       <li>
-        <a href="gererComptes.html">
+        <a href="gererComptes.php">
           <i class='bx bx-user'></i>
           <span class="links_name">Gestion Des Comptes</span>
         </a>
         <span class="tooltip">Gestion Des Comptes</span>
       </li>
       <li>
-        <a href="modifierProfile.html">
+        <a href="modifierProfile.php">
           <i class='bx bx-cog'></i>
           <span class="links_name">Modifier Profile</span>
         </a>
         <span class="tooltip">Modifier Profile</span>
       </li>
       <li class="profile">
-        <div class="profile-details">
-          <img src="../images/homme-daffaire.png" alt="profileImg">
-          <div class="name_job">
-            <div class="name">Jamal Nouiti</div>
-            <div class="job">Super Admin</div>
-          </div>
-        </div>
-        <i class='bx bx-log-out' id="log_out"></i>
-      </li>
+                <div class="profile-details">
+                    <img src="../images/homme-daffaire.png" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name"><?php echo  $_SESSION['Nom'].' '.$_SESSION['Prenom'];  ?></div>
+                        <div class="job"><?php echo $_SESSION["Role"] ?></div>
+                    </div>
+                </div>
+                <a href="seDeconnecter.php">
+                <i class='bx bx-log-out' id="log_out"></i>
+                </a>
+            </li>
     </ul>
   </div>
   <!-- end slide bar-->
@@ -187,11 +195,11 @@ if(!isset($_SESSION['Role']))
     <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
     <div class="row row-container">
       <div class="col-md-3 market-update-gd">
-        <div class="market-update-block clr-block-1">
+        <div class="market-update-block clr-block-2">
           <div class="row">
           <div class="col-md-8 market-update-left">
-            <h3><?php echo $CountMounth;  ?></h3>
-            <h4>inscriptions  de ce mois</h4>
+            <h3><?php echo $CountDay; ?></h3>
+            <h4>inscriptions quotidiens</h4>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-eye"> </i>
@@ -201,11 +209,11 @@ if(!isset($_SESSION['Role']))
         </div>
       </div>
       <div class="col-md-3 market-update-gd">
-        <div class="market-update-block clr-block-2">
+        <div class="market-update-block clr-block-1">
           <div class="row">
           <div class="col-md-8 market-update-left">
-            <h3><?php echo $CountDay; ?></h3>
-            <h4>inscriptions quotidiens</h4>
+            <h3><?php echo $CountMounth;  ?></h3>
+            <h4>inscriptions  de ce mois</h4>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-eye"> </i>
@@ -225,18 +233,18 @@ if(!isset($_SESSION['Role']))
                   <form method="POST" action="">
                     <label for="select"> Type Formation</label>
                       <select name="FilterType" onchange="this.form.submit()" class="form-select form-select-sm" aria-label=".form-select-lg example">
-                          <option value="" disabled selected>Open this select menu</option>
-                          <option value="tous">All</option>
-                          <option value="Diplome">Diplome</option>
-                          <option value="Formation">Formation</option>
-                          <option value="FEDE">FEDE</option>
+                          <option value="" disabled <?php if($TypeFormation == '' ){echo 'selected';} ?>>Open this select menu</option>
+                          <option value="tous" <?php if($TypeFormation == 'tous' ){echo 'selected';} ?>>All</option>
+                          <option value="Diplome" <?php if($TypeFormation == 'Diplome' ){echo 'selected';} ?>>Diplome</option>
+                          <option value="Formation" <?php if($TypeFormation == 'Formation' ){echo 'selected';} ?>>Formation</option>
+                          <option value="FEDE" <?php if($TypeFormation == 'FEDE' ){echo 'selected';} ?>>FEDE</option>
                       </select>
                   </form>
                 </div>
                 <div class="date">
                 <form method="POST" action="">
                     <label for="date">Date</label>
-                    <input name="FilterDate" onchange="this.form.submit()" type="date" id="date" />
+                    <input name="FilterDate" value="<?php echo $dateMYY ?>" onchange="this.form.submit()" type="date" id="date" />
                 </form>
                 </div>
             </div>

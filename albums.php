@@ -1,3 +1,7 @@
+<?php
+              // Include the database configuration file
+                include 'db/db.php';
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -115,15 +119,24 @@
     </div>
        <!-- ======= Portfolio Section ======= -->
     <section id="portfolio" class="portfolio" data-aos="fade-up">
-      
+    <?php
+                // Get images from the database
+
+                $statement1 = $pdo_conn->prepare('SELECT * FROM images where type = "Diplome"');
+                $statement1->execute();
+                $row1 = $statement1->fetch();
+                $statement2 = $pdo_conn->prepare('SELECT * FROM images where type = "Formation"');
+                $statement2->execute();
+                $row2 = $statement2->fetch();
+                ?>
         <div class="container-fluid" id="Myportfolio" data-aos="fade-up" data-aos-delay="200">
            <h1 class="heading headingH4" > <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS ALBUMS </h1>
           <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
   
             <ul class="portfolio-flters" style="margin-left: -128px;margin-right: -180px;">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-Diplomes">Les Diplomes</li>
-              <li data-filter=".filter-Secourisme">Secourisme</li>
+              <li data-filter=".filter-<?php echo $row1['type']; ?>">Les Diplomes</li>
+              <li data-filter=".filter-<?php echo $row2['type']; ?>">Formation</li>
               <li data-filter=".filter-Presse">Hijama</li>
               <li data-filter=".filter-Engins">Engins de Chantiers</li>
               <li data-filter=".filter-Physique">Préparateur Physique</li>
@@ -133,255 +146,36 @@
   
             <div class="row g-0 portfolio-container">
              <!-- partiiiiiie 1 -->
-             <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Diplomes">
-                <img src="pic/Diplomes/1.jpeg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="pic/Diplomes/1.jpeg" data-gallery="portfolio-gallery1" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Secourisme">
-                <img src="pic/Secourisme/isaafat1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Secourisme/isaafat1.jpg" data-gallery="portfolio-gallery2" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Presse">
-                <img src="pic/hijama/hijama2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/hijama/hijama2.jpg"  data-gallery="portfolio-gallery3" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Engins">
-                <img src="pic/Engins/engines1.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Engins/engines1.jpg" data-gallery="portfolio-gallery4" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
+             
 
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Physique">
-                <img src="pic/sport/sport.jpg"  class="img-fluid" alt="">
+                <?php
+                  while ($row1 = $statement1->fetch()) {          
+                ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
+                <img src = "Admin/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
                 <div class="portfolio-info">
-                    <a href="pic/sport/sport.jpg" data-gallery="portfolio-gallery5" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Styliste">
-                <img src="pic/Modeliste/modeliste.jpg" class="img-fluid" alt="">
+                  <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+              </div>
+              </div>
+                  <?php         
+                  }       
+              ?>
+             <?php
+                  while ($row2 = $statement2->fetch()) {          
+                ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row2['type']; ?>">
+                <img src = "Admin/<?php echo $row2['image']; ?>" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                    <a href="pic/Modeliste/modeliste.jpg" data-gallery="portfolio-gallery6" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Pâtisserie">
-                <img src="pic/Pâtisserie/" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Pâtisserie/" data-gallery="portfolio-gallery7" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
+                  <a href="Admin/<?php echo $row2['image']; ?>" data-gallery="portfolio-gallery<?php echo $row2['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+              </div>
+              </div>
+                  <?php         
+                  }       
+              ?>
   
               <!-- partiiiiiie 1 -->
   
-              <!-- partiiiiiie 2 -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Diplomes">
-                <img src="pic/Diplomes/2.jpeg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="pic/Diplomes/2.jpeg" data-gallery="portfolio-gallery1" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Secourisme">
-                <img src="pic/Secourisme/isaafat2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Secourisme/isaafat2.jpg" data-gallery="portfolio-gallery2" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Presse">
-                <img src="pic/hijama/hijama3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/hijama/hijama3.jpg"  data-gallery="portfolio-gallery3" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Engins">
-                <img src="pic/Engins/engines2.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Engins/engines2.jpg" data-gallery="portfolio-gallery4" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Physique">
-                <img src="pic/sport/sport1.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/sport/sport1.jpg" data-gallery="portfolio-gallery5" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Styliste">
-                <img src="pic/Modeliste/modeliste1.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Modeliste/modeliste1.jpg" data-gallery="portfolio-gallery6" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Pâtisserie">
-                <img src="pic/Pâtisserie/" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Pâtisserie/" data-gallery="portfolio-gallery7" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <!-- partiiiiiie 2 -->
-  
-               <!-- partiiiiiie 3 -->
-               <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Diplomes">
-                <img src="pic/Diplomes/3.jpeg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="pic/Diplomes/3.jpeg" data-gallery="portfolio-gallery1" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Secourisme">
-                <img src="pic/Secourisme/isaafat3.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Secourisme/isaafat3.jpg" data-gallery="portfolio-gallery2" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Presse">
-                <img src="pic/hijama/hijama8.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/hijama/hijama8.jpg"  data-gallery="portfolio-gallery3" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Engins">
-                <img src="pic/Engins/engines3.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Engins/engines3.jpg" data-gallery="portfolio-gallery4" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Physique">
-                <img src="pic/sport/sport5.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/sport/sport5.jpg" data-gallery="portfolio-gallery5" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Styliste">
-                <img src="pic/Modeliste/modeliste2.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Modeliste/modeliste2.jpg" data-gallery="portfolio-gallery6" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Pâtisserie">
-                <img src="pic/Pâtisserie/" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Pâtisserie/" data-gallery="portfolio-gallery7" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <!-- partiiiiiie 3 -->
-  
-               <!-- partiiiiiie 4 -->
-               <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Diplomes">
-                <img src="pic/Diplomes/4.jpeg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="pic/Diplomes/4.jpeg" data-gallery="portfolio-gallery1" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Secourisme">
-                <img src="pic/Secourisme/isaafat7.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Secourisme/isaafat7.jpg" data-gallery="portfolio-gallery2" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Presse">
-                <img src="pic/hijama/hijama4.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/hijama/hijama4.jpg"  data-gallery="portfolio-gallery3" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Engins">
-                <img src="pic/Engins/engines5.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Engins/engines5.jpg" data-gallery="portfolio-gallery4" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Physique">
-                <img src="pic/sport/sport6.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/sport/sport6.jpg" data-gallery="portfolio-gallery5" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Styliste">
-                <img src="pic/Modeliste/modeliste6.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Modeliste/modeliste6.jpg" data-gallery="portfolio-gallery6" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Pâtisserie">
-                <img src="pic/Pâtisserie/" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Pâtisserie/" data-gallery="portfolio-gallery7" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <!-- partiiiiiie 4 -->
-  
-               <!-- partiiiiiie 5 -->
-               <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Diplomes">
-                <img src="pic/Diplomes/5.jpeg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="pic/Diplomes/5.jpeg" data-gallery="portfolio-gallery1" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Secourisme">
-                <img src="pic/Secourisme/isaafat11.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Secourisme/isaafat11.jpg" data-gallery="portfolio-gallery2" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Presse">
-                <img src="pic/hijama/hijama6.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/hijama/hijama6.jpg"  data-gallery="portfolio-gallery3" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Engins">
-                <img src="pic/Engins/engines7.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Engins/engines7.jpg" data-gallery="portfolio-gallery4" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Physique">
-                <img src="pic/sport/sport8.jpg"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/sport/sport8.jpg" data-gallery="portfolio-gallery5" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Styliste">
-                <img src="pic/Modeliste/modeliste7.jpg" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Modeliste/modeliste7.jpg" data-gallery="portfolio-gallery6" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-
-              <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-Pâtisserie">
-                <img src="pic/Pâtisserie/" class="img-fluid" alt="">
-                <div class="portfolio-info">
-                    <a href="pic/Pâtisserie/" data-gallery="portfolio-gallery7" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-                </div>
-              </div><!-- End Portfolio Item -->
-  
-              <!-- partiiiiiie 5 -->
+             
   
             </div><!-- End Portfolio Container -->
   
@@ -389,7 +183,7 @@
   
         </div>
     </section>
-
+        
       <!-- End Portfolio Section -->
     <div>
     <svg id="wave" style="transform:rotate(0deg); transition: 0.3s" viewBox="0 0 1440 100" version="1.1" xmlns="http://www.w3.org/2000/svg">
@@ -433,7 +227,7 @@
                      </div>
                   </div>
                   <div class="col">
-                  <div class="box">
+                  <div class="box" >
                      <h3> Contactez-nous</h3>
                      <span class="link"><i class="fa-solid fa-envelope"></i>&nbsp; jah.informatique@gmail.com </span>
                      <span class="link"><i class="fa-solid fa-location-dot"></i> &nbsp; Lo Houssna 2 Mhamid (coté de mosquéé al mouhcinine Marrakech) </span>

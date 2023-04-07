@@ -111,49 +111,49 @@ if (isset($_POST['modifier'])) {
         </div>
         <ul class="nav-list">
             <li>
-                <a href="acceuil.html">
+                <a href="acceuil.php">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Acceuil</span>
                 </a>
                 <span class="tooltip">Acceuil</span>
             </li>
             <li>
-                <a href="inscription.html">
+                <a href="inscription.php">
                     <i class='bx bx-book-bookmark'></i>
                     <span class="links_name">Inscriptions</span>
                 </a>
                 <span class="tooltip">Inscriptions</span>
             </li>
             <li class="NavSelect">
-                <a href="formation.html">
+                <a href="formation.php">
                     <i class='bx bx-chat'></i>
                     <span class="links_name">Formations</span>
                 </a>
                 <span class="tooltip">Formations</span>
             </li>
             <li>
-                <a href="modifierNombres.html">
+                <a href="modifierNombres.php">
                     <i class='bx bx-pie-chart-alt-2'></i>
                     <span class="links_name">Modifier Nombres</span>
                 </a>
                 <span class="tooltip">Modifier Nombres</span>
             </li>
             <li>
-                <a href="gererimages.html">
+                <a href="gererimages.php">
                     <i class='bx bx-images'></i>
                     <span class="links_name">Gestion Des Images</span>
                 </a>
                 <span class="tooltip">Gestion Des Images</span>
             </li>
             <li>
-                <a href="gererComptes.html">
+                <a href="gererComptes.php">
                     <i class='bx bx-user'></i>
                     <span class="links_name">Gestion Des Comptes</span>
                 </a>
                 <span class="tooltip">Gestion Des Comptes</span>
             </li>
             <li>
-                <a href="modifierProfile.html">
+                <a href="modifierProfile.php">
                     <i class='bx bx-cog'></i>
                     <span class="links_name">Modifier Profile</span>
                 </a>
@@ -163,13 +163,13 @@ if (isset($_POST['modifier'])) {
                 <div class="profile-details">
                     <img src="../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
-                        <div class="name">Prem Shahi</div>
-                        <div class="job">Web designer</div>
+                        <div class="name"><?php echo  $_SESSION['Nom'].' '.$_SESSION['Prenom'];  ?></div>
+                        <div class="job"><?php echo $_SESSION["Role"] ?></div>
                     </div>
                 </div>
                 <a href="seDeconnecter.php">
                 <i class='bx bx-log-out' id="log_out"></i>
-    </a>
+                </a>
             </li>
         </ul>
     </div>
@@ -212,10 +212,11 @@ if (isset($_POST['modifier'])) {
                             </thead>
                             <tbody>
                                 <?php
+                                $parID = 1;
                                 foreach ($mesformations as $formation) {
                                 ?>
                                     <tr>
-                                        <td><?= $formation['Id'] ?></td>
+                                        <td><?= $parID ?></td>
                                         <td><?= $formation['Nom'] ?></td>
                                         <td><?= $formation['type'] ?></td>
                                         <td>
@@ -228,7 +229,7 @@ if (isset($_POST['modifier'])) {
                                         </td>
                                     </tr>
                                 <?php
-                                }
+                                $parID = $parID + 1;}
                                 ?>
                             </tbody>
                         </table>
