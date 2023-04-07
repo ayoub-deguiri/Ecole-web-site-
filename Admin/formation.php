@@ -1,26 +1,43 @@
 <?php
-session_start();
-if (!isset($_SESSION['Role'])) {
-    header("location:../login.php");
-}
+        session_start();
+        if (!isset($_SESSION['Role'])) {
+            header("location:../login.php");
+        }
 ?>
 <?php
-include('../db/db.php');
-$pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
-$pdo_statement->execute();
-$mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+        include('../db/db.php');
+        $pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
+        $pdo_statement->execute();
+        $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+        $DefaultRes = $mesformations;
+        if($_SERVER['REQUEST_METHOD'] == "POST" )
+        { 
 
-if (isset($_POST['modifier'])) {
-    $Sql = " UPDATE formation
-                        SET Nom = ? 
-                        WHERE Id = ? ";
-    $pdo_statement =  $pdo_conn->prepare($Sql);
-    $pdo_statement->bindParam(1, $_POST['nomformation']);
-    $pdo_statement->bindParam(2, $_POST['idformation']);
-    // var_dump($idcompte);
-    $pdo_statement->execute();
-    header("location:formation.php");
-}
+            if (isset($_POST['modifier'])) {
+                $Sql = " UPDATE formation
+                                    SET Nom = ? 
+                                    WHERE Id = ? ";
+                $pdo_statement =  $pdo_conn->prepare($Sql);
+                $pdo_statement->bindParam(1, $_POST['nomformation']);
+                $pdo_statement->bindParam(2, $_POST['idformation']);
+                // var_dump($idcompte);
+                $pdo_statement->execute();
+                header("location:formation.php");
+            }
+            if(isset($_POST["FilterType"])){
+                if($_POST['FilterType'] == 'tous' )
+                  {
+                    $mesformations = $DefaultRes;
+                  }
+                else
+                {
+                  $pdo_statement = $pdo_conn->prepare("SELECT * from formation  WHERE type = ?");
+                  $pdo_statement -> bindParam(1,$_POST['FilterType']);
+                  $pdo_statement->execute();
+                  $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                }
+              }
+        }
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -178,11 +195,7 @@ if (isset($_POST['modifier'])) {
 
     <!-- start home section-->
     <section class="home-section">
-        <div class="text">Bonjour Mr
-            <?php
-            echo $_SESSION['Nom'] . " " . $_SESSION['Prenom'];
-            ?>
-        </div>
+    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
         
         <div class="row">
             <div class="col-md-2"></div>
@@ -191,13 +204,17 @@ if (isset($_POST['modifier'])) {
                     <div class="chit-chat-heading">Manage Formations</div>
                     <div class="filtrage">
                         <div class="select">
-                            <label for="select"> Choisir Type </label>
-                            <select class="form-select form-select-sm" aria-label=".form-select-lg example">
-                                <option selected>Open this select menu</option>
-                                <option value="1">One</option>
-                                <option value="2">Two</option>
-                                <option value="3">Three</option>
-                            </select>
+                        
+                    <label for="select"> Type Formation</label>
+                    <form action="" class="form-test" method="post">
+                      <select name="FilterType"  onchange="this.form.submit()" class="form-select form-select-sm" aria-label=".form-select-lg example">
+                          <option value="" disabled selected>Open this select menu</option>
+                          <option value="tous">All</option>
+                          <option value="Diplome">Diplome</option>
+                          <option value="Formation">Formation</option>
+                          <option value="FEDE">FEDE</option>
+                      </select>
+                      </form>
                         </div>
                     </div>
                     <div class="table-responsive">

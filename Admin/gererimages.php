@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php
 // Start the session
 session_start();
@@ -109,11 +110,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
 }
 ?>
 
+=======
+>>>>>>> f791e4316a94f78ef30309688a8fe8ebb1e7057d
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
+<<<<<<< HEAD
     <title> Gestion Des Images </title>
+=======
+    <title> Acceuil </title>
+>>>>>>> f791e4316a94f78ef30309688a8fe8ebb1e7057d
     <link rel="stylesheet" href="./assets/style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -186,6 +193,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
       <span class="tooltip">Modifier Profile</span>
     </li>
     <li class="profile">
+<<<<<<< HEAD
                 <div class="profile-details">
                     <img src="../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
@@ -197,13 +205,28 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                 <i class='bx bx-log-out' id="log_out"></i>
                 </a>
             </li>
+=======
+      <div class="profile-details">
+        <img src="../images/homme-daffaire.png" alt="profileImg">
+        <div class="name_job">
+          <div class="name">Prem Shahi</div>
+          <div class="job">Web designer</div>
+        </div>
+      </div>
+      <i class='bx bx-log-out' id="log_out"></i>
+    </li>
+>>>>>>> f791e4316a94f78ef30309688a8fe8ebb1e7057d
   </ul>
 </div>
 
 <!-- end slide bar-->
   <!-- start home section-->
     <section class="home-section">
+<<<<<<< HEAD
     <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
+=======
+        <div class="text"> <i class='bx bx-user'></i> Bonjour Mr Jamal Alfaa </div>
+>>>>>>> f791e4316a94f78ef30309688a8fe8ebb1e7057d
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8 chit-chat-layer1-rit">    	
@@ -215,6 +238,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                           <h1 class="h2"><i class='bx bx-image-add'></i> Gestion Des Images</h1>
                         </div>
                         <div class="signup-block">
+<<<<<<< HEAD
                         <form method='post' action='' enctype='multipart/form-data'>
                               <div class="row div">
                                   <div class="col-md-7">
@@ -240,6 +264,33 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                               </div>
                               <input type="submit" class="myinput" name="submit"  value="Valider">		
                             </form> 
+=======
+                          <form class="div">
+                            <div class="row">
+                                <div class="col-md-7">
+                                <div class="filtrage">
+                                    <div class="select">
+                                        <label for="select"> Type De Image :</label>
+                                        <select class="form-select form-select-sm" aria-label=".form-select-lg example">
+                                            <option selected>Open this select menu</option>
+                                            <option value="1">One</option>
+                                            <option value="2">Two</option>
+                                            <option value="3">Three</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                </div>
+                                <div class="col-md-5">
+                                        <div>
+                                           <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+                                           <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+                                              <span>  sélectionner une image&hellip;</span>
+                                        </label>
+                                </div>
+                            </div>
+                            <input type="submit" class="myinput" name="Sign In"  value="Valider">														
+                          </form>
+>>>>>>> f791e4316a94f78ef30309688a8fe8ebb1e7057d
                         </div>
                       </div>
                   <!--inner block end here-->
@@ -252,6 +303,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                             <h1 class="h2"><i class='bx bxs-image-add' ></i> Gestion Des Flayer</h1>
                           </div>
                           <div class="signup-block">
+<<<<<<< HEAD
                             <form method='post' action='' enctype='multipart/form-data'>
                               <div class="row div">
                                   <div class="col-md-7">
@@ -278,6 +330,33 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                               <input type="submit" class="myinput" name="submit2"  value="Valider">		
                             </form> 
                         </div>
+=======
+                            <form class="div">
+                              <div class="row">
+                                  <div class="col-md-7">
+                                  <div class="filtrage">
+                                      <div class="select">
+                                          <label for="select"> Type De Flayer :</label>
+                                          <select class="form-select form-select-sm" aria-label=".form-select-lg example">
+                                              <option selected>Open this select menu</option>
+                                              <option value="1">One</option>
+                                              <option value="2">Two</option>
+                                              <option value="3">Three</option>
+                                          </select>
+                                      </div>
+                                  </div>
+                                  </div>
+                                  <div class="col-md-5">
+                                          <div>
+                                             <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+                                             <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17"><path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z"/></svg> 
+                                                <span>  sélectionner une image&hellip;</span>
+                                          </label>
+                                  </div>
+                              </div>
+                              <input type="submit" class="myinput" name="Sign In"  value="Valider">														
+                            </form>
+>>>>>>> f791e4316a94f78ef30309688a8fe8ebb1e7057d
                           </div>
                         </div>
                     <!--inner block end here-->

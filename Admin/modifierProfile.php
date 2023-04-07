@@ -1,3 +1,36 @@
+<?php
+        session_start();
+        if (!isset($_SESSION['Role']))  {
+            header("location:../login.php");
+        }
+?>
+<?php
+        include('../db/db.php');
+        $pdo_statement = $pdo_conn->prepare("SELECT * FROM compte where Id = ?");
+        $pdo_statement->bindParam(1, $_SESSION['Id']);
+        $pdo_statement->execute();
+        $compte = $pdo_statement->fetch();
+        if($_SERVER['REQUEST_METHOD'] == "POST" )
+        { 
+          if(isset($_POST['modifier']))
+          {
+            $sql = "UPDATE COMPTE
+              SET Nom=?,Prenom=? ,UserName=? ,Email=?,Password=? WHERE Id=? 
+            ";
+            $pdo_statement =$pdo_conn ->prepare($sql);
+            $pdo_statement->bindParam(1, $_POST['nom']);
+            $pdo_statement->bindParam(2, $_POST['prenom']);
+            $pdo_statement->bindParam(3, $_POST['username']);
+            $pdo_statement->bindParam(4, $_POST['email']);
+            $pdo_statement->bindParam(5, $_POST['password']);
+            $pdo_statement->bindParam(6, $compte['Id']);
+            $pdo_statement->execute();
+            header("location:gererComptes.php");
+            
+          }
+        }
+?>
+
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -25,49 +58,49 @@
   </div>
   <ul class="nav-list">
     <li >
-      <a href="acceuil.html">
+      <a href="acceuil.php">
         <i class='bx bx-home'></i>
         <span class="links_name">Acceuil</span>
       </a>
       <span class="tooltip">Acceuil</span>
     </li>
     <li>
-      <a href="inscription.html">
+      <a href="inscription.php">
         <i class='bx bx-book-bookmark'></i>
         <span class="links_name">Inscriptions</span>
       </a>
       <span class="tooltip">Inscriptions</span>
     </li>
     <li>
-      <a href="formation.html">
+      <a href="formation.php">
         <i class='bx bx-chat'></i>
         <span class="links_name">Formations</span>
       </a>
       <span class="tooltip">Formations</span>
     </li>
     <li>
-      <a href="modifierNombres.html">
+      <a href="modifierNombres.php">
         <i class='bx bx-pie-chart-alt-2'></i>
         <span class="links_name">Modifier Nombres</span>
       </a>
       <span class="tooltip">Modifier Nombres</span>
     </li>
     <li>
-      <a href="gererimages.html">
+      <a href="gererimages.php">
         <i class='bx bx-images'></i>
         <span class="links_name">Gestion Des Images</span>
       </a>
       <span class="tooltip">Gestion Des Images</span>
     </li>
     <li>
-      <a href="gererComptes.html">
+      <a href="gererComptes.php">
         <i class='bx bx-user'></i>
         <span class="links_name">Gestion Des Comptes</span>
       </a>
       <span class="tooltip">Gestion Des Comptes</span>
     </li>
     <li class="NavSelect">
-      <a href="modifierProfile.html">
+      <a href="modifierProfile.php">
         <i class='bx bx-cog'></i>
         <span class="links_name">Modifier Profile</span>
       </a>
@@ -101,13 +134,13 @@
                           <h1><i class='bx bx-user-circle'></i>  Modifier Profile</h1>
                         </div>
                         <div class="signup-block">
-                          <form>
-                            <input type="text" name="Nom" placeholder="Nom" required="">
-                            <input type="text" name="Prenom" placeholder="Prenom" required="">
-                            <input type="text" name="username" placeholder="Nom d'utilisateur" required="">
-                            <input type="email" name="email" placeholder="Email" required="">
-                            <input type="password" name="password" class="lock" placeholder="Password">
-                            <input type="submit" name="Sign In"  value="Valider">														
+                          <form method="post">
+                            <input type="text" name="nom" placeholder="Nom" required="" value="<?= $compte['Nom']?>">
+                            <input type="text" name="prenom" placeholder="Prenom" required="" value="<?= $compte['Prenom']?>">
+                            <input type="text" name="username" placeholder="Nom d'utilisateur" required="" value="<?= $compte['UserName']?>">
+                            <input type="email" name="email" placeholder="Email" required="" value="<?= $compte['Email']?>">
+                            <input type="text" name="password" class="lock" placeholder="Password" value="<?= $compte['Password']?>">
+                            <input type="submit" name="modifier"  value="Valider">														
                           </form>
                         </div>
                       </div>

@@ -471,7 +471,7 @@ transition: 0.5s all;
   white-space: nowrap;
   vertical-align: baseline;
   border-radius: 0.25em;
-  width: 75px;
+  width: 95px;
   height: 23px;
   text-align: center;
   margin-top: 3px;
@@ -716,4 +716,13 @@ admin/formation.html end css
 #confirmation-dialog .btn {
   margin-right: 10px;
   margin-top: 25px;
+}
+
+
+/* 
+  select form de filtrage in inscription .php and acceuil.php
+*/
+.form-select-sm{
+
+  width: 100% !important;
 }
