@@ -1,6 +1,9 @@
 <?php
               // Include the database configuration file
                 include 'db/db.php';
+                $pdo_statement = $pdo_conn->prepare("select * from informations where Id = '1' limit 1");
+                $pdo_statement->execute();
+                $Ourresult = $pdo_statement->fetch();
 ?> 
 <!DOCTYPE html>
 <html lang="en">
@@ -273,17 +276,17 @@
             <div class="icons-container">
                <div class="icons counter-box">
                   <img src="images/about-icon-1.png" alt="">
-                  <h3 class="counter"> 26</h3>
+                  <h3 class="counter"> <?php echo $Ourresult['Formations']; ?></h3>
                   <h4>Formations</h4>
                </div>
                <div class="icons counter-box">
                   <img src="images/about-icon-2.png" alt="">
-                  <h3 class="counter"> 400</h3>
+                  <h3 class="counter"> <?php echo $Ourresult['Etudiants']; ?></h3>
                   <h4>Etudiants</h4>
                </div>
                <div class="icons counter-box">
                   <img src="images/about-icon-3.png" alt="">
-                  <h3 class="counter"> 18</h3>
+                  <h3 class="counter"> <?php echo $Ourresult['Certificates']; ?></h3>
                   <h4>Certificates</h4>
                </div>
             </div>

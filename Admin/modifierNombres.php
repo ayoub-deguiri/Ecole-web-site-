@@ -8,7 +8,7 @@ if(!isset($_SESSION['Role']))
 ?>
 <?php
                 include('../db/db.php');
-                $pdo_statement = $pdo_conn->prepare("select * from informations where Id = 1 ");
+                $pdo_statement = $pdo_conn->prepare("select * from informations where Id = 1 limit 1");
                 $pdo_statement->execute();
                 $result = $pdo_statement->fetch();
                 if($_SERVER['REQUEST_METHOD'] == "POST" )

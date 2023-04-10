@@ -186,9 +186,9 @@
                   }       }
               ?>
              <?php
-            if(!empty($result1))
+            if(!empty($result2))
             {
-            foreach($result1 as $row1)
+            foreach($result2 as $row2)
                      {          
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row2['type']; ?>">
@@ -201,7 +201,10 @@
                   }       }
               ?>
             <?php
-                  while ($row3 = $statement3->fetch()) {          
+            if(!empty($result3))
+            {
+            foreach($result3 as $row3)
+                     {            
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row3['type']; ?>">
                 <img src = "Admin/<?php echo $row3['image']; ?>" class="img-fluid" alt="">
@@ -210,12 +213,12 @@
               </div>
               </div>
                   <?php         
-                  }       
+                  }    }   
               ?>
               <?php
-            if(!empty($result1))
+            if(!empty($result4))
             {
-            foreach($result1 as $row1)
+            foreach($result4 as $row4)
                      {          
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row4['type']; ?>">
@@ -228,9 +231,9 @@
                   }  }     
               ?>
               <?php
-            if(!empty($result1))
+            if(!empty($result5))
             {
-            foreach($result1 as $row1)
+            foreach($result5 as $row5)
                      {           
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row5['type']; ?>">
@@ -243,9 +246,9 @@
                   }      } 
               ?>
               <?php
-            if(!empty($result1))
+            if(!empty($result6))
             {
-            foreach($result1 as $row1)
+            foreach($result6 as $row6)
                      {            
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row6['type']; ?>">
@@ -258,9 +261,9 @@
                   }     }  
               ?>
               <?php
-            if(!empty($result1))
+            if(!empty($result7))
             {
-            foreach($result1 as $row1)
+            foreach($result7 as $row7)
                      {         
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row7['type']; ?>">
