@@ -1,5 +1,159 @@
+<?php
+
+$message = "";
+use PHPMailer\PHPMailer\PHPMailer;
+    function sendmail($content){
+        
+    }
+include("../../db/db.php");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   // formation form 
+   $nom = $_POST['nom'];
+   $cin = $_POST['cin'];
+   $adresse = $_POST['adresse'];
+   $tel = $_POST['tel'];
+   $niveau = $_POST['niveau'];
+   $choix = $_POST['choix'];
+   $email = $_POST['email'];
+
+   $Typeformation = 'FEDE';
+   $type = 'encoure';
+   $date = date("Y-m-d ");
+   $img = 'img';
+   $pdo_statement = $pdo_conn->prepare("INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
+   $pdo_statement->bindParam(1, $nom);
+   $pdo_statement->bindParam(2, $cin);
+   $pdo_statement->bindParam(3, $adresse);
+   $pdo_statement->bindParam(4, $tel);
+   $pdo_statement->bindParam(5, $niveau);
+   $pdo_statement->bindParam(6, $choix);
+   $pdo_statement->bindParam(7, $Typeformation);
+   $pdo_statement->bindParam(8, $email);
+   $pdo_statement->bindParam(9, $type);
+   $pdo_statement->bindParam(10, $date);
+   $pdo_statement->bindParam(11, $img);
+   $pdo_statement->bindParam(12, $img);
+   $pdo_statement->bindParam(13, $img);
+   $pdo_statement->bindParam(14, $img);
+   $pdo_statement->bindParam(15, $img);
+   $pdo_statement->execute();
+   $message = 'bien ajoute';
+
+   $content =
+      "<h1>FEDE</h1>
+         <table border='1px' cellpadding='0' cellspacing='0' style='text-align:center'>
+            <tr>
+               <th>
+                     Nom Complet 
+                 </th>
+                <td>"
+      . $nom .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Numéro Carte d'Identité National 
+                </th>
+                <td>"
+      . $cin .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Adresse 
+                </th>
+                <td>"
+      . $adresse .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Numéro de téléphone 
+                </th>
+                <td>"
+      . $tel .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Niveau Scolaire 
+                </th>
+                <td>"
+      . $niveau .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Diplôme Choisi
+                </th>
+                <td>"
+      . $choix .
+      "</td>
+            </tr>
+            
+            <tr>
+                <th>
+                    Email 
+                </th>
+                <td>"
+      . $email .
+      "</td>
+            </tr>
+         </table>
+         ";
+   $name = "Ecole JAH Marrakech";  // Name of your website or yours
+   $to = "nvabdouamanu@gmail.com";  // mail of reciever
+   $subject = "Inscription FEDE";
+   $body = $content;
+   $from = "vodkaayoub1@gmail.com";  // you mail  vodkaayoub1@gmail.com"
+   $password = "qlipazmcsezqwwfg";  // your mail password   qlipazmcsezqwwfg
+
+   // Ignore from here
+   require '../../PHPMailer/src/Exception.php';
+   require '../../PHPMailer/src/PHPMailer.php';
+   require '../../PHPMailer/src/SMTP.php';
+   $mail = new PHPMailer();
+
+   // To Here
+
+   //SMTP Settings
+   $mail->isSMTP();
+   // $mail->SMTPDebug = 3;  Keep It commented this is used for debugging                          
+   $mail->Host = "smtp.gmail.com"; // smtp address of your email
+   $mail->SMTPAuth = true;
+   $mail->Username = $from;
+   $mail->Password = $password;
+   $mail->Port = 587;  // port
+   $mail->SMTPSecure = "tls";  // tls or ssl
+   $mail->smtpConnect([
+      'ssl' => [
+         'verify_peer' => false,
+         'verify_peer_name' => false,
+         'allow_self_signed' => true
+      ]
+   ]);
+
+   //Email Settings
+   $mail->isHTML(true);
+   $mail->setFrom($from, $name);
+   $mail->addAddress($to); // enter email address whom you want to send
+
+   //$mail->addAttachment("images/1.jpg"); // for CIN
+
+
+   $mail->Subject = ($subject);
+   $mail->Body = $body;
+
+   if ($mail->send()) {
+      $message = "Inscription bien envoyer";
+   } else {
+      echo "<script>alert('Something is wrong')</script> " . $mail->ErrorInfo;
+   }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
    <meta charset="UTF-8">
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +168,7 @@
    <link rel="stylesheet" href="../../assets/css/style.css">
    <link rel="shortcut icon" href="../../../images/LOGO.jpg" type="image/x-icon">
 </head>
+
 <body>
    <!-- header section starts  -->
    <header class="HeaderTop">
@@ -46,18 +201,19 @@
    <!-- start inscription formation  container -->
    <h1 id="title">Formulaire d'inscription</h1>
    <div class="container-md Inscription-form">
-      <form>
+      <h1><?= $message ?></h1>
+      <form method="POST">
          <div class="mb-3 mt-3">
             <label class="labelInput ">Nom et Prénom </label> <span style="color: red; font-size: 2em; padding-left: 10px;" id="cnom">*</span>
             <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom et prenom">
          </div>
          <div class="mb-3 mt-3">
             <label class="labelInput">Numéro de CIN </label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="ccin">*</span>
-            <input type="text" class="form-control" id="cin" name="carte" placeholder="Numéro de CIN">
+            <input type="text" class="form-control" id="cin" name="cin" placeholder="Numéro de CIN">
          </div>
          <div class="mb-3 mt-3">
             <label class="labelInput">Adresse </label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="cadresse">*</span>
-            <input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="Adresse">
+            <input type="text" class="form-control" id="Adresse" name="adresse" placeholder="Adresse">
          </div>
          <div class="mb-3 mt-3">
             <label class="labelInput">Numéro de téléphone</label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="ctel">*</span>
@@ -66,11 +222,11 @@
          <div class="mb-3 radio">
             <label for="pwd" id="label">Niveau Scolaire &nbsp;</label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="cniveau">*</span>
             <div class="form-check">
-               <input type="radio" class="form-check-input" value="aucun" name='niveau' id="r4">
+               <input type="radio" class="form-check-input" value="BAC+2" name='niveau' id="r4">
                <label class="form-check-label label-radio"> BAC +2(Technicien / Technicien spécialisé / DEUG) </label>
             </div>
             <div class="form-check">
-               <input type="radio" class="form-check-input" value="9AEF" name='niveau' onclick="fun0()" id="r3">
+               <input type="radio" class="form-check-input" value="BAC+3" name='niveau' id="r3">
                <label class="form-check-label label-radio"> BAC +3(Licence / Bachelor) </label>
             </div>
          </div>
@@ -78,7 +234,8 @@
             <label class="labelInput">Formation Choisi:</label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="cchoix">*</span>
             <select id="choix" class="form-select" name="choix">
                <option value="rien">Choisir Formation</option>
-               <option value="">tes</option>
+               <option value="test1">tes</option>
+               <option value="test2">tes2</option>
             </select>
          </div>
          <div class="mb-3 mt-3">
@@ -142,7 +299,7 @@
          </div>
          <div id="check">
          </div>
-         <button type="submit" class="btn-info" onclick="checkform()">Inscrire</button>
+         <input type="submit" value="Inscrire" class="btn-info" onclick="return checkform()">
       </form>
    </div>
    <!-- end  inscription container -->
@@ -218,4 +375,5 @@
    <script src="../../assets/js/formvalidation.js">
    </script>
 </body>
+
 </html>

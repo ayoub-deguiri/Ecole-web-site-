@@ -3,7 +3,7 @@
 session_start();
 if(!isset($_SESSION['Role']))
     {
-        header("location:Acceuil.php");
+        header("location:../login.php");
     }
 ?>
 <?php 

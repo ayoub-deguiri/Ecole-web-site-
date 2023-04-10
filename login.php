@@ -64,7 +64,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                 <i class="fa-solid fa-eye-slash" id="togglePassword"></i>
                 
             </div>
-            <a href="#" id="forgot-ps"> forgot password ?</a>
+            <a href="forgot-password.php" id="forgot-ps"> forgot password ?</a>
             <input type="submit" value="login" name="seConnecter" class="enter">
             <?php
             echo $erreur;

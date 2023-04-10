@@ -177,34 +177,33 @@
         })
         file5.addEventListener("change", function(){
         
-        if(file5.value != ''){
-           cfile5.innerHTML =""
-           test12 =true
-        }
-        else{
-           cfile5.innerHTML ="*"
-           test12 =false
-        }
+         if(file5.value != ''){
+            cfile5.innerHTML =""
+            test12 =true
+         }
+         else{
+            cfile5.innerHTML ="*"
+            test12 =false
+         }
   
-        })
+         })
 
    function checkform()
    {
+      var etat = true;
       
       var check  =document.querySelector('#check')
     if(test1 ==false || test2==false || test3==false || test4==false || test5==false || test6==false || test7==false 
     || test8==false || test9==false || test10 ==false || test11 ==false || test12 ==false)
-    {
+      {
+
       check.innerHTML ='touts les champs sont obligatoire !'
+      etat = false
     }
-  
+    return etat 
    
       
       
    }
   
    
-   const form = document.querySelector("form");
-        form.addEventListener('submit', function (e) {
-            e.preventDefault();
-        });
