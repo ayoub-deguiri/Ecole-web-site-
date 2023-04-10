@@ -32,11 +32,31 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
         {
           $target_file = 'Images/Diplome/'.$filename;
         }
-      elseif($FileeeeTy == 'Formation')
+      elseif($FileeeeTy == 'Secourisme')
         {
-          $target_file = 'Images/Formation/'.$filename;
+          $target_file = 'Images/Secourisme/'.$filename;
         }
-
+        elseif($FileeeeTy == 'Hijama')
+        {
+          $target_file = 'Images/Hijama/'.$filename;
+        }
+        elseif($FileeeeTy == 'Engins')
+        {
+          $target_file = 'Images/Engins/'.$filename;
+        }
+        elseif($FileeeeTy == 'Préparateur')
+        {
+          $target_file = 'Images/Préparateur/'.$filename;
+        }
+        elseif($FileeeeTy == 'Modéliste')
+        {
+          $target_file = 'Images/Modéliste/'.$filename;
+        }
+        elseif($FileeeeTy == 'Pâtisserie')
+        {
+          $target_file = 'Images/Pâtisserie/'.$filename;
+        }
+        
       // file extension
       $file_extension = pathinfo($target_file, PATHINFO_EXTENSION);
       $file_extension = strtolower($file_extension);
@@ -76,15 +96,22 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
       $filename = $_FILES['files1']['name'][$i];
 
       // Location
-      if($FileeeeTy == 'Diplome')
+      if($FileeeeTy == 'Secourisme')
         {
-          $target_file = 'Flayers/Diplome/'.$filename;
+          $target_file = 'Flayers/Secourisme/'.$filename;
         }
-      elseif($FileeeeTy == 'Formation')
+      elseif($FileeeeTy == 'Gestion')
         {
-          $target_file = 'Flayers/Formation/'.$filename;
+          $target_file = 'Flayers/Gestion/'.$filename;
         }
-
+        elseif($FileeeeTy == 'License')
+        {
+          $target_file = 'Flayers/License/'.$filename;
+        }
+        elseif($FileeeeTy == 'Hijama')
+        {
+          $target_file = 'Flayers/Hijama/'.$filename;
+        }
       // file extension
       $file_extension = pathinfo($target_file, PATHINFO_EXTENSION);
       $file_extension = strtolower($file_extension);
@@ -224,7 +251,12 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                                             <select name="FilterTypeImg" class="form-select form-select-sm" aria-label=".form-select-lg example" required="required">
                                                 <option value="" selected disabled>Open this select menu</option>
                                                 <option value="Diplome">Diplome</option>
-                                                <option value="Formation">Formation</option>
+                                                <option value="Secourisme">Secourisme</option>
+                                                <option value="Hijama">Hijama</option>
+                                                <option value="Engins">Engins de Chantiers</option>
+                                                <option value="Préparateur">Préparateur Physique</option>
+                                                <option value="Modéliste">Modéliste et Styliste</option>
+                                                <option value="Pâtisserie">Pâtisserie Confiserie et Chocolaterie</option>
                                             </select>
                                         </div>
                                     </div>
@@ -260,8 +292,10 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                                             <label for="select"> Type De Flayer :</label>
                                             <select name="FilterTypeFLy" class="form-select form-select-sm" aria-label=".form-select-lg example" required="required">
                                                 <option value="" selected disabled>Open this select menu</option>
-                                                <option value="Diplome">Diplome</option>
-                                                <option value="Formation">Formation</option>
+                                                <option value="Secourisme">Secourisme</option>
+                                                <option value="Gestion">Gestion</option>
+                                                <option value="License">License</option>
+                                                <option value="Hijama">Hijama</option>
                                             </select>
                                         </div>
                                     </div>

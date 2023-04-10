@@ -125,9 +125,30 @@
                 $statement1 = $pdo_conn->prepare('SELECT * FROM images where type = "Diplome"');
                 $statement1->execute();
                 $row1 = $statement1->fetch();
-                $statement2 = $pdo_conn->prepare('SELECT * FROM images where type = "Formation"');
+                // 
+                $statement2 = $pdo_conn->prepare('SELECT * FROM images where type = "Secourisme"');
                 $statement2->execute();
                 $row2 = $statement2->fetch();
+                //
+                $statement3 = $pdo_conn->prepare('SELECT * FROM images where type = "Hijama"');
+                $statement3->execute();
+                $row3 = $statement3->fetch();
+                 //
+                $statement4 = $pdo_conn->prepare('SELECT * FROM images where type = "Engins"');
+                $statement4->execute();
+                $row4 = $statement4->fetch();
+                //
+                $statement5 = $pdo_conn->prepare('SELECT * FROM images where type = "Préparateur"');
+                $statement5->execute();
+                $row5 = $statement5->fetch();
+                //
+                $statement6 = $pdo_conn->prepare('SELECT * FROM images where type = "Modéliste"');
+                $statement6->execute();
+                $row6 = $statement6->fetch();
+                //
+                $statement7 = $pdo_conn->prepare('SELECT * FROM images where type = "Pâtisserie"');
+                $statement7->execute();
+                $row7 = $statement7->fetch();
                 ?>
         <div class="container-fluid" id="Myportfolio" data-aos="fade-up" data-aos-delay="200">
            <h1 class="heading headingH4" > <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS ALBUMS </h1>
@@ -135,13 +156,13 @@
   
             <ul class="portfolio-flters" style="margin-left: -128px;margin-right: -180px;">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-<?php echo $row1['type']; ?>">Les Diplomes</li>
-              <li data-filter=".filter-<?php echo $row2['type']; ?>">Formation</li>
-              <li data-filter=".filter-Presse">Hijama</li>
-              <li data-filter=".filter-Engins">Engins de Chantiers</li>
-              <li data-filter=".filter-Physique">Préparateur Physique</li>
-              <li data-filter=".filter-Styliste">Modéliste et Styliste</li>
-              <li data-filter=".filter-Pâtisserie">Pâtisserie Confiserie et Chocolaterie</li>
+              <li data-filter=".filter-<?php if(!empty($row1['type'])){echo $row1['type'];}  ?>">Les Diplomes</li>
+              <li data-filter=".filter-<?php if(!empty($row2['type'])){echo $row2['type'];} ?>">Secourisme</li>
+              <li data-filter=".filter-<?php if(!empty($row3['type'])){echo $row3['type'];} ?>">Hijama</li>
+              <li data-filter=".filter-<?php if(!empty($row4['type'])){echo $row4['type'];} ?>">Engins de Chantiers</li>
+              <li data-filter=".filter-<?php if(!empty($row5['type'])){echo $row5['type'];} ?>">Préparateur Physique</li>
+              <li data-filter=".filter-<?php if(!empty($row6['type'])){echo $row6['type'];} ?>">Modéliste et Styliste</li>
+              <li data-filter=".filter-<?php if(!empty($row7['type'])){echo $row7['type'];} ?>">Pâtisserie Confiserie et Chocolaterie</li>
             </ul><!-- End Portfolio Filters -->
   
             <div class="row g-0 portfolio-container">
@@ -172,7 +193,66 @@
                   <?php         
                   }       
               ?>
-  
+            <?php
+                  while ($row3 = $statement3->fetch()) {          
+                ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row3['type']; ?>">
+                <img src = "Admin/<?php echo $row3['image']; ?>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="Admin/<?php echo $row3['image']; ?>" data-gallery="portfolio-gallery<?php echo $row3['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+              </div>
+              </div>
+                  <?php         
+                  }       
+              ?>
+              <?php
+                  while ($row4 = $statement4->fetch()) {          
+                ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row4['type']; ?>">
+                <img src = "Admin/<?php echo $row4['image']; ?>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="Admin/<?php echo $row4['image']; ?>" data-gallery="portfolio-gallery<?php echo $row4['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+              </div>
+              </div>
+                  <?php         
+                  }       
+              ?>
+              <?php
+                  while ($row5 = $statement5->fetch()) {          
+                ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row5['type']; ?>">
+                <img src = "Admin/<?php echo $row5['image']; ?>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="Admin/<?php echo $row5['image']; ?>" data-gallery="portfolio-gallery<?php echo $row5['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+              </div>
+              </div>
+                  <?php         
+                  }       
+              ?>
+              <?php
+                  while ($row6 = $statement6->fetch()) {          
+                ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row6['type']; ?>">
+                <img src = "Admin/<?php echo $row6['image']; ?>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="Admin/<?php echo $row6['image']; ?>" data-gallery="portfolio-gallery<?php echo $row6['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+              </div>
+              </div>
+                  <?php         
+                  }       
+              ?>
+              <?php
+                  while ($row7 = $statement7->fetch()) {          
+                ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row7['type']; ?>">
+                <img src = "Admin/<?php echo $row7['image']; ?>" class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="Admin/<?php echo $row7['image']; ?>" data-gallery="portfolio-gallery<?php echo $row7['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+              </div>
+              </div>
+                  <?php         
+                  }       
+              ?>
               <!-- partiiiiiie 1 -->
   
              

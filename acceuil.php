@@ -1,3 +1,7 @@
+<?php
+              // Include the database configuration file
+                include 'db/db.php';
+?> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -37,7 +41,13 @@
       href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,200;1,300;1,400;1,500;1,600;1,700;1,800&amp;display=swap"
       data-tag="font"
     />
- 
+         <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+
+         <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+         <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+
+         <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> 
+         <link href='https://unpkg.com/css.gg@2.0.0/icons/css/zoom-in.css' rel='stylesheet'>
 </head>
 <body>
    
@@ -338,43 +348,64 @@
 
     <section id="portfolio" class="portfolio" data-aos="fade-up">
       
-      <div class="container-fluid" id="Myportfolio" data-aos="fade-up" data-aos-delay="200">
-         <h1 class="heading headingH4" > <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS ANNONCES  </h1>
-        <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+    <?php
+                // Get images from the database
 
-          <ul class="portfolio-flters">
-            <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-app">Secourisme</li>
-            <li data-filter=".filter-product">Gestion Et Marketing</li>
-            <li data-filter=".filter-branding">License</li>
-            <li data-filter=".filter-books">Hijama</li>
+                $statement1 = $pdo_conn->prepare('SELECT * FROM flayers where type = "Secourisme"');
+                $statement1->execute();
+                $row1 = $statement1->fetch();
+                // 
+                $statement2 = $pdo_conn->prepare('SELECT * FROM flayers where type = "Gestion"');
+                $statement2->execute();
+                $row2 = $statement2->fetch();
+                //
+                $statement3 = $pdo_conn->prepare('SELECT * FROM flayers where type = "License"');
+                $statement3->execute();
+                $row3 = $statement3->fetch();
+                 //
+                $statement4 = $pdo_conn->prepare('SELECT * FROM flayers where type = "Hijama"');
+                $statement4->execute();
+                $row4 = $statement4->fetch();
+                ?>
+       <div class="container-fluid" id="Myportfolio" data-aos="fade-up" data-aos-delay="200">
+           <h1 class="heading headingH4" > <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS ALBUMS </h1>
+          <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
+  
+            <ul class="portfolio-flters">
+              <li data-filter="*" class="filter-active">All</li>
+            <li data-filter=".filter-<?php if(!empty($row1['type'])){echo $row1['type'];}?>">Secourisme</li>
+            <li data-filter=".filter-<?php if(!empty($row2['type'])){echo $row2['type'];}?>">Gestion Et Marketing</li>
+            <li data-filter=".filter-<?php if(!empty($row3['type'])){echo $row3['type'];}?>">License</li>
+            <li data-filter=".filter-<?php if(!empty($row4['type'])){echo $row4['type'];}?>">Hijama</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row g-0 portfolio-container">
 
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-app">
-              <img src="flayer/Secourisme/image1.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-product">
-              <img src="flayer/gestion/image1.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-branding">
-              <img src="flayer/license/image1.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-books">
-              <img src="flayer/hijama/image1.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-            <!-- partiiiiiie 1 -->
-
-            <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-product">
-              <img src="flayer/gestion/image2.jpg" class="img-fluid" alt="">
-            </div><!-- End Portfolio Item -->
-
-
+            <?php
+                     while ($row1 = $statement1->fetch()) {          
+                  ?>
+                  <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
+                  <img src = "Admin/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                     <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+               </div>
+               </div>
+                     <?php         
+                     }       
+               ?>
+               <?php
+                  while ($row2 = $statement2->fetch()) {          
+                ?>
+                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row2['type']; ?>">
+                <img src = "Admin/<?php echo $row2['image']; ?>"  class="img-fluid" alt="">
+                <div class="portfolio-info">
+                  <a href="Admin/<?php echo $row2['image']; ?>" data-gallery="portfolio-gallery<?php echo $row2['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+              </div>
+              </div>
+                  <?php         
+                  }       
+              ?>
+               
           </div><!-- End Portfolio Container -->
 
         </div>
@@ -570,14 +601,16 @@
    <!-- swiper js link  -->
    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-   <!-- js file link  -->
-   <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+    <!-- js file link  -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+   <script src="assets/vendor/aos/aos.js"></script>
 
    <script src="assets/js/script.js"></script>
    <script src="assets/js/functions.js"></script>
    <script src="assets/js/main.js"></script>
+   <script src="assets/js/main1.js"></script>
 
 </body>
 </html>
