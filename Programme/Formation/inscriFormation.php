@@ -1,3 +1,156 @@
+<?php
+
+$message = "";
+use PHPMailer\PHPMailer\PHPMailer;
+   function sendmail($content){
+         
+   }
+include("../../db/db.php");
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+   // formation form 
+   
+   $nom = $_POST['nom'];
+   $cin = $_POST['cin'];
+   $adresse = $_POST['adresse'];
+   $tel = $_POST['tel'];
+   $niveau = $_POST['niveau'];
+   $choix = $_POST['choix'];
+   $email = $_POST['email'];
+   $Typeformation = 'Formation';
+   $type = 'encoure';
+   $date = date("Y-m-d ");
+   $img = 'img';
+   $pdo_statement = $pdo_conn->prepare("INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,null,null,null)");
+   $pdo_statement->bindParam(1, $nom);
+   $pdo_statement->bindParam(2, $cin);
+   $pdo_statement->bindParam(3, $adresse);
+   $pdo_statement->bindParam(4, $tel);
+   $pdo_statement->bindParam(5, $niveau);
+   $pdo_statement->bindParam(6, $choix);
+   $pdo_statement->bindParam(7, $Typeformation);
+   $pdo_statement->bindParam(8, $email);
+   $pdo_statement->bindParam(9, $type);
+   $pdo_statement->bindParam(10, $date);
+   $pdo_statement->bindParam(11, $img);
+   $pdo_statement->bindParam(12, $img);
+
+  
+   
+   $pdo_statement->execute();
+   $message = 'bien ajoute';
+
+   $content =
+      "<h1>Formation  </h1>
+         <table border='1px' cellpadding='0' cellspacing='0' style='text-align:center'>
+            <tr>
+               <th>
+                     Nom Complet 
+                 </th>
+                <td>"
+      . $nom .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Numéro Carte d'Identité National 
+                </th>
+                <td>"
+      . $cin .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Adresse 
+                </th>
+                <td>"
+      . $adresse .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Numéro de téléphone 
+                </th>
+                <td>"
+      . $tel .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Niveau Scolaire 
+                </th>
+                <td>"
+      . $niveau .
+      "</td>
+            </tr>
+            <tr>
+                <th>
+                    Diplôme Choisi
+                </th>
+                <td>"
+      . $choix .
+      "</td>
+            </tr>
+            
+            <tr>
+                <th>
+                    Email 
+                </th>
+                <td>"
+      . $email .
+      "</td>
+            </tr>
+         </table>
+         ";
+   $name = "Ecole JAH Marrakech";  // Name of your website or yours
+   $to = "nvabdouamanu@gmail.com";  // mail of reciever
+   $subject = "Inscription FEDE";
+   $body = $content;
+   $from = "vodkaayoub1@gmail.com";  // you mail  vodkaayoub1@gmail.com"
+   $password = "qlipazmcsezqwwfg";  // your mail password   qlipazmcsezqwwfg
+
+   // Ignore from here
+   require '../../PHPMailer/src/Exception.php';
+   require '../../PHPMailer/src/PHPMailer.php';
+   require '../../PHPMailer/src/SMTP.php';
+   $mail = new PHPMailer();
+
+   // To Here
+
+   //SMTP Settings
+   $mail->isSMTP();
+   // $mail->SMTPDebug = 3;  Keep It commented this is used for debugging                          
+   $mail->Host = "smtp.gmail.com"; // smtp address of your email
+   $mail->SMTPAuth = true;
+   $mail->Username = $from;
+   $mail->Password = $password;
+   $mail->Port = 587;  // port
+   $mail->SMTPSecure = "tls";  // tls or ssl
+   $mail->smtpConnect([
+      'ssl' => [
+         'verify_peer' => false,
+         'verify_peer_name' => false,
+         'allow_self_signed' => true
+      ]
+   ]);
+
+   //Email Settings
+   $mail->isHTML(true);
+   $mail->setFrom($from, $name);
+   $mail->addAddress($to); // enter email address whom you want to send
+
+   //$mail->addAttachment("images/1.jpg"); // for CIN
+
+
+   $mail->Subject = ($subject);
+   $mail->Body = $body;
+
+   if ($mail->send()) {
+      $message = "Inscription bien envoyer";
+   } else {
+      echo "<script>alert('Something is wrong')</script> " . $mail->ErrorInfo;
+   }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -62,8 +215,8 @@
 <!-- start inscription formation  container -->
 <h1 id="title">Formulaire d'inscription</h1>
 <div class="container-md Inscription-form" >
-    
-    <form action="" >
+    <h1><?= $message?></h1>
+    <form action=""  method="post">
         <div class="mb-3 mt-3">
             <label class="labelInput">Nom et Prénom </label>
             <span style="color: red; font-size: 2em; padding-left: 10px;" id="cnom" >*</span>
@@ -73,13 +226,13 @@
           <div class="mb-3 mt-3">
             <label class="labelInput" >Numéro de CIN  </label>&ensp;
             <span style="color: red; font-size: 2em; padding-left: 10px;" id="ccin" >*</span>
-            <input type="text" class="form-control" id="cin" name="carte" placeholder="Numéro de CIN">
+            <input type="text" class="form-control" id="cin" name="cin" placeholder="Numéro de CIN">
           </div>
           <div class="mb-3 mt-3">
             <label class="labelInput" >Adresse </label>&ensp;
             <span style="color: red; font-size: 2em; padding-left: 10px;" id="cadresse" >*</span>
             
-            <input type="text" class="form-control" id="Adresse" name="Adresse" placeholder="Adresse">
+            <input type="text" class="form-control" id="Adresse" name="adresse" placeholder="Adresse">
           </div>
           
           <div class="mb-3 mt-3">
@@ -118,7 +271,7 @@
             
             <select id="choix" class="form-select" name="choix" >
                 <option value="rien">Choisir Formation</option>
-                <option value="">Choisir 1</option>
+                <option value="choix 1">Choisir 1</option>
             </select>
           </div>
         
@@ -155,7 +308,7 @@
 
           
          
-          <button type="button" class="btn-info" onclick="checkform()" >Inscrire</button>
+          <input type="submit" class="btn-info" onclick="return checkform()"  value="Inscrire">
     </form>
     
 </div>
