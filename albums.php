@@ -124,31 +124,32 @@
 
                 $statement1 = $pdo_conn->prepare('SELECT * FROM images where type = "Diplome"');
                 $statement1->execute();
-                $row1 = $statement1->fetch();
+                $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
+
                 // 
                 $statement2 = $pdo_conn->prepare('SELECT * FROM images where type = "Secourisme"');
                 $statement2->execute();
-                $row2 = $statement2->fetch();
+                $result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
                 //
                 $statement3 = $pdo_conn->prepare('SELECT * FROM images where type = "Hijama"');
                 $statement3->execute();
-                $row3 = $statement3->fetch();
+                $result3 = $statement3->fetchAll(PDO::FETCH_ASSOC);
                  //
                 $statement4 = $pdo_conn->prepare('SELECT * FROM images where type = "Engins"');
                 $statement4->execute();
-                $row4 = $statement4->fetch();
+                $result4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
                 //
                 $statement5 = $pdo_conn->prepare('SELECT * FROM images where type = "Préparateur"');
                 $statement5->execute();
-                $row5 = $statement5->fetch();
+                $result5 = $statement5->fetchAll(PDO::FETCH_ASSOC);
                 //
                 $statement6 = $pdo_conn->prepare('SELECT * FROM images where type = "Modéliste"');
                 $statement6->execute();
-                $row6 = $statement6->fetch();
+                $result6 = $statement6->fetchAll(PDO::FETCH_ASSOC);
                 //
                 $statement7 = $pdo_conn->prepare('SELECT * FROM images where type = "Pâtisserie"');
                 $statement7->execute();
-                $row7 = $statement7->fetch();
+                $result7 = $statement7->fetchAll(PDO::FETCH_ASSOC);
                 ?>
         <div class="container-fluid" id="Myportfolio" data-aos="fade-up" data-aos-delay="200">
            <h1 class="heading headingH4" > <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS ALBUMS </h1>
@@ -156,21 +157,24 @@
   
             <ul class="portfolio-flters" style="margin-left: -128px;margin-right: -180px;">
               <li data-filter="*" class="filter-active">All</li>
-              <li data-filter=".filter-<?php if(!empty($row1['type'])){echo $row1['type'];}  ?>">Les Diplomes</li>
-              <li data-filter=".filter-<?php if(!empty($row2['type'])){echo $row2['type'];} ?>">Secourisme</li>
-              <li data-filter=".filter-<?php if(!empty($row3['type'])){echo $row3['type'];} ?>">Hijama</li>
-              <li data-filter=".filter-<?php if(!empty($row4['type'])){echo $row4['type'];} ?>">Engins de Chantiers</li>
-              <li data-filter=".filter-<?php if(!empty($row5['type'])){echo $row5['type'];} ?>">Préparateur Physique</li>
-              <li data-filter=".filter-<?php if(!empty($row6['type'])){echo $row6['type'];} ?>">Modéliste et Styliste</li>
-              <li data-filter=".filter-<?php if(!empty($row7['type'])){echo $row7['type'];} ?>">Pâtisserie Confiserie et Chocolaterie</li>
+              <li data-filter=".filter-Diplome">Les Diplomes</li>
+              <li data-filter=".filter-Secourisme">Secourisme</li>
+              <li data-filter=".filter-Hijama">Hijama</li>
+              <li data-filter=".filter-Engins">Engins de Chantiers</li>
+              <li data-filter=".filter-Préparateur">Préparateur Physique</li>
+              <li data-filter=".filter-Modéliste">Modéliste et Styliste</li>
+              <li data-filter=".filter-Pâtisserie">Pâtisserie Confiserie et Chocolaterie</li>
             </ul><!-- End Portfolio Filters -->
   
             <div class="row g-0 portfolio-container">
              <!-- partiiiiiie 1 -->
              
 
-                <?php
-                  while ($row1 = $statement1->fetch()) {          
+             <?php
+            if(!empty($result1))
+            {
+            foreach($result1 as $row1)
+                     {           
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
                 <img src = "Admin/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
@@ -179,10 +183,13 @@
               </div>
               </div>
                   <?php         
-                  }       
+                  }       }
               ?>
              <?php
-                  while ($row2 = $statement2->fetch()) {          
+            if(!empty($result1))
+            {
+            foreach($result1 as $row1)
+                     {          
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row2['type']; ?>">
                 <img src = "Admin/<?php echo $row2['image']; ?>" class="img-fluid" alt="">
@@ -191,7 +198,7 @@
               </div>
               </div>
                   <?php         
-                  }       
+                  }       }
               ?>
             <?php
                   while ($row3 = $statement3->fetch()) {          
@@ -206,7 +213,10 @@
                   }       
               ?>
               <?php
-                  while ($row4 = $statement4->fetch()) {          
+            if(!empty($result1))
+            {
+            foreach($result1 as $row1)
+                     {          
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row4['type']; ?>">
                 <img src = "Admin/<?php echo $row4['image']; ?>" class="img-fluid" alt="">
@@ -215,10 +225,13 @@
               </div>
               </div>
                   <?php         
-                  }       
+                  }  }     
               ?>
               <?php
-                  while ($row5 = $statement5->fetch()) {          
+            if(!empty($result1))
+            {
+            foreach($result1 as $row1)
+                     {           
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row5['type']; ?>">
                 <img src = "Admin/<?php echo $row5['image']; ?>" class="img-fluid" alt="">
@@ -227,10 +240,13 @@
               </div>
               </div>
                   <?php         
-                  }       
+                  }      } 
               ?>
               <?php
-                  while ($row6 = $statement6->fetch()) {          
+            if(!empty($result1))
+            {
+            foreach($result1 as $row1)
+                     {            
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row6['type']; ?>">
                 <img src = "Admin/<?php echo $row6['image']; ?>" class="img-fluid" alt="">
@@ -239,10 +255,13 @@
               </div>
               </div>
                   <?php         
-                  }       
+                  }     }  
               ?>
               <?php
-                  while ($row7 = $statement7->fetch()) {          
+            if(!empty($result1))
+            {
+            foreach($result1 as $row1)
+                     {         
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row7['type']; ?>">
                 <img src = "Admin/<?php echo $row7['image']; ?>" class="img-fluid" alt="">
@@ -251,7 +270,7 @@
               </div>
               </div>
                   <?php         
-                  }       
+                  }    }   
               ?>
               <!-- partiiiiiie 1 -->
   

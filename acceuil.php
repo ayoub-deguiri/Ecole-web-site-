@@ -353,19 +353,19 @@
 
                 $statement1 = $pdo_conn->prepare('SELECT * FROM flayers where type = "Secourisme"');
                 $statement1->execute();
-                $row1 = $statement1->fetch();
+                $result1 = $statement1->fetchAll(PDO::FETCH_ASSOC);
                 // 
                 $statement2 = $pdo_conn->prepare('SELECT * FROM flayers where type = "Gestion"');
                 $statement2->execute();
-                $row2 = $statement2->fetch();
+                $result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
                 //
                 $statement3 = $pdo_conn->prepare('SELECT * FROM flayers where type = "License"');
                 $statement3->execute();
-                $row3 = $statement3->fetch();
+                $result3 = $statement3->fetchAll(PDO::FETCH_ASSOC);
                  //
                 $statement4 = $pdo_conn->prepare('SELECT * FROM flayers where type = "Hijama"');
                 $statement4->execute();
-                $row4 = $statement4->fetch();
+                $result4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
                 ?>
        <div class="container-fluid" id="Myportfolio" data-aos="fade-up" data-aos-delay="200">
            <h1 class="heading headingH4" > <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS ALBUMS </h1>
@@ -373,16 +373,19 @@
   
             <ul class="portfolio-flters">
               <li data-filter="*" class="filter-active">All</li>
-            <li data-filter=".filter-<?php if(!empty($row1['type'])){echo $row1['type'];}?>">Secourisme</li>
-            <li data-filter=".filter-<?php if(!empty($row2['type'])){echo $row2['type'];}?>">Gestion Et Marketing</li>
-            <li data-filter=".filter-<?php if(!empty($row3['type'])){echo $row3['type'];}?>">License</li>
-            <li data-filter=".filter-<?php if(!empty($row4['type'])){echo $row4['type'];}?>">Hijama</li>
+            <li data-filter=".filter-Secourisme">Secourisme</li>
+            <li data-filter=".filter-Gestion">Gestion Et Marketing</li>
+            <li data-filter=".filter-License">License</li>
+            <li data-filter=".filter-Hijama">Hijama</li>
           </ul><!-- End Portfolio Filters -->
 
           <div class="row g-0 portfolio-container">
 
             <?php
-                     while ($row1 = $statement1->fetch()) {          
+            if(!empty($result1))
+            {
+            foreach($result1 as $row1)
+                     {       
                   ?>
                   <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
                   <img src = "Admin/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
@@ -391,21 +394,58 @@
                </div>
                </div>
                      <?php         
-                     }       
+                     }    
+                   }  
+               ?>
+               
+               <?php
+            if(!empty($result2))
+            {
+            foreach($result2 as $row1)
+                     {       
+                  ?>
+                  <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
+                  <img src = "Admin/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                     <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+               </div>
+               </div>
+                     <?php         
+                     }    
+                   }  
                ?>
                <?php
-                  while ($row2 = $statement2->fetch()) {          
-                ?>
-                <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row2['type']; ?>">
-                <img src = "Admin/<?php echo $row2['image']; ?>"  class="img-fluid" alt="">
-                <div class="portfolio-info">
-                  <a href="Admin/<?php echo $row2['image']; ?>" data-gallery="portfolio-gallery<?php echo $row2['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
-              </div>
-              </div>
-                  <?php         
-                  }       
-              ?>
-               
+            if(!empty($result3))
+            {
+            foreach($result3 as $row1)
+                     {       
+                  ?>
+                  <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
+                  <img src = "Admin/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                     <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+               </div>
+               </div>
+                     <?php         
+                     }    
+                   }  
+               ?>
+               <?php
+            if(!empty($result4))
+            {
+            foreach($result4 as $row1)
+                     {       
+                  ?>
+                  <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
+                  <img src = "Admin/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
+                  <div class="portfolio-info">
+                     <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+               </div>
+               </div>
+                     <?php         
+                     }    
+                   }  
+               ?>
           </div><!-- End Portfolio Container -->
 
         </div>
