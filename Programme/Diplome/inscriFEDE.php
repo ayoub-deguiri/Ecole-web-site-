@@ -29,11 +29,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $filename4 = $_FILES['files4']['name'];
    $filename5 = $_FILES['files5']['name'];
 
-   $target_file1 = 'Images/Inscription/'.$filename1;
-   $target_file2 = 'Images/Inscription/'.$filename2;
-   $target_file3 = 'Images/Inscription/'.$filename3;
-   $target_file4 = 'Images/Inscription/'.$filename4;
-   $target_file5 = 'Images/Inscription/'.$filename5;
+   $target_file1 = '../Images/Inscription/'.$filename1;
+   $target_file2 = '../Images/Inscription/'.$filename2;
+   $target_file3 = '../Images/Inscription/'.$filename3;
+   $target_file4 = '../Images/Inscription/'.$filename4;
+   $target_file5 = '../Images/Inscription/'.$filename5;
 
            // file extension
    $file_extension1 = pathinfo($target_file1, PATHINFO_EXTENSION);
@@ -72,20 +72,20 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       ){
            // Execute query
            $pdo_statement->bindParam(1, $nom);
-  $pdo_statement->bindParam(2, $cin);
-  $pdo_statement->bindParam(3, $adresse);
-  $pdo_statement->bindParam(4, $tel);
-  $pdo_statement->bindParam(5, $niveau);
-  $pdo_statement->bindParam(6, $choix);
-  $pdo_statement->bindParam(7, $Typeformation);
-  $pdo_statement->bindParam(8, $email);
-  $pdo_statement->bindParam(9, $type);
-  $pdo_statement->bindParam(10, $date);
-  $pdo_statement->bindParam(11, $target_file1);
-        $pdo_statement->bindParam(12, $target_file2);
-        $pdo_statement->bindParam(13, $target_file3);
-        $pdo_statement->bindParam(14, $target_file4);
-        $pdo_statement->bindParam(15, $target_file5);
+         $pdo_statement->bindParam(2, $cin);
+         $pdo_statement->bindParam(3, $adresse);
+         $pdo_statement->bindParam(4, $tel);
+         $pdo_statement->bindParam(5, $niveau);
+         $pdo_statement->bindParam(6, $choix);
+         $pdo_statement->bindParam(7, $Typeformation);
+         $pdo_statement->bindParam(8, $email);
+         $pdo_statement->bindParam(9, $type);
+         $pdo_statement->bindParam(10, $date);
+         $pdo_statement->bindParam(11, $filename1);
+        $pdo_statement->bindParam(12, $filename2);
+        $pdo_statement->bindParam(13, $filename3);
+        $pdo_statement->bindParam(14, $filename4);
+        $pdo_statement->bindParam(15, $filename5);
   $pdo_statement->execute();
          echo "File upload successfully";
        }
@@ -234,17 +234,17 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          $(".sel_depart").click(function(){
             var deptid = $(this).val();
             $.ajax({
-               url: 'getUsers.php',
+               url: '../getFormation.php',
                type: 'post',
-               data: {depart:deptid},
+               data: {depart:deptid,Etat:"etat2"},
                dataType: 'json',
                success:function(response){
                      var len = response.length;
-                     $("#sel_user").empty();
+                     $(".sel_user").empty();
                      for( var i = 0; i<len; i++){
                         var id = response[i]['id'];
                         var name = response[i]['name'];
-                        $("#sel_user").append("<option value='"+id+"'>"+name+"</option>");
+                        $(".sel_user").append("<option value='"+name+"'>"+name+"</option>");
                      }
                }
             });
@@ -301,7 +301,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          </div>
          <div class="mb-3 mt-3">
             <label class="labelInput">Numéro de téléphone</label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="ctel">*</span>
-            <input type="text" class="form-control" id="tel" name="tel" pattern="[0-9]{10}" placeholder="Numéro de téléphone">
+            <input type="text" class="form-control" id="tel" name="tel" pattern="^\+212[5-7]\d{8}$|^0[5-7]\d{8}$" placeholder="Numéro de téléphone">
          </div>
          <div class="mb-3 radio">
             <label for="pwd" id="label">Niveau Scolaire &nbsp;</label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="cniveau">*</span>
@@ -316,7 +316,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          </div>
          <div class="mb-3 mt-3">
             <label class="labelInput">Formation Choisi:</label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="cchoix">*</span>
-            <select id="sel_user" class="form-select" name="choix">
+            <select id="choix" class="form-select sel_user" name="choix">
                <option value="rien">Choisir Formation</option>
             </select>
          </div>

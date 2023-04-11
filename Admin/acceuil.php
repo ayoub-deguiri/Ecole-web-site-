@@ -208,7 +208,7 @@ if(!isset($_SESSION['Role']))
           <div class="row">
           <div class="col-md-8 market-update-left">
             <h3><?php echo $CountDay; ?></h3>
-            <h4>inscriptions quotidiens</h4>
+            <h4>inscriptions quotidiens : <?php echo $myDay ?></h4>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-eye"> </i>
@@ -222,7 +222,7 @@ if(!isset($_SESSION['Role']))
           <div class="row">
           <div class="col-md-8 market-update-left">
             <h3><?php echo $CountMounth;  ?></h3>
-            <h4>inscriptions  de ce mois</h4>
+            <h4>inscriptions de mois : <?php echo $mydate; ?> </h4>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-eye"> </i>

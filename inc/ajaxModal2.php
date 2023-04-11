@@ -65,13 +65,25 @@ $filename5 = $inscription['filename5'];
                               <td>'.$DateInscription.'</td>
                           </tr>
                       </tbody>
-                  </table>
+                  </table>';
+
+                echo '
                   <div class="photos">
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                      <img src="../images/diplome/LICENCE.jpg" alt="" id="img" />
-                  </div>
-                  ';
+                      <img src="../Programme/Images/Inscription/'.$filename.'" alt=""  />
+                      <img src="../Programme/Images/Inscription/'.$filename2.'"alt=""  />';
+                     if($TypeFormation == 'Diplome')
+                        {
+                            echo '
+                            <img src="../Programme/Images/Inscription/'.$filename3.'" alt=""  />
+                            <img src="../Programme/Images/Inscription/'.$filename4.'"alt=""  />';
+                        }
+                    if($TypeFormation == 'FEDE')
+                        {
+                            echo '
+                            <img src="../Programme/Images/Inscription/'.$filename3.'" alt=""  />
+                            <img src="../Programme/Images/Inscription/'.$filename4.'"alt=""  />
+                            <img src="../Programme/Images/Inscription/'.$filename5.'"alt=""  />';
+                        }
+                  echo '</div>';
+                  
         ?>
