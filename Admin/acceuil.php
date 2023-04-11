@@ -379,6 +379,7 @@ if(!isset($_SESSION['Role']))
            setTimeout(greet, 1500); </script>';
           $etat = false;
                 }
+              
 
 ?>
 </body>
