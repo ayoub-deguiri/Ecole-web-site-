@@ -88,6 +88,7 @@
       test5 =false
      if(r4.checked == true){
         cniveau.innerHTML =""
+        cchoix.innerHTML =""
         test5 =true
      }
      
@@ -98,6 +99,7 @@
    test5 =false
      if(r3.checked == true){
         cniveau.innerHTML =""
+        cchoix.innerHTML =""
         test5 =true
      }
    
@@ -106,24 +108,12 @@
     test5 =false
       if(r2.checked == true){
          cniveau.innerHTML =""
+         cchoix.innerHTML =""
          test5 =true
       }
     
    })
 
-  choix.addEventListener("change", function(){
-
-     if(choix.value != 'rien'){
-        cchoix.innerHTML =""
-        test6 =true
-     }
-     else{
-      cchoix.innerHTML ="*"
-        test6 =false
-     }
-   
-  })
-   
    email.addEventListener("keyup", function(){
 
       if(email.value != ''){
@@ -190,7 +180,7 @@
    {
       var  etat =true;
       var check  =document.querySelector('#check')
-    if(test1 ==false || test2==false || test3==false || test4==false || test5==false || test6==false || test7==false 
+    if(test1 ==false || test2==false || test3==false || test4==false || test5==false  || test7==false 
     || test8==false || test9==false || test10 ==false || test11 ==false )
     {
       check.innerHTML ='touts les champs sont obligatoire !'

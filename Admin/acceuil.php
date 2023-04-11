@@ -8,7 +8,7 @@ if(!isset($_SESSION['Role']))
 ?>
 <?php 
                 include('../db/db.php');
-                $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'jjjjjj' order by DateInscription DESC");
+                $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'encoure' order by DateInscription DESC");
                 $pdo_statement->execute();
                 $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
                 $DefaultRes = $result;
@@ -39,7 +39,7 @@ if(!isset($_SESSION['Role']))
                                   }
                                 else
                                 {
-                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'jjjjjj' and TypeFormation = ? order by DateInscription DESC");
+                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and TypeFormation = ? order by DateInscription DESC");
                                   $pdo_statement -> bindParam(1,$_POST['FilterType']);
                                   $pdo_statement->execute();
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -48,7 +48,7 @@ if(!isset($_SESSION['Role']))
                                 
                               }
                             if(isset($_POST["FilterDate"])){
-                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'jjjjjj' and DateInscription = ?");
+                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and DateInscription = ?");
                                   $pdo_statement -> bindParam(1,$_POST['FilterDate']);
                                   $pdo_statement->execute();
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -199,7 +199,7 @@ if(!isset($_SESSION['Role']))
           <div class="row">
           <div class="col-md-8 market-update-left">
             <h3><?php echo $CountDay; ?></h3>
-            <h4>inscriptions quotidiens</h4>
+            <h4>inscriptions quotidiens : <?php echo $myDay ?></h4>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-eye"> </i>
@@ -213,7 +213,7 @@ if(!isset($_SESSION['Role']))
           <div class="row">
           <div class="col-md-8 market-update-left">
             <h3><?php echo $CountMounth;  ?></h3>
-            <h4>inscriptions  de ce mois</h4>
+            <h4>inscriptions de mois : <?php echo $mydate; ?> </h4>
           </div>
           <div class="col-md-4 market-update-right">
             <i class="fa fa-eye"> </i>

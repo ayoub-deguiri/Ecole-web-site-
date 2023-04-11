@@ -10,6 +10,8 @@
         $pdo_statement->execute();
         $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
         $DefaultRes = $mesformations;
+        $TypeFormation = '';
+
         if($_SERVER['REQUEST_METHOD'] == "POST" )
         { 
 
@@ -28,6 +30,7 @@
                 if($_POST['FilterType'] == 'tous' )
                   {
                     $mesformations = $DefaultRes;
+                    $TypeFormation = 'tous';
                   }
                 else
                 {
@@ -35,6 +38,7 @@
                   $pdo_statement -> bindParam(1,$_POST['FilterType']);
                   $pdo_statement->execute();
                   $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                  $TypeFormation = $_POST['FilterType'];
                 }
               }
             if(isset($_POST['ajoute']))
@@ -218,11 +222,11 @@
                             <label for="select"> Type Formation</label>
                             <form action="" class="form-test" method="post">
                             <select name="FilterType"  onchange="this.form.submit()" class="form-select form-select-sm" aria-label=".form-select-lg example">
-                                <option value="" disabled selected>Open this select menu</option>
-                                <option value="tous">All</option>
-                                <option value="Diplome">Diplome</option>
-                                <option value="Formation">Formation</option>
-                                <option value="FEDE">FEDE</option>
+                                <option value="" disabled selected  <?php if($TypeFormation == '' ){echo 'selected';} ?>>Open this select menu</option>
+                                <option value="tous" <?php if($TypeFormation == 'tous' ){echo 'selected';} ?>>All</option>
+                                <option value="Diplome" <?php if($TypeFormation == 'Diplome' ){echo 'selected';} ?>>Diplome</option>
+                                <option value="Formation" <?php if($TypeFormation == 'Formation' ){echo 'selected';} ?>>Formation</option>
+                                <option value="FEDE" <?php if($TypeFormation == 'FEDE' ){echo 'selected';} ?>>FEDE</option>
                             </select>
                             </form>
                         </div>
