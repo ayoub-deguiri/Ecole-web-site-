@@ -19,25 +19,82 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $Typeformation = 'FEDE';
    $type = 'encoure';
    $date = date("Y-m-d ");
-   $img = 'img';
-   $pdo_statement = $pdo_conn->prepare("INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)");
-   $pdo_statement->bindParam(1, $nom);
-   $pdo_statement->bindParam(2, $cin);
-   $pdo_statement->bindParam(3, $adresse);
-   $pdo_statement->bindParam(4, $tel);
-   $pdo_statement->bindParam(5, $niveau);
-   $pdo_statement->bindParam(6, $choix);
-   $pdo_statement->bindParam(7, $Typeformation);
-   $pdo_statement->bindParam(8, $email);
-   $pdo_statement->bindParam(9, $type);
-   $pdo_statement->bindParam(10, $date);
-   $pdo_statement->bindParam(11, $img);
-   $pdo_statement->bindParam(12, $img);
-   $pdo_statement->bindParam(13, $img);
-   $pdo_statement->bindParam(14, $img);
-   $pdo_statement->bindParam(15, $img);
-   $pdo_statement->execute();
-   $message = 'bien ajoute';
+   $query = "INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+
+   $pdo_statement = $pdo_conn->prepare($query);
+           // File name
+   $filename1 = $_FILES['files1']['name'];
+   $filename2 = $_FILES['files2']['name'];
+   $filename3 = $_FILES['files3']['name'];
+   $filename4 = $_FILES['files4']['name'];
+   $filename5 = $_FILES['files5']['name'];
+
+   $target_file1 = 'Images/Inscription/'.$filename1;
+   $target_file2 = 'Images/Inscription/'.$filename2;
+   $target_file3 = 'Images/Inscription/'.$filename3;
+   $target_file4 = 'Images/Inscription/'.$filename4;
+   $target_file5 = 'Images/Inscription/'.$filename5;
+
+           // file extension
+   $file_extension1 = pathinfo($target_file1, PATHINFO_EXTENSION);
+   $file_extension1 = strtolower($file_extension1);
+           // file extension
+   $file_extension2 = pathinfo($target_file2, PATHINFO_EXTENSION);
+   $file_extension2 = strtolower($file_extension2);
+   // file extension
+   $file_extension3 = pathinfo($target_file3, PATHINFO_EXTENSION);
+   $file_extension3 = strtolower($file_extension3);
+
+   // file extension
+   $file_extension4 = pathinfo($target_file4, PATHINFO_EXTENSION);
+   $file_extension4 = strtolower($file_extension4);
+
+   // file extension
+   $file_extension5 = pathinfo($target_file5, PATHINFO_EXTENSION);
+   $file_extension5 = strtolower($file_extension5);
+
+           // Valid image extension
+   $valid_extension = array("png","jpeg","jpg","PNG","JPEG","JPG");
+
+   if(in_array($file_extension1 ,$valid_extension)
+   and in_array($file_extension2 ,$valid_extension)
+   and in_array($file_extension3 ,$valid_extension)
+   and in_array($file_extension4 ,$valid_extension)
+   and in_array($file_extension5 ,$valid_extension)
+   
+   ){
+           // Upload file
+     if(move_uploaded_file($_FILES['files1']['tmp_name'],$target_file1) 
+     and move_uploaded_file($_FILES['files2']['tmp_name'],$target_file2)
+     and move_uploaded_file($_FILES['files3']['tmp_name'],$target_file3)
+     and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
+     and move_uploaded_file($_FILES['files5']['tmp_name'],$target_file5)
+      ){
+           // Execute query
+           $pdo_statement->bindParam(1, $nom);
+  $pdo_statement->bindParam(2, $cin);
+  $pdo_statement->bindParam(3, $adresse);
+  $pdo_statement->bindParam(4, $tel);
+  $pdo_statement->bindParam(5, $niveau);
+  $pdo_statement->bindParam(6, $choix);
+  $pdo_statement->bindParam(7, $Typeformation);
+  $pdo_statement->bindParam(8, $email);
+  $pdo_statement->bindParam(9, $type);
+  $pdo_statement->bindParam(10, $date);
+  $pdo_statement->bindParam(11, $target_file1);
+        $pdo_statement->bindParam(12, $target_file2);
+        $pdo_statement->bindParam(13, $target_file3);
+        $pdo_statement->bindParam(14, $target_file4);
+        $pdo_statement->bindParam(15, $target_file5);
+  $pdo_statement->execute();
+         echo "File upload successfully";
+       }
+       else{
+        echo "File upload nooot";
+       }
+     }else{
+       echo "extensint !!! ";
+     }
 
    $content =
       "<h1>FEDE</h1>
@@ -138,7 +195,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $mail->setFrom($from, $name);
    $mail->addAddress($to); // enter email address whom you want to send
 
-   //$mail->addAttachment("images/1.jpg"); // for CIN
+   $mail->addAttachment($target_file1);
+   $mail->addAttachment($target_file2);
+   $mail->addAttachment($target_file3);
+   $mail->addAttachment($target_file4);
+   $mail->addAttachment($target_file5);
 
 
    $mail->Subject = ($subject);
@@ -167,6 +228,29 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../../assets/css/style.css">
    <link rel="shortcut icon" href="../../../images/LOGO.jpg" type="image/x-icon">
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+         $(".sel_depart").click(function(){
+            var deptid = $(this).val();
+            $.ajax({
+               url: 'getUsers.php',
+               type: 'post',
+               data: {depart:deptid},
+               dataType: 'json',
+               success:function(response){
+                     var len = response.length;
+                     $("#sel_user").empty();
+                     for( var i = 0; i<len; i++){
+                        var id = response[i]['id'];
+                        var name = response[i]['name'];
+                        $("#sel_user").append("<option value='"+id+"'>"+name+"</option>");
+                     }
+               }
+            });
+         });
+         });
+    </script>
 </head>
 
 <body>
@@ -202,7 +286,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <h1 id="title">Formulaire d'inscription</h1>
    <div class="container-md Inscription-form">
       <h1><?= $message ?></h1>
-      <form method="POST">
+      <form method="POST" action="" enctype='multipart/form-data'>
          <div class="mb-3 mt-3">
             <label class="labelInput ">Nom et Prénom </label> <span style="color: red; font-size: 2em; padding-left: 10px;" id="cnom">*</span>
             <input type="text" class="form-control" id="nom" name="nom" placeholder="Nom et prenom">
@@ -222,20 +306,18 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <div class="mb-3 radio">
             <label for="pwd" id="label">Niveau Scolaire &nbsp;</label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="cniveau">*</span>
             <div class="form-check">
-               <input type="radio" class="form-check-input" value="BAC+2" name='niveau' id="r4">
+               <input type="radio" class="form-check-input sel_depart" value="BAC+2" name='niveau' id="r4">
                <label class="form-check-label label-radio"> BAC +2(Technicien / Technicien spécialisé / DEUG) </label>
             </div>
             <div class="form-check">
-               <input type="radio" class="form-check-input" value="BAC+3" name='niveau' id="r3">
+               <input type="radio" class="form-check-input sel_depart" value="BAC+3" name='niveau' id="r3">
                <label class="form-check-label label-radio"> BAC +3(Licence / Bachelor) </label>
             </div>
          </div>
          <div class="mb-3 mt-3">
             <label class="labelInput">Formation Choisi:</label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="cchoix">*</span>
-            <select id="choix" class="form-select" name="choix">
+            <select id="sel_user" class="form-select" name="choix">
                <option value="rien">Choisir Formation</option>
-               <option value="test1">tes</option>
-               <option value="test2">tes2</option>
             </select>
          </div>
          <div class="mb-3 mt-3">
@@ -245,7 +327,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Photo de la CIN :</label> <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile1">*</span>
             <div>
-               <input type="file" name="file-1[]" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files1" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
                <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
@@ -256,7 +338,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Photo d'identité :</label> <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile2">*</span>
             <div>
-               <input type="file" name="file-2[]" id="file-2" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files2" id="file-2" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
                <label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
@@ -267,7 +349,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Photo d'acte de naissance' :</label> <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile3">*</span>
             <div>
-               <input type="file" name="file-3[]" id="file-3" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files3" id="file-3" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
                <label for="file-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
@@ -278,7 +360,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Certificat Scolaire (bac) :</label> <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile4">*</span>
             <div>
-               <input type="file" name="file-4[]" id="file-4" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files4" id="file-4" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
                <label for="file-4"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
@@ -289,7 +371,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Diplome (autres) :</label> <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile5">*</span>
             <div>
-               <input type="file" name="file-5[]" id="file-5" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files5" id="file-5" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
                <label for="file-5"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
