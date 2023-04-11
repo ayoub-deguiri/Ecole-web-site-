@@ -5,8 +5,8 @@ class BeautyToast{
         this.iconHeight = null;
         this.iconSize = null;
         this.closeButton = true;
-        this.timeout =  2500;
-        this.animationTime = 150;
+        this.timeout =  1000;
+        this.animationTime = 100;
     }
 
     success({
