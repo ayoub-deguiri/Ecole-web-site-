@@ -7,18 +7,23 @@ if(!isset($_SESSION['Role']))
     }
 ?>
 <?php 
+                // connect db 
                 include('../db/db.php');
+
+                // touts inscripitons
                 $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'encoure' order by DateInscription DESC");
                 $pdo_statement->execute();
                 $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
                 $DefaultRes = $result;
 
+                // inscripitons by filter month
                 $mydate = date('m');
                 $pdo_statement1 = $pdo_conn->prepare("SELECT COUNT(1)  FROM `inscription` as Total WHERE MONTH(DateInscription) = ?");
                 $pdo_statement1 -> bindParam(1,$mydate);
                 $pdo_statement1->execute();
                 $CountMounth = $pdo_statement1->fetchColumn();
 
+                // inscripitons by filter day
                 $myDay = date("Y-m-d");
                 $pdo_statement1 = $pdo_conn->prepare("SELECT COUNT(*)  FROM `inscription` as Total2 WHERE  DateInscription = ?");
                 $pdo_statement1 -> bindParam(1,$myDay);
@@ -31,6 +36,7 @@ if(!isset($_SESSION['Role']))
 
                 if($_SERVER['REQUEST_METHOD'] == "POST" )
                       {   
+                                        // inscripitons by filter type
                             if(isset($_POST["FilterType"])){
                                 if($_POST['FilterType'] == 'tous' )
                                   {
@@ -47,6 +53,7 @@ if(!isset($_SESSION['Role']))
                                 }
                                 
                               }
+                                              // inscripitons by filter date
                             if(isset($_POST["FilterDate"])){
                                   $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and DateInscription = ?");
                                   $pdo_statement -> bindParam(1,$_POST['FilterDate']);
@@ -54,12 +61,14 @@ if(!isset($_SESSION['Role']))
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
                                   $dateMYY = $_POST["FilterDate"];
                               }
+                                              // accepter insciption
                             if(isset($_POST["btn1"])){
                                   $pdo_statement = $pdo_conn->prepare("UPDATE inscription SET Type = 'Accepter' WHERE `inscription`.`Id` = ?");
                                   $pdo_statement -> bindParam(1,$_POST['btn1']);
                                   $pdo_statement->execute();
                                 header("location:acceuil.php");
                               }
+                                              // delete inscripiton
                               if(isset($_POST["btn2"])){
                                 $pdo_statement = $pdo_conn->prepare("DELETE FROM `inscription` WHERE `inscription`.`Id` = ?");
                                 $pdo_statement -> bindParam(1,$_POST['btn2']);
@@ -72,8 +81,10 @@ if(!isset($_SESSION['Role']))
 <html lang="en" dir="ltr">
   <head>
             <meta charset="UTF-8">
-            <title> Inscription </title>
+            <title> Acceuil </title>
+            <!-- Style Link -->
             <link rel="stylesheet" href="./assets/style.css">
+
             <!-- Boxicons CDN Link -->
             <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,39 +92,46 @@ if(!isset($_SESSION['Role']))
               <!--  bootstrap links-->
               <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
-          <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+              <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
               integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
               crossorigin="anonymous">
-            </script>
+              </script>
 
+              <!-- awesom link -->
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
+
+              <!-- incos page link -->
+              <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
+
+              <!-- jq Link -->
               <script src="./scripts/jquery-3.6.3.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            //ajax modla 
-            $('#exampleModal').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget);
-                var internId = button.data('id');
-                
-                // Make an AJAX request to retrieve intern information
-                $.ajax({
-                    url: '../inc/ajaxModal2.php',
-                    type: 'GET',
-                    data: {
-                        internId: internId
-                    },
-                    success: function(response) {
-                        // Display the retrieved intern information in the modal body
-                        $('#exampleModal .modal-body').html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error
-                    }
-                });
-            });
-          });
-            // ajax deleting formation
-        </script>
+
+              <!-- ajaaaax Link -->
+              <script>
+                  $(document).ready(function() {
+                      //ajax modla 
+                      $('#exampleModal').on('show.bs.modal', function(event) {
+                          var button = $(event.relatedTarget);
+                          var internId = button.data('id');
+                          
+                          // Make an AJAX request to retrieve intern information
+                          $.ajax({
+                              url: '../inc/ajaxModal2.php',
+                              type: 'GET',
+                              data: {
+                                  internId: internId
+                              },
+                              success: function(response) {
+                                  // Display the retrieved intern information in the modal body
+                                  $('#exampleModal .modal-body').html(response);
+                              },
+                              error: function(xhr, status, error) {
+                                  // Handle error
+                              }
+                          });
+                      });
+                    });
+              </script>
   </head>
 <body>
 

@@ -49,7 +49,7 @@ if(!isset($_SESSION['Role']))
 
 <head>
     <meta charset="UTF-8" />
-    <title>inscriptions</title>
+    <title>Inscriptions</title>
     <link rel="stylesheet" href="./assets/style.css" />
     <!-- Boxicons CDN Link -->
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
@@ -62,7 +62,11 @@ if(!isset($_SESSION['Role']))
         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
         crossorigin="anonymous"></script>
 
-        <script src="./scripts/jquery-3.6.3.min.js"></script>
+    <!-- incos page link -->
+    <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
+
+    <script src="./scripts/jquery-3.6.3.min.js"></script>
+    
     <script>
         $(document).ready(function() {
             //ajax modla 
