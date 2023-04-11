@@ -65,6 +65,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   <!-- awesome file link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
+  <!-- incos page link -->
+  <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
+  
   <script src="./scripts/jquery-3.6.3.min.js"></script>
   <script>
     $(document).ready(function() {

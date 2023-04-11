@@ -29,7 +29,7 @@ if(!isset($_SESSION['Role']))
 <html lang="en" dir="ltr">
   <head>
     <meta charset="UTF-8">
-    <title> Acceuil </title>
+    <title> Modifier Informations </title>
     <link rel="stylesheet" href="./assets/style.css">
     <!-- Boxicons CDN Link -->
     <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
@@ -41,6 +41,8 @@ if(!isset($_SESSION['Role']))
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   <!-- incos page link -->
+   <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
 
    </head>
 <body>
@@ -87,13 +89,19 @@ if(!isset($_SESSION['Role']))
       </a>
       <span class="tooltip">Gestion Des Images</span>
     </li>
-    <li>
-      <a href="gererComptes.php">
-        <i class='bx bx-user'></i>
-        <span class="links_name">Gestion Des Comptes</span>
-      </a>
-      <span class="tooltip">Gestion Des Comptes</span>
-    </li>
+    <?php 
+        if( $_SESSION['Role'] == 'SuperAdmin')
+          {
+            echo '
+            <li>
+            <a href="gererComptes.php">
+              <i class="bx bx-user"></i>
+              <span class="links_name">Gestion Des Comptes</span>
+            </a>
+            <span class="tooltip">Gestion Des Comptes</span>
+          </li>';
+          }
+      ?>
     <li>
       <a href="modifierProfile.php">
         <i class='bx bx-cog'></i>
