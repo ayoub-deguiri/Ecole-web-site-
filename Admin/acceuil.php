@@ -28,7 +28,7 @@ if(!isset($_SESSION['Role']))
                 $dateMYY = '';
 
 
-
+    $etat =false;
                 if($_SERVER['REQUEST_METHOD'] == "POST" )
                       {   
                             if(isset($_POST["FilterType"])){
@@ -58,12 +58,8 @@ if(!isset($_SESSION['Role']))
                                   $pdo_statement = $pdo_conn->prepare("UPDATE inscription SET Type = 'Accepter' WHERE `inscription`.`Id` = ?");
                                   $pdo_statement -> bindParam(1,$_POST['btn1']);
                                   $pdo_statement->execute();
-                                  echo "<script>
-                                  beautyToast.success({
-                                    title: 'Success', // Set the title of beautyToast
-                                    message: 'Success Message' // Set the message of beautyToast
-                                  });
-                                  </script>";
+                                  $etat =true ;
+                                  
                               }
                               if(isset($_POST["btn2"])){
                                 $pdo_statement = $pdo_conn->prepare("DELETE FROM `inscription` WHERE `inscription`.`Id` = ?");
@@ -344,6 +340,20 @@ if(!isset($_SESSION['Role']))
   <script src="./assets/script.js"></script>
 <!-- TOAST LINK-->
 <script src="../toast/beautyToast.js"></script>
+<?php
+
+                if($etat ==true){
+          
+          echo "<script>
+          beautyToast.success({
+            title: 'Success', 
+            message: 'Success Message' 
+          });
+          </script>";
+        
+
+                }
+?>
 </body>
 
 </html>

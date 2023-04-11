@@ -22,6 +22,11 @@
     padding: 0;
 }
 
+button{
+    background-color: transparent;
+    border: none;
+}
+
 .beautyToast-dark{
     --beautyToast-bg-color: #464646;
     --beautyToast-text-color: #D7D7D7;
@@ -45,8 +50,8 @@
     display: flex;
     align-items: flex-end;
     flex-direction: column;
-    top: 10px;
-    right: 45%;
+    top: 40px;
+    right: 42%;
     margin-left: 15px;
     gap: 10px;
     z-index: 100;
