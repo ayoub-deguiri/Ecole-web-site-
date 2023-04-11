@@ -180,13 +180,19 @@
                 </a>
                 <span class="tooltip">Gestion Des Images</span>
             </li>
+            <?php 
+        if( $_SESSION['Role'] == 'SuperAdmin')
+          {
+            echo '
             <li>
-                <a href="gererComptes.php">
-                    <i class='bx bx-user'></i>
-                    <span class="links_name">Gestion Des Comptes</span>
-                </a>
-                <span class="tooltip">Gestion Des Comptes</span>
-            </li>
+            <a href="gererComptes.php">
+              <i class="bx bx-user"></i>
+              <span class="links_name">Gestion Des Comptes</span>
+            </a>
+            <span class="tooltip">Gestion Des Comptes</span>
+          </li>';
+          }
+      ?>
             <li>
                 <a href="modifierProfile.php">
                     <i class='bx bx-cog'></i>

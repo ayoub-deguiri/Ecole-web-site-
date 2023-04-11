@@ -111,34 +111,6 @@ if(!isset($_SESSION['Role']))
               <!-- jq Link -->
               <script src="./scripts/jquery-3.6.3.min.js"></script>
 
-<<<<<<< HEAD
-              <!-- ajaaaax Link -->
-              <script>
-                  $(document).ready(function() {
-                      //ajax modla 
-                      $('#exampleModal').on('show.bs.modal', function(event) {
-                          var button = $(event.relatedTarget);
-                          var internId = button.data('id');
-                          
-                          // Make an AJAX request to retrieve intern information
-                          $.ajax({
-                              url: '../inc/ajaxModal2.php',
-                              type: 'GET',
-                              data: {
-                                  internId: internId
-                              },
-                              success: function(response) {
-                                  // Display the retrieved intern information in the modal body
-                                  $('#exampleModal .modal-body').html(response);
-                              },
-                              error: function(xhr, status, error) {
-                                  // Handle error
-                              }
-                          });
-                      });
-                    });
-              </script>
-=======
               <!-- toast links -->
               <link rel="stylesheet" href="../toast/beautyToast.css">
     <script>
@@ -167,7 +139,6 @@ if(!isset($_SESSION['Role']))
           });
             // ajax deleting formation
         </script>
->>>>>>> e41398e67f07a42ff204eeb7748da0b813290824
   </head>
 <body>
 
@@ -214,13 +185,19 @@ if(!isset($_SESSION['Role']))
         </a>
         <span class="tooltip">Gestion Des Images</span>
       </li>
-      <li>
-        <a href="gererComptes.php">
-          <i class='bx bx-user'></i>
-          <span class="links_name">Gestion Des Comptes</span>
-        </a>
-        <span class="tooltip">Gestion Des Comptes</span>
-      </li>
+      <?php 
+        if( $_SESSION['Role'] == 'SuperAdmin')
+          {
+            echo '
+            <li>
+            <a href="gererComptes.php">
+              <i class="bx bx-user"></i>
+              <span class="links_name">Gestion Des Comptes</span>
+            </a>
+            <span class="tooltip">Gestion Des Comptes</span>
+          </li>';
+          }
+      ?>
       <li>
         <a href="modifierProfile.php">
           <i class='bx bx-cog'></i>

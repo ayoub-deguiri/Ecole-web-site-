@@ -152,7 +152,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
+<!-- incos page link -->
+<link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
    </head>
 <body>
  <!-- start  slide bar-->
@@ -164,49 +165,55 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
   </div>
   <ul class="nav-list">
     <li >
-      <a href="acceuil.html">
+      <a href="acceuil.php">
         <i class='bx bx-home'></i>
         <span class="links_name">Acceuil</span>
       </a>
       <span class="tooltip">Acceuil</span>
     </li>
     <li>
-      <a href="inscription.html">
+      <a href="inscription.php">
         <i class='bx bx-book-bookmark'></i>
         <span class="links_name">Inscriptions</span>
       </a>
       <span class="tooltip">Inscriptions</span>
     </li>
     <li>
-      <a href="formation.html">
+      <a href="formation.php">
         <i class='bx bx-chat'></i>
         <span class="links_name">Formations</span>
       </a>
       <span class="tooltip">Formations</span>
     </li>
     <li>
-      <a href="modifierNombres.html">
+      <a href="modifierNombres.php">
         <i class='bx bx-pie-chart-alt-2'></i>
         <span class="links_name">Modifier Nombres</span>
       </a>
       <span class="tooltip">Modifier Nombres</span>
     </li>
     <li class="NavSelect">
-      <a href="gererimages.html">
+      <a href="gererimages.php">
         <i class='bx bx-images'></i>
         <span class="links_name">Gestion Des Images</span>
       </a>
       <span class="tooltip">Gestion Des Images</span>
     </li>
+    <?php 
+        if( $_SESSION['Role'] == 'SuperAdmin')
+          {
+            echo '
+            <li>
+            <a href="gererComptes.php">
+              <i class="bx bx-user"></i>
+              <span class="links_name">Gestion Des Comptes</span>
+            </a>
+            <span class="tooltip">Gestion Des Comptes</span>
+          </li>';
+          }
+      ?>
     <li>
-      <a href="gererComptes.html">
-        <i class='bx bx-user'></i>
-        <span class="links_name">Gestion Des Comptes</span>
-      </a>
-      <span class="tooltip">Gestion Des Comptes</span>
-    </li>
-    <li>
-      <a href="modifierProfile.html">
+      <a href="modifierProfile.php">
         <i class='bx bx-cog'></i>
         <span class="links_name">Modifier Profile</span>
       </a>
