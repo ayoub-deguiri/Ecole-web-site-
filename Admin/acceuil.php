@@ -372,8 +372,12 @@ if(!isset($_SESSION['Role']))
             message: 'Success Message' 
           });
           </script>";
-        
-
+          echo '<script>
+          function greet() {
+            window.location="acceuil.php"
+           }
+           setTimeout(greet, 1500); </script>';
+          $etat = false;
                 }
 ?>
 </body>
