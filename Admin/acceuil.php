@@ -366,15 +366,15 @@ if(!isset($_SESSION['Role']))
 
                 if($etat ==true){
           
-          echo "<script>
-          beautyToast.success({
-            title: 'Success', 
-            message: 'Success Message' 
-          });
-          </script>";
-        
-
+                    echo "<script>
+                    beautyToast.success({
+                      title: 'Success', 
+                      message: 'Success Message' 
+                    });
+                    </script>";
                 }
+                $etat = false;
+
 ?>
 </body>
 
