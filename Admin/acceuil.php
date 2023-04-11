@@ -66,7 +66,12 @@ if(!isset($_SESSION['Role']))
                                   $pdo_statement = $pdo_conn->prepare("UPDATE inscription SET Type = 'Accepter' WHERE `inscription`.`Id` = ?");
                                   $pdo_statement -> bindParam(1,$_POST['btn1']);
                                   $pdo_statement->execute();
-                                header("location:acceuil.php");
+                                  echo "<script>
+                                  beautyToast.success({
+                                    title: 'Success', // Set the title of beautyToast
+                                    message: 'Success Message' // Set the message of beautyToast
+                                  });
+                                  </script>";
                               }
                                               // delete inscripiton
                               if(isset($_POST["btn2"])){
@@ -106,6 +111,7 @@ if(!isset($_SESSION['Role']))
               <!-- jq Link -->
               <script src="./scripts/jquery-3.6.3.min.js"></script>
 
+<<<<<<< HEAD
               <!-- ajaaaax Link -->
               <script>
                   $(document).ready(function() {
@@ -132,6 +138,36 @@ if(!isset($_SESSION['Role']))
                       });
                     });
               </script>
+=======
+              <!-- toast links -->
+              <link rel="stylesheet" href="../toast/beautyToast.css">
+    <script>
+        $(document).ready(function() {
+            //ajax modla 
+            $('#exampleModal').on('show.bs.modal', function(event) {
+                var button = $(event.relatedTarget);
+                var internId = button.data('id');
+                
+                // Make an AJAX request to retrieve intern information
+                $.ajax({
+                    url: '../inc/ajaxModal2.php',
+                    type: 'GET',
+                    data: {
+                        internId: internId
+                    },
+                    success: function(response) {
+                        // Display the retrieved intern information in the modal body
+                        $('#exampleModal .modal-body').html(response);
+                    },
+                    error: function(xhr, status, error) {
+                        // Handle error
+                    }
+                });
+            });
+          });
+            // ajax deleting formation
+        </script>
+>>>>>>> e41398e67f07a42ff204eeb7748da0b813290824
   </head>
 <body>
 
@@ -351,7 +387,8 @@ if(!isset($_SESSION['Role']))
   </div>
 
   <script src="./assets/script.js"></script>
-
+<!-- TOAST LINK-->
+<script src="../toast/beautyToast.js"></script>
 </body>
 
 </html>
