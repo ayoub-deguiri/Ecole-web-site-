@@ -366,6 +366,7 @@ if(!isset($_SESSION['Role']))
 
                 if($etat ==true){
           
+<<<<<<< HEAD
           echo "<script>
           beautyToast.success({
             title: 'Success', 
@@ -378,7 +379,17 @@ if(!isset($_SESSION['Role']))
            }
            setTimeout(greet, 1500); </script>';
           $etat = false;
+=======
+                    echo "<script>
+                    beautyToast.success({
+                      title: 'Success', 
+                      message: 'Success Message' 
+                    });
+                    </script>";
+>>>>>>> d95f09da31deed19c13cf722918f5664c20d0e7e
                 }
+                $etat = false;
+
 ?>
 </body>
 
