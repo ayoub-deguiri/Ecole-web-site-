@@ -1,52 +1,55 @@
 <?php
-        session_start();
-        if (!isset($_SESSION['Role'])||$_SESSION['Role'] =='SuperAdmin')  {
-            header("location:../login.php");
-        }
+session_start();
+if (!isset($_SESSION['Role']) ) {
+
+  header("location:../login.php");
+}
+if( $_SESSION['Role'] !== 'SuperAdmin')
+{
+  header("location:../login.php");
+}
 ?>
 <?php
-        include('../db/db.php');
-        $pdo_statement = $pdo_conn->prepare("SELECT * FROM compte");
-        $pdo_statement->execute();
-        $mesComptes = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
-        if($_SERVER['REQUEST_METHOD'] == "POST" )
-        { 
+include('../db/db.php');
+$encryption_key = bin2hex(random_bytes(20));
+$pdo_statement = $pdo_conn->prepare("SELECT * FROM compte");
+$pdo_statement->execute();
+$mesComptes = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
-            if (isset($_POST['modifier'])) {
-                $Sql = " UPDATE compte
+  if (isset($_POST['modifier'])) {
+    $Sql = " UPDATE compte
                                     SET Nom = ? ,Prenom = ? ,Email = ? ,UserName = ? ,Password = ? 
                                     WHERE Id = ? ";
-                $pdo_statement =  $pdo_conn->prepare($Sql);
-                $pdo_statement->bindParam(1, $_POST['nom']);
-                $pdo_statement->bindParam(2, $_POST['prenom']);
-                $pdo_statement->bindParam(3, $_POST['email']);
-                $pdo_statement->bindParam(4, $_POST['username']);
-                $pdo_statement->bindParam(5, $_POST['password']);
-                $pdo_statement->bindParam(6, $_POST['id']);
-                
-                // var_dump($idcompte);
-                $pdo_statement->execute();
-                header("location:gererComptes.php");
-            }
-            if(isset($_POST['ajoute']))
-            {
-              $sql ='INSERT INTO `compte` (`Nom`, `Prenom`, `Email`, `UserName`, `Password`) VALUES ( ?,?, ?,?,?)';
-              $pdo_statement =  $pdo_conn->prepare($sql);
-              $pdo_statement->bindParam(1, $_POST['nom']);
-              $pdo_statement->bindParam(2, $_POST['prenom']);
-              $pdo_statement->bindParam(3, $_POST['email']);
-              $pdo_statement->bindParam(4, $_POST['username']);
-              $pdo_statement->bindParam(5, $_POST['password']);
-              $pdo_statement->execute();
-              header("location:gererComptes.php");
-            }
-        }
+    $pdo_statement =  $pdo_conn->prepare($Sql);
+    $pdo_statement->bindParam(1, $_POST['nom']);
+    $pdo_statement->bindParam(2, $_POST['prenom']);
+    $pdo_statement->bindParam(3, $_POST['email']);
+    $pdo_statement->bindParam(4, $_POST['username']);
+    $pdo_statement->bindParam(5, $_POST['password']);
+    $pdo_statement->bindParam(6, $_POST['id']);
 
+    // var_dump($idcompte);
+    $pdo_statement->execute();
+    header("location:gererComptes.php");
+  }
+  if (isset($_POST['ajoute'])) {
+     // Display the results
+    
+    $sql = 'INSERT INTO `compte` (`Nom`, `Prenom`, `Email`, `UserName`, `Password`) VALUES ( ?,?, ?,?,?)';
+    $pdo_statement =  $pdo_conn->prepare($sql);
+    $pdo_statement->bindParam(1, $_POST['nom']);
+    $pdo_statement->bindParam(2, $_POST['prenom']);
+    $pdo_statement->bindParam(3, $_POST['email']);
+    $pdo_statement->bindParam(4, $_POST['username']);
+    $pdo_statement->bindParam(5,  $_POST['password']);
+    $pdo_statement->execute();
+    header("location:gererComptes.php");
+  }
+}
 ?>
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-
 <head>
   <meta charset="UTF-8">
   <title> Gerer Les Comptes </title>
@@ -56,40 +59,71 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Rubik">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Headland One">
-
   <!-- bootstrap file link  -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
   <!-- awesome file link  -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
   <script src="./scripts/jquery-3.6.3.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            //ajax modla 
-            $('#staticBackdrop').on('show.bs.modal', function(event) {
-                var button = $(event.relatedTarget);
-                var internId = button.data('id');
-                
-                // Make an AJAX request to retrieve intern information
-                $.ajax({
-                    url: '../inc/modalCompte.php',
-                    type: 'GET',
-                    data: {
-                        internId: internId
-                    },
-                    success: function(response) {
-                        // Display the retrieved intern information in the modal body
-                        $('#staticBackdrop .modal-body').html(response);
-                    },
-                    error: function(xhr, status, error) {
-                        // Handle error
-                    }
+  <script>
+    $(document).ready(function() {
+      //ajax modla 
+      $('#staticBackdrop').on('show.bs.modal', function(event) {
+          var button = $(event.relatedTarget);
+          var internId = button.data('id');
+
+          // Make an AJAX request to retrieve intern information
+          $.ajax({
+            url: '../inc/modalCompte.php',
+            type: 'GET',
+            data: {
+              internId: internId
+            },
+            success: function(response) {
+              // Display the retrieved intern information in the modal body
+              $('#staticBackdrop .modal-body').html(response);
+            },
+            error: function(xhr, status, error) {
+              // Handle error
+            }
+          });
+      });
+                // ajax deleting formation
+            // Add a click event listener to the delete button
+            $('.delete-intern').on('click', function() {
+                // Get the ID of the intern to delete from the data-id attribute
+                var internId = $(this).data('id');
+                // Show the confirmation dialog to the user
+                $('#confirmation-dialog').show();
+                // Add click event listeners to the confirmation buttons
+                $('.confirm-yes').on('click', function() {
+                    
+                    // If the user confirms the deletion, make an AJAX request to delete the intern
+                    $.ajax({
+                        url: '../inc/deleteCompte.php',
+                        type: 'GET',
+                        data: {
+                            internId: internId
+                        },
+                        success: function(response) {
+                            // Handle success
+                            window.location.reload();
+                        },
+                        error: function(xhr, status, error) {
+                            // Handle error
+                        }
+                    });
+                    // Hide the confirmation dialog
+                    $('#confirmation-dialog').hide();
+                });
+                $('.confirm-no').on('click', function() {
+                    // If the user cancels the deletion, hide the confirmation dialog
+                    $('#confirmation-dialog').hide();
                 });
             });
-          });
-          </script>
+    });
+  </script>
 </head>
 
 <body>
@@ -159,8 +193,8 @@
           </div>
         </div>
         <a href="seDeconnecter.php">
-                <i class='bx bx-log-out' id="log_out"></i>
-                </a>
+          <i class='bx bx-log-out' id="log_out"></i>
+        </a>
       </li>
     </ul>
   </div>
@@ -168,7 +202,7 @@
   <!-- end slide bar-->
   <!-- start home section-->
   <section class="home-section">
-  <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
+    <div class="text">Espace <?php echo $_SESSION["Role"] . " : Bonjour " . $_SESSION['Nom'] . ' ' . $_SESSION['Prenom']; ?> </div>
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10 chit-chat-layer1-rit ourmarg ">
@@ -183,7 +217,7 @@
                   <th>#</th>
                   <th>Nom </th>
                   <th>Prenom </th>
-                  
+
                   <th>Email</th>
                   <th>Nom d'utilisateur</th>
                   <th>Mot De Passe</th>
@@ -192,62 +226,57 @@
                 </tr>
               </thead>
               <tbody>
-                <?php 
-                $id =1;
-                foreach($mesComptes as $row)
-                {
-
-                
-                ?>
-                <tr>
-                  <td><?= $id?></td>
-                  <td><?= $row['Nom'] ?></td>
-                  <td><?= $row['Prenom'] ?></td>
-                  <td><?= $row['Email'] ?></td>
-                  <td><?= $row['UserName'] ?></td>
-                  <td><?= $row['Password'] ?></td>
-                  <?php 
-                    if($row['Role'] == 'SuperAdmin'){
-
-                    
-                  ?>
-                  <td><span class="label label-danger">Super Admin</span></td>
-                  <?php 
-                    }
-                    else{ 
-                  ?>
-                  <td><span class="label label-primary">Admin</span></td>
-                  <?php 
-                    }
-                  ?>
-                  <?php 
-                    if($row['Role'] == 'SuperAdmin'){
-
-                    
-                  ?>
-                  <td>
-                    <button class="btn01" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="<?= $row['Id']?>"> <i class='fa-solid fa-user-pen' style='color:black;font-size:32px'></i></button>
-                  </td>
-                  <td>
-                  
-                  </td>
-                  <?php 
-                    }
-                    else{ 
-                  ?>
-                  <td>
-                    <button class="btn01" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="<?= $row['Id']?>"> <i class='fa-solid fa-user-pen' style='color:black;font-size:32px'></i></button>
-                  </td>
-                  <td>
-                    <button class="btn02"> <i class="fa-solid fa-trash-can" style='color:black;font-size:32px '></i></button>
-                  </td>
-                  <?php 
-                    }
-                  ?>
-                  
-                </tr>
                 <?php
-                $id =$id +1;
+                $id = 1;
+                foreach ($mesComptes as $row) {
+                ?>
+                  <tr>
+                    <td><?= $id ?></td>
+                    <td><?= $row['Nom'] ?></td>
+                    <td><?= $row['Prenom'] ?></td>
+                    <td><?= $row['Email'] ?></td>
+                    <td><?= $row['UserName'] ?></td>
+                    <td><?=
+                    $row['Password']
+                   
+                    
+                    ?>
+                    </td>
+                    <?php
+                    if ($row['Role'] == 'SuperAdmin') {
+                    ?>
+                      <td><span class="label label-danger">Super Admin</span></td>
+                    <?php
+                    } else {
+                    ?>
+                      <td><span class="label label-primary">Admin</span></td>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if ($row['Role'] == 'SuperAdmin') {
+                    ?>
+                      <td>
+                        <button class="btn01" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="<?= $row['Id'] ?>"> <i class='fa-solid fa-user-pen' style='color:black;font-size:32px'></i></button>
+                      </td>
+                      <td>
+                      </td>
+                    <?php
+                    } else {
+                    ?>
+                      <td>
+                        <button class="btn01" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="<?= $row['Id'] ?>"> <i class='fa-solid fa-user-pen' style='color:black;font-size:32px'></i></button>
+                      </td>
+                      <td>
+                        <button class="btn02 delete-intern" name="delete"   data-id="<?= $row['Id']; ?>"> <i class="fa-solid fa-trash-can" style='color:black;font-size:32px '></i></button>
+                      </td>
+                    <?php
+                    }
+                    ?>
+
+                  </tr>
+                <?php
+                  $id = $id + 1;
                 }
 
                 ?>
@@ -262,75 +291,81 @@
   <!-- end  home section-->
   <!-- start modal de modifier -->
   <div class="modal fade" id="staticBackdrop" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">
-                      details de compte
-                  </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <form action="" method="post">
-              <div class="modal-body">
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-info" data-bs-dismiss="modal">
-                    retour
-                  </button>
-                  <button type="submit" class="btn btn-primary" name="modifier">modifier</button>
-              </div>
-              </form>
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            details de compte
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body">
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-info" data-bs-dismiss="modal">
+              retour
+            </button>
+            <button type="submit" class="btn btn-primary" name="modifier">modifier</button>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
 
   <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-          <div class="modal-content">
-              <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalLabel">
-                      Ajoute un Compte
-                  </h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <form action="" method="post">
-              <div class="modal-body">
-                <table class="table table-hover">
-                  <tbody>
-                    <tr>
-                      <th>Nom</th>
-                      <td><input type="text" name="nom" placeholder="nom"></td>
-                    </tr>
-                    <tr>
-                      <th>Prenom</th>
-                      <td><input type="text" name="prenom" placeholder="prenom"></td>
-                    </tr>
-                    <tr>
-                      <th>Email</th>
-                      <td><input type="text" name="email" placeholder="email"></td>
-                    </tr>
-                    <tr>
-                      <th>Nom d' utilisateur</th>
-                      <td><input type="text" name="username" placeholder="nom d'utilisateur"></td>
-                    </tr>
-                    <tr>
-                      <th>mot de passe</th>
-                      <td><input type="text" name="password" placeholder="mot de passe"></td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-              <div class="modal-footer">
-                  <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                    retour
-                  </button>
-                  <button type="submit" class="btn btn-primary" name="ajoute">Ajoute</button>
-              </div>
-              </form>
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">
+            Ajoute un Compte
+          </h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+          <div class="modal-body">
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <th>Nom</th>
+                  <td><input type="text" name="nom" placeholder="nom"></td>
+                </tr>
+                <tr>
+                  <th>Prenom</th>
+                  <td><input type="text" name="prenom" placeholder="prenom"></td>
+                </tr>
+                <tr>
+                  <th>Email</th>
+                  <td><input type="text" name="email" placeholder="email"></td>
+                </tr>
+                <tr>
+                  <th>Nom d' utilisateur</th>
+                  <td><input type="text" name="username" placeholder="nom d'utilisateur"></td>
+                </tr>
+                <tr>
+                  <th>mot de passe</th>
+                  <td><input type="text" name="password" placeholder="mot de passe"></td>
+                </tr>
+              </tbody>
+            </table>
           </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+              retour
+            </button>
+            <button type="submit" class="btn btn-primary" name="ajoute">Ajoute</button>
+          </div>
+        </form>
       </div>
+    </div>
   </div>
   <!-- end  modal box  -->
+    <!-- Confirmation dialog box -->
+    <div id="confirmation-dialog">
+        <p>Voulez-vous vraiment supprimer ce Compte !</p>
+        <button class="btn btn-primary confirm-yes">oui</button>
+        <button class="btn btn-secondary confirm-no">No</button>
+    </div>
   <script src="./assets/script.js"></script>
 
 </body>

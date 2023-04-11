@@ -43,7 +43,27 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./assets/css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <title>Document</title>
+    <title>login</title>
+    <style>
+        
+
+.text-center {
+    text-align: center!important;
+}
+.alert-danger {
+    color: #060606;
+    background-color: #ba5f68;
+    border-color: #f5c6cb;
+}
+
+.alert {
+    position: relative;
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+}
+    </style>
 </head>
 <body>
     <div class="container">
@@ -51,7 +71,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
         <div class="card">
             <a class="login">Login </a>
             <div class="inputBox">
-                <input type="text" required="required" name="UserName" autocomplete="off">
+                <input type="text" required="required" name="UserName" autocomplete="">
                 <span class="user">Username</span>
                 <i class="fa-solid fa-user"></i>
             </div>
@@ -64,11 +84,17 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                 <i class="fa-solid fa-eye-slash" id="togglePassword"></i>
                 
             </div>
-            <a href="forgot-password.php" id="forgot-ps"> forgot password ?</a>
+            <a href="./password-forgot/forgot-password.php" id="forgot-ps"> Mot de passe oublié ?</a>
             <input type="submit" value="login" name="seConnecter" class="enter">
             <?php
-            echo $erreur;
-            
+                if(!empty($erreur))
+                {
+            ?>
+            <div class="alert alert-danger text-center">
+                    <?=  $erreur?>
+            </div>
+            <?php
+                }
             ?>
 
         </div>

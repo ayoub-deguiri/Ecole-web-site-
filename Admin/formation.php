@@ -37,6 +37,16 @@
                   $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
                 }
               }
+            if(isset($_POST['ajoute']))
+            {
+                $Sql = " INSERT into formation values(null,?,?)";
+                $pdo_statement =  $pdo_conn->prepare($Sql);
+                $pdo_statement->bindParam(1, $_POST['nom']);
+                $pdo_statement->bindParam(2, $_POST['type']);
+                // var_dump($idcompte);
+                $pdo_statement->execute();
+                header('location:formation.php');
+            }
         }
 ?>
 <!DOCTYPE html>
@@ -205,17 +215,19 @@
                     <div class="filtrage">
                         <div class="select">
                         
-                    <label for="select"> Type Formation</label>
-                    <form action="" class="form-test" method="post">
-                      <select name="FilterType"  onchange="this.form.submit()" class="form-select form-select-sm" aria-label=".form-select-lg example">
-                          <option value="" disabled selected>Open this select menu</option>
-                          <option value="tous">All</option>
-                          <option value="Diplome">Diplome</option>
-                          <option value="Formation">Formation</option>
-                          <option value="FEDE">FEDE</option>
-                      </select>
-                      </form>
+                            <label for="select"> Type Formation</label>
+                            <form action="" class="form-test" method="post">
+                            <select name="FilterType"  onchange="this.form.submit()" class="form-select form-select-sm" aria-label=".form-select-lg example">
+                                <option value="" disabled selected>Open this select menu</option>
+                                <option value="tous">All</option>
+                                <option value="Diplome">Diplome</option>
+                                <option value="Formation">Formation</option>
+                                <option value="FEDE">FEDE</option>
+                            </select>
+                            </form>
                         </div>
+                        <button type="button" class="btn btn-secondary" style="margin-left: 21em;" data-bs-toggle="modal" data-bs-target="#mymodal">
+                        Ajouter <i class="fa-solid fa-user-plus" style="color: #ffffff; margin-left: 7px;"></i> </button>
                     </div>
                     <div class="table-responsive">
                         <table class="table table-hover">
@@ -282,8 +294,50 @@
             </div>
         </div>
     </div>
-
-
+<!-- start modal add formation -->
+    <div class="modal fade" id="mymodal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+            Ajoute Nouveau formation 
+            </h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form action="" method="post">
+            <div class="modal-body">
+            <table class="table table-hover">
+              <tbody>
+                <tr>
+                  <th>Nom de formation </th>
+                  <td><input type="text" name="nom"  required style=" padding:3px;"></td>
+                </tr>
+                <tr>
+                  <th>Type de formation </th>
+                  <td>
+                  <select name="type"  class="form-select form-select-sm" aria-label=".form-select-lg example" required>
+                                <option value="" disabled selected>Open this select menu</option>
+                                <option value="Diplome">Diplome</option>
+                                <option value="Formation">Formation</option>
+                                <option value="FEDE">FEDE</option>
+                            </select>
+                  </td>
+                </tr>
+                
+              </tbody>
+            </table>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+              retour
+            </button>
+            <button type="submit" class="btn btn-primary" name="ajoute">Ajoute</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- end  modal box  -->
     <!-- Confirmation dialog box -->
     <div id="confirmation-dialog">
         <p>Voulez-vous vraiment supprimer ce formation?</p>
