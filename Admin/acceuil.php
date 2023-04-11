@@ -8,7 +8,7 @@ if(!isset($_SESSION['Role']))
 ?>
 <?php 
                 include('../db/db.php');
-                $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'jjjjjj' order by DateInscription DESC");
+                $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'encoure' order by DateInscription DESC");
                 $pdo_statement->execute();
                 $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
                 $DefaultRes = $result;
@@ -39,7 +39,7 @@ if(!isset($_SESSION['Role']))
                                   }
                                 else
                                 {
-                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'jjjjjj' and TypeFormation = ? order by DateInscription DESC");
+                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and TypeFormation = ? order by DateInscription DESC");
                                   $pdo_statement -> bindParam(1,$_POST['FilterType']);
                                   $pdo_statement->execute();
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -48,7 +48,7 @@ if(!isset($_SESSION['Role']))
                                 
                               }
                             if(isset($_POST["FilterDate"])){
-                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'jjjjjj' and DateInscription = ?");
+                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and DateInscription = ?");
                                   $pdo_statement -> bindParam(1,$_POST['FilterDate']);
                                   $pdo_statement->execute();
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -58,7 +58,12 @@ if(!isset($_SESSION['Role']))
                                   $pdo_statement = $pdo_conn->prepare("UPDATE inscription SET Type = 'Accepter' WHERE `inscription`.`Id` = ?");
                                   $pdo_statement -> bindParam(1,$_POST['btn1']);
                                   $pdo_statement->execute();
-                                header("location:acceuil.php");
+                                  echo "<script>
+                                  beautyToast.success({
+                                    title: 'Success', // Set the title of beautyToast
+                                    message: 'Success Message' // Set the message of beautyToast
+                                  });
+                                  </script>";
                               }
                               if(isset($_POST["btn2"])){
                                 $pdo_statement = $pdo_conn->prepare("DELETE FROM `inscription` WHERE `inscription`.`Id` = ?");
@@ -74,6 +79,7 @@ if(!isset($_SESSION['Role']))
             <meta charset="UTF-8">
             <title> Inscription </title>
             <link rel="stylesheet" href="./assets/style.css">
+
             <!-- Boxicons CDN Link -->
             <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -88,6 +94,9 @@ if(!isset($_SESSION['Role']))
 
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
               <script src="./scripts/jquery-3.6.3.min.js"></script>
+
+              <!-- toast links -->
+              <link rel="stylesheet" href="../toast/beautyToast.css">
     <script>
         $(document).ready(function() {
             //ajax modla 
@@ -333,7 +342,8 @@ if(!isset($_SESSION['Role']))
   </div>
 
   <script src="./assets/script.js"></script>
-
+<!-- TOAST LINK-->
+<script src="../toast/beautyToast.js"></script>
 </body>
 
 </html>
