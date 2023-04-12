@@ -12,11 +12,15 @@ if( $_SESSION['Role'] !== 'SuperAdmin')
 <?php
 
 include('../db/db.php');
+<<<<<<< HEAD
 $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
 $pdo_statement -> bindParam(1,$_SESSION['Id']);
 $pdo_statement->execute();
 $resultPrf = $pdo_statement->fetch();
 
+=======
+$etat = $etat1  = false;
+>>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
 $pdo_statement = $pdo_conn->prepare("SELECT * FROM compte");
 $pdo_statement->execute();
 $mesComptes = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -37,7 +41,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     // var_dump($idcompte);
     $pdo_statement->execute();
-    header("location:gererComptes.php");
+    $etat =true;
   }
   if (isset($_POST['ajoute'])) {
      // Display the results
@@ -50,7 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     $pdo_statement->bindParam(4, $_POST['username']);
     $pdo_statement->bindParam(5,  $_POST['password']);
     $pdo_statement->execute();
-    header("location:gererComptes.php");
+    $etat1 =true;
+    
   }
 }
 ?>
@@ -73,7 +78,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
   <!-- incos page link -->
   <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
-  
+  <!-- toast links -->
+  <link rel="stylesheet" href="../toast/beautyToast.css">
   <script src="./scripts/jquery-3.6.3.min.js"></script>
   <script>
     $(document).ready(function() {
@@ -117,8 +123,16 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                         },
                         success: function(response) {
                             // Handle success
-                            window.location.reload();
-                        },
+                            beautyToast.success({
+                                title: 'Success', 
+                                message: 'compte bien supprimer ' 
+                                });
+                              
+                            function greet() {
+                                window.location="gererComptes.php"
+                              }
+                            setTimeout(greet, 1000); 
+                                          },
                         error: function(xhr, status, error) {
                             // Handle error
                         }
@@ -226,7 +240,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                   <th>#</th>
                   <th>Nom </th>
                   <th>Prenom </th>
-
                   <th>Email</th>
                   <th>Nom d'utilisateur</th>
                   <th>Mot De Passe</th>
@@ -247,7 +260,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <td><?= $row['UserName'] ?></td>
                     <td><?=
                     $row['Password']
-                   
                     
                     ?>
                     </td>
@@ -376,6 +388,40 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <button class="btn btn-secondary confirm-no">No</button>
     </div>
   <script src="./assets/script.js"></script>
+  <script src="../toast/beautyToast.js"></script>
+    <?php
+
+    if ($etat ==true ) {
+
+        echo "<script>
+            beautyToast.success({
+            title: 'Success', 
+            message: 'compte bien modifier ' 
+            });
+            </script>";
+            echo '<script>
+            function greet() {
+            window.location="gererComptes.php"
+            }
+            setTimeout(greet, 1000); </script>';
+            $etat = false;
+    }
+    if ($etat1 ==true ) {
+
+        echo "<script>
+            beautyToast.success({
+            title: 'Success', 
+            message: 'compte bien ajoute ' 
+            });
+            </script>";
+            echo '<script>
+            function greet() {
+            window.location="gererComptes.php"
+            }
+            setTimeout(greet, 1000); </script>';
+            $etat1 = false;
+    }
+    ?>
 
 </body>
 

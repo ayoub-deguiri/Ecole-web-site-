@@ -62,7 +62,7 @@
   <nav class="navbar">
      
      <div id="close-navbar" class="fas fa-times"></div>
-     <a href="acceuil.php"> <i class="fas fa-home"></i> Acceuil </a>
+     <a href="index.php"> <i class="fas fa-home"></i> Acceuil </a>
          <a href="diplomes.html"><i class="fa-solid fa-certificate"></i> Diplômes</a>
          <a href="formations.html"> <i class="fa-solid fa-book"></i> Formations</a>
          <a href="albums.php"> <i class="fa-solid fa-image"></i> Albums</a>
@@ -74,7 +74,7 @@
   </div>
 </div>
 
-   <div class="container-md diplomes-ct">
+   <div class="container-md diplomes-ct albumes">
     <div class="row">
         <div class="col-md-8" >
             <div class="diplome-partie01">
@@ -99,7 +99,7 @@
         </div>
         <div class="col-md-4" >
             <div class="carousel slide" data-bs-ride="carousel"> 
-            <div id="carousel-inner2" class="carousel-inner">
+            <div id="carousel-inner22" class="carousel-inner">
                 <div class="carousel-item active">
                 <img src="./images/QOS.png" alt="gestion" class="d-block w-100">
                 </div>
@@ -321,7 +321,7 @@
                   <div class="col">
                      <div class="box lien-rapid">
                         <h3>Liens rapides</h3>
-                        <a href="acceuil.php" class="link">acceuil</a>
+                        <a href="index.php" class="link">acceuil</a>
                         <a href="diplomes.html" class="link">diplomes</a>
                         <a href="formations.html" class="link">formations</a>
                         <a href="albums.php" class="link">Albums</a>

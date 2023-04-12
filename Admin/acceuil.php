@@ -16,7 +16,7 @@ if(!isset($_SESSION['Role']))
 
 
                 // touts inscripitons
-                $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'encoure' order by DateInscription DESC");
+                $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'encoure' order by DateInscription,HeureInscription DESC");
                 $pdo_statement->execute();
                 $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
                 $DefaultRes = $result;
@@ -30,18 +30,22 @@ if(!isset($_SESSION['Role']))
 
                 // inscripitons by filter day
                 $myDay = date("Y-m-d");
-                $pdo_statement1 = $pdo_conn->prepare("SELECT COUNT(*)  FROM `inscription` as Total2 WHERE  DateInscription = ?");
+                $pdo_statement1 = $pdo_conn->prepare("SELECT COUNT(1)  FROM `inscription` as Total2 WHERE  DateInscription = ?");
                 $pdo_statement1 -> bindParam(1,$myDay);
                 $pdo_statement1->execute();
                 $CountDay = $pdo_statement1->fetchColumn();
                 $TypeFormation = '';
                 $dateMYY = '';
+<<<<<<< HEAD
 
 
                 $etat = $etat2 = false;
+=======
+                $etat =false;
+>>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
                 if($_SERVER['REQUEST_METHOD'] == "POST" )
                       {   
-                                        // inscripitons by filter type
+                            // inscripitons by filter type
                             if(isset($_POST["FilterType"])){
                                 if($_POST['FilterType'] == 'tous' )
                                   {
@@ -50,7 +54,7 @@ if(!isset($_SESSION['Role']))
                                   }
                                 else
                                 {
-                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and TypeFormation = ? order by DateInscription DESC");
+                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and TypeFormation = ? order by DateInscription,HeureInscription DESC");
                                   $pdo_statement -> bindParam(1,$_POST['FilterType']);
                                   $pdo_statement->execute();
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -60,7 +64,7 @@ if(!isset($_SESSION['Role']))
                               }
                                               // inscripitons by filter date
                             if(isset($_POST["FilterDate"])){
-                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and DateInscription = ?");
+                                  $pdo_statement = $pdo_conn->prepare("SELECT * from inscription  WHERE Type = 'encoure' and DateInscription = ? order by HeureInscription DESC");
                                   $pdo_statement -> bindParam(1,$_POST['FilterDate']);
                                   $pdo_statement->execute();
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -229,11 +233,11 @@ if(!isset($_SESSION['Role']))
       <div class="col-md-3 market-update-gd">
         <div class="market-update-block clr-block-2">
           <div class="row">
-          <div class="col-md-8 market-update-left">
+          <div class="col-md-9 market-update-left">
             <h3><?php echo $CountDay; ?></h3>
-            <h4>inscriptions quotidiens : <?php echo $myDay ?></h4>
+            <h4>inscriptions de ce jour <br> <?php echo $myDay ?></h4>
           </div>
-          <div class="col-md-4 market-update-right">
+          <div class="col-md-3 market-update-right">
             <i class="fa fa-eye"> </i>
           </div>
           <div class="clearfix"> </div>
@@ -243,11 +247,11 @@ if(!isset($_SESSION['Role']))
       <div class="col-md-3 market-update-gd">
         <div class="market-update-block clr-block-1">
           <div class="row">
-          <div class="col-md-8 market-update-left">
+          <div class="col-md-9 market-update-left">
             <h3><?php echo $CountMounth;  ?></h3>
-            <h4>inscriptions de mois : <?php echo $mydate; ?> </h4>
+            <h4>inscriptions de ce mois <br> <?php echo $mydate; ?> </h4>
           </div>
-          <div class="col-md-4 market-update-right">
+          <div class="col-md-3 market-update-right">
             <i class="fa fa-eye"> </i>
           </div>
           <div class="clearfix"> </div>
@@ -288,6 +292,7 @@ if(!isset($_SESSION['Role']))
                                 <tr>
                                     <th>#</th>
                                     <th>Date D'inscription</th>
+                                    <th>Heure D'inscription</th>
                                     <th>Nom Complet</th>
                                     <th>Telephone</th>
                                     <th>Email</th>
@@ -303,9 +308,12 @@ if(!isset($_SESSION['Role']))
                             $parID = 1;
                   foreach($result as $row)
                           {
+                           // 
+                              
                               echo '<tr>
                                           <td>' .$parID. '</td>
                                           <td>' .$row["DateInscription"]. '</td>
+                                          <td>' .$row["HeureInscription"]. '</td>
                                           <td>' .$row["NomComplete"]. '</td>
                                           <td>' .$row["Tele"]. '</td>
                                           <td>' .$row["Email"]. '</td>
