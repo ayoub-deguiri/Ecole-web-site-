@@ -74,7 +74,7 @@
   </div>
 </div>
 
-   <div class="container-md diplomes-ct">
+   <div class="container-md diplomes-ct albumes">
     <div class="row">
         <div class="col-md-8" >
             <div class="diplome-partie01">
@@ -99,7 +99,7 @@
         </div>
         <div class="col-md-4" >
             <div class="carousel slide" data-bs-ride="carousel"> 
-            <div id="carousel-inner2" class="carousel-inner">
+            <div id="carousel-inner22" class="carousel-inner">
                 <div class="carousel-item active">
                 <img src="./images/QOS.png" alt="gestion" class="d-block w-100">
                 </div>
