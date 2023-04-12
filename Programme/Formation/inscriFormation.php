@@ -257,7 +257,7 @@ echo "extensint !!! ";
    <nav class="navbar">
       
       <div id="close-navbar" class="fas fa-times"></div>
-      <a href="../../acceuil.html"> <i class="fas fa-home"></i> Acceuil </a>
+      <a href="../../index.php"> <i class="fas fa-home"></i> Acceuil </a>
       <a href="../../diplomes.html"><i class="fa-solid fa-certificate"></i> Diplômes</a>
       <a href="../../formations.html"> <i class="fa-solid fa-book"></i> Formations</a>
       <a href="../../albums.html"> <i class="fa-solid fa-image"></i> Albums</a>
@@ -408,7 +408,7 @@ echo "extensint !!! ";
                   <div class="col">
                      <div class="box lien-rapid">
                         <h3>Liens rapides</h3>
-                        <a href="../../acceuil.html" class="link">acceuil</a>
+                        <a href="../../index.php" class="link">acceuil</a>
                         <a href="../../diplomes.html" class="link">diplomes</a>
                         <a href="../../formations.html" class="link">formations</a>
                         <a href="../../albums.html" class="link">Albums</a>
