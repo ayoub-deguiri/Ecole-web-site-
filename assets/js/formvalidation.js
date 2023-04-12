@@ -186,7 +186,10 @@
     || test8==false || test9==false || test10 ==false || test11 ==false || test12 ==false)
       {
 
-      check.innerHTML ='touts les champs sont obligatoire !'
+         beautyToast.error({
+            title: 'Error', 
+            message: 'touts les champs sont obligatoire !'
+          });
       etat = false
     }
     return etat 

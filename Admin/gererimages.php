@@ -8,6 +8,11 @@ if(!isset($_SESSION['Role']))
 ?>
 <?php 
 include('../db/db.php');
+$pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
+                $pdo_statement -> bindParam(1,$_SESSION['Id']);
+                $pdo_statement->execute();
+                $resultPrf = $pdo_statement->fetch();
+                $etat = $etat2 = false;
 if($_SERVER['REQUEST_METHOD'] == "POST" )
 {  
   if(isset($_POST['submit'])){
@@ -76,7 +81,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
       }
   
     }
-    echo "File upload successfully";
+    $etat =true ;
   }
   if(isset($_POST['submit2'])){
 
@@ -131,7 +136,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
       }
   
     }
-    echo "File upload successfully";
+    $etat =true ;
   }
 }
 ?>
@@ -154,6 +159,8 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 <!-- incos page link -->
 <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
+<!-- toast links -->
+<link rel="stylesheet" href="../toast/beautyToast.css">
    </head>
 <body>
  <!-- start  slide bar-->
@@ -223,7 +230,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                 <div class="profile-details">
                     <img src="../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
-                        <div class="name"><?php echo  $_SESSION['Nom'].' '.$_SESSION['Prenom'];  ?></div>
+                        <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>
                     </div>
                 </div>
@@ -237,7 +244,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
 <!-- end slide bar-->
   <!-- start home section-->
     <section class="home-section">
-    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
+    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $resultPrf['Nom'].' '.$resultPrf['Prenom']; ?> </div>
         <div class="row">
           <div class="col-md-2"></div>
           <div class="col-md-8 chit-chat-layer1-rit">    	
@@ -331,6 +338,42 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
   <!-- end  home section-->
   <script src="./assets/script.js"></script>
   <script src="../assets/js/fileInput.js"></script>
+<!-- TOAST LINK-->
+<script src="../toast/beautyToast.js"></script>
+<?php
 
+                if($etat ==true){
+          
+          echo "<script>
+          beautyToast.success({
+            title: 'Success', 
+            message: 'File upload successfully.' 
+          });
+          </script>";
+          echo '<script>
+          function greet() {
+            window.location="gererimages.php"
+           }
+           setTimeout(greet, 1500); </script>';
+          $etat = false;
+                }
+                if($etat2 ==true){
+          
+                  echo "<script>
+                  beautyToast.success({
+                    title: 'Success', 
+                    message: 'File upload successfully.' 
+                  });
+                  </script>";
+                  echo '<script>
+                  function greet() {
+                    window.location="gererimages.php"
+                   }
+                   setTimeout(greet, 1500); </script>';
+                  $etat2 = false;
+                        }
+              
+
+?>
 </body>
 </html>

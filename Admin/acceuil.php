@@ -9,6 +9,11 @@ if(!isset($_SESSION['Role']))
 <?php 
                 // connect db 
                 include('../db/db.php');
+                $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
+                $pdo_statement -> bindParam(1,$_SESSION['Id']);
+                $pdo_statement->execute();
+                $resultPrf = $pdo_statement->fetch();
+
 
                 // touts inscripitons
                 $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'encoure' order by DateInscription DESC");
@@ -33,7 +38,7 @@ if(!isset($_SESSION['Role']))
                 $dateMYY = '';
 
 
-    $etat =false;
+                $etat = $etat2 = false;
                 if($_SERVER['REQUEST_METHOD'] == "POST" )
                       {   
                                         // inscripitons by filter type
@@ -74,7 +79,7 @@ if(!isset($_SESSION['Role']))
                                 $pdo_statement = $pdo_conn->prepare("DELETE FROM `inscription` WHERE `inscription`.`Id` = ?");
                                 $pdo_statement -> bindParam(1,$_POST['btn2']);
                                 $pdo_statement->execute();
-                                header("location:acceuil.php");
+                                $etat2 =true ;
                               }
                       }
 ?>
@@ -205,7 +210,7 @@ if(!isset($_SESSION['Role']))
                 <div class="profile-details">
                     <img src="../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
-                        <div class="name"><?php echo  $_SESSION['Nom'].' '.$_SESSION['Prenom'];  ?></div>
+                        <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>
                     </div>
                 </div>
@@ -219,7 +224,7 @@ if(!isset($_SESSION['Role']))
   <!-- start home section-->
 
   <section class="home-section">
-    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
+    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $resultPrf['Nom'].' '.$resultPrf['Prenom']; ?> </div>
     <div class="row row-container">
       <div class="col-md-3 market-update-gd">
         <div class="market-update-block clr-block-2">
@@ -369,7 +374,7 @@ if(!isset($_SESSION['Role']))
           echo "<script>
           beautyToast.success({
             title: 'Success', 
-            message: 'Success Message' 
+            message: 'Inscription Bien Accepter.' 
           });
           </script>";
           echo '<script>
@@ -379,6 +384,21 @@ if(!isset($_SESSION['Role']))
            setTimeout(greet, 1500); </script>';
           $etat = false;
                 }
+                if($etat2 ==true){
+          
+                  echo "<script>
+                  beautyToast.success({
+                    title: 'Success', 
+                    message: 'Inscription bien Supprimer.' 
+                  });
+                  </script>";
+                  echo '<script>
+                  function greet() {
+                    window.location="acceuil.php"
+                   }
+                   setTimeout(greet, 1500); </script>';
+                  $etat2 = false;
+                        }
               
 
 ?>

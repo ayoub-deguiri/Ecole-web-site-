@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
          
    }
 include("../../db/db.php");
+$etat = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    // formation form 
    
@@ -66,15 +67,9 @@ and move_uploaded_file($_FILES['files2']['tmp_name'],$target_file2)
    $pdo_statement->bindParam(11, $filename1);
    $pdo_statement->bindParam(12, $filename2);
    $pdo_statement->execute();
-   echo "File upload successfully";
+   $etat = true;
 }
-else{
- echo "File upload nooot";
 }
-}else{
-echo "extensint !!! ";
-}
-
    $content =
       "<h1>Formation  </h1>
          <table border='1px' cellpadding='0' cellspacing='0' style='text-align:center'>
@@ -208,8 +203,8 @@ echo "extensint !!! ";
 
    <!-- incos page link -->
    <link rel="shortcut icon" href="../../images/LOGO.jpg" type="image/x-icon">
-
-
+      <!-- toast links -->
+      <link rel="stylesheet" href="../../toast/beautyToast.css">
    
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../../assets/css/style.css">
@@ -452,7 +447,28 @@ echo "extensint !!! ";
 <script src="../../assets/js/formvalidation3.js"> </script>
 
 
+<!-- TOAST LINK-->
+<script src="../../toast/beautyToast.js"></script>
+<?php
 
+                if($etat ==true){
+          
+          echo "<script>
+          beautyToast.success({
+            title: 'Success', 
+            message: 'Inscription Bien Ajouter.' 
+          });
+          </script>";
+          echo '<script>
+          function greet() {
+            window.location="inscriFormation.php"
+           }
+           setTimeout(greet, 1500); </script>';
+          $etat = false;
+                }
+              
+
+?>
 
 
 

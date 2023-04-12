@@ -183,13 +183,13 @@
     if(test1 ==false || test2==false || test3==false || test4==false || test5==false  || test7==false 
     || test8==false || test9==false || test10 ==false || test11 ==false )
     {
-      check.innerHTML ='touts les champs sont obligatoire !'
+      beautyToast.error({
+         title: 'Error', 
+         message: 'touts les champs sont obligatoire !'
+       });
       etat = false ;
     }
-  
-   
-      
-      return etat ;
+      return etat
    }
 
    

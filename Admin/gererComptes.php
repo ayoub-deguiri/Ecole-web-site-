@@ -10,11 +10,17 @@ if( $_SESSION['Role'] !== 'SuperAdmin')
 }
 ?>
 <?php
+
 include('../db/db.php');
-$encryption_key = bin2hex(random_bytes(20));
+$pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
+$pdo_statement -> bindParam(1,$_SESSION['Id']);
+$pdo_statement->execute();
+$resultPrf = $pdo_statement->fetch();
+
 $pdo_statement = $pdo_conn->prepare("SELECT * FROM compte");
 $pdo_statement->execute();
 $mesComptes = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
   if (isset($_POST['modifier'])) {
@@ -188,24 +194,24 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <span class="tooltip">Modifier Profile</span>
       </li>
       <li class="profile">
-        <div class="profile-details">
-          <img src="../images/homme-daffaire.png" alt="profileImg">
-          <div class="name_job">
-            <div class="name">Prem Shahi</div>
-            <div class="job">Web designer</div>
-          </div>
-        </div>
-        <a href="seDeconnecter.php">
-          <i class='bx bx-log-out' id="log_out"></i>
-        </a>
-      </li>
+                <div class="profile-details">
+                    <img src="../images/homme-daffaire.png" alt="profileImg">
+                    <div class="name_job">
+                        <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
+                        <div class="job"><?php echo $_SESSION["Role"] ?></div>
+                    </div>
+                </div>
+                <a href="seDeconnecter.php">
+                <i class='bx bx-log-out' id="log_out"></i>
+                </a>
+            </li>
     </ul>
   </div>
 
   <!-- end slide bar-->
   <!-- start home section-->
   <section class="home-section">
-    <div class="text">Espace <?php echo $_SESSION["Role"] . " : Bonjour " . $_SESSION['Nom'] . ' ' . $_SESSION['Prenom']; ?> </div>
+    <div class="text">Espace <?php echo $_SESSION["Role"] . " : Bonjour " . $resultPrf['Nom'] . ' ' . $resultPrf['Prenom']; ?> </div>
     <div class="row">
       <div class="col-md-1"></div>
       <div class="col-md-10 chit-chat-layer1-rit ourmarg ">

@@ -6,7 +6,10 @@
 ?>
 <?php
         include('../db/db.php');
-        
+        $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
+                $pdo_statement -> bindParam(1,$_SESSION['Id']);
+                $pdo_statement->execute();
+                $resultPrf = $pdo_statement->fetch();
         $pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
         $pdo_statement->execute();
         $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -18,11 +21,15 @@
 
             if (isset($_POST['modifier'])) {
                 $Sql = " UPDATE formation
-                                    SET Nom = ? 
+                                    SET Nom = ? ,
+                                     type = ? ,
+                                     niveau = ? 
                                     WHERE Id = ? ";
                 $pdo_statement =  $pdo_conn->prepare($Sql);
                 $pdo_statement->bindParam(1, $_POST['nomformation']);
-                $pdo_statement->bindParam(2, $_POST['idformation']);
+                $pdo_statement->bindParam(2, $_POST['type']);
+                $pdo_statement->bindParam(3, $_POST['niveau']);
+                $pdo_statement->bindParam(4, $_POST['idformation']);
                 // var_dump($idcompte);
                 $pdo_statement->execute();
                 header("location:formation.php");
@@ -44,10 +51,11 @@
               }
             if(isset($_POST['ajoute']))
             {
-                $Sql = " INSERT into formation values(null,?,?)";
+                $Sql = " INSERT into formation values(null,?,?,?)";
                 $pdo_statement =  $pdo_conn->prepare($Sql);
                 $pdo_statement->bindParam(1, $_POST['nom']);
                 $pdo_statement->bindParam(2, $_POST['type']);
+                $pdo_statement->bindParam(3, $_POST['niveau']);
                 // var_dump($idcompte);
                 $pdo_statement->execute();
                 header('location:formation.php');
@@ -70,7 +78,8 @@
 
     <!-- incos page link -->
     <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
-
+<!-- toast links -->
+<link rel="stylesheet" href="../toast/beautyToast.css">
     <script src="./scripts/jquery-3.6.3.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -204,7 +213,7 @@
                 <div class="profile-details">
                     <img src="../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
-                        <div class="name"><?php echo  $_SESSION['Nom'].' '.$_SESSION['Prenom'];  ?></div>
+                        <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>
                     </div>
                 </div>
@@ -219,7 +228,7 @@
 
     <!-- start home section-->
     <section class="home-section">
-    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
+    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $resultPrf['Nom'].' '.$resultPrf['Prenom']; ?> </div>
         
         <div class="row">
             <div class="col-md-2"></div>
@@ -250,6 +259,7 @@
                                     <th>#</th>
                                     <th>Nom de Formation </th>
                                     <th>Type</th>
+                                    <th>Niveau Scolaire</th>
                                     <th colspan="2">action</th>
                                 </tr>
                             </thead>
@@ -262,6 +272,7 @@
                                         <td><?= $parID ?></td>
                                         <td><?= $formation['Nom'] ?></td>
                                         <td><?= $formation['type'] ?></td>
+                                        <td><?= $formation['niveau'] ?></td>
                                         <td>
                                             <button class="btn-actions" data-bs-toggle="modal" data-bs-target="#staticBackdrop" data-id="<?= $formation['Id']; ?>"> <i class='bx bx-pencil'></i></button>
                                         </td>
@@ -337,7 +348,20 @@
                             </select>
                   </td>
                 </tr>
-                
+                <tr>
+                  <th>Niveau Scolaire </th>
+                  <td>
+                  <select name="niveau"  class="form-select form-select-sm" aria-label=".form-select-lg example" required>
+                                <option value="" disabled selected>Open this select menu</option>
+                                <option value="Aucun">Aucun&nbsp; بدون</option>
+                                <option value="9AEF">9AEF &nbsp; الثالثة اعدادي</option>
+                                <option value="2BAC">2ème Année BAC   الثانية بكالوريا</option>
+                                <option value="BACOuPlus"> BAC ou Plus &nbsp; بكالوريا فما فوق</option>
+                                <option value="BAC+2">BAC +2(Technicien / Technicien spécialisé / DEUG)</option>
+                                <option value="BAC+3">BAC +3(Licence / Bachelor)</option>
+                            </select>
+                  </td>
+                </tr>
               </tbody>
             </table>
           </div>

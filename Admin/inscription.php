@@ -8,6 +8,10 @@ if(!isset($_SESSION['Role']))
 ?>
 <?php
                 include('../db/db.php');
+                $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
+                $pdo_statement -> bindParam(1,$_SESSION['Id']);
+                $pdo_statement->execute();
+                $resultPrf = $pdo_statement->fetch();
                 $pdo_statement = $pdo_conn->prepare("select * from inscription where Type = 'Accepter' order by DateInscription DESC");
                 $pdo_statement->execute();
                 $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -163,7 +167,7 @@ if(!isset($_SESSION['Role']))
                 <div class="profile-details">
                     <img src="../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
-                        <div class="name"><?php echo  $_SESSION['Nom'].' '.$_SESSION['Prenom'];  ?></div>
+                        <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>
                     </div>
                 </div>
@@ -178,7 +182,7 @@ if(!isset($_SESSION['Role']))
 
     <!-- start home section-->
     <section class="home-section">
-    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $_SESSION['Nom'].' '.$_SESSION['Prenom']; ?> </div>
+    <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $resultPrf['Nom'].' '.$resultPrf['Prenom']; ?> </div>
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8 chit-chat-layer1-left">

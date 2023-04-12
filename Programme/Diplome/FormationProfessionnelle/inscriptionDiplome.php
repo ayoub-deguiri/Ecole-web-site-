@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
          
    }
 include("../../../db/db.php");
+$etat = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    // formation form 
    $nom = $_POST['nom'];
@@ -79,13 +80,9 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
    $pdo_statement->bindParam(13, $filename3);
    $pdo_statement->bindParam(14, $filename4);
    $pdo_statement->execute();
-   echo "File upload successfully";
+   $etat = true;
 }
-else{
- echo "File upload nooot";
-}
-}else{
-echo "extensint !!! ";
+
 }
 
    $content =
@@ -219,8 +216,8 @@ echo "extensint !!! ";
 
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-
-
+<!-- toast links -->
+<link rel="stylesheet" href="../../../toast/beautyToast.css">
 
 
 
@@ -489,7 +486,28 @@ echo "extensint !!! ";
    <script src="../../../assets/js/formvalidation2.js"> </script>
 
 
+   <!-- TOAST LINK-->
+   <script src="../../../toast/beautyToast.js"></script>
+<?php
 
+                if($etat ==true){
+          
+          echo "<script>
+          beautyToast.success({
+            title: 'Success', 
+            message: 'Inscription Bien Ajouter.' 
+          });
+          </script>";
+          echo '<script>
+          function greet() {
+            window.location="inscriptionDiplome.php"
+           }
+           setTimeout(greet, 1500); </script>';
+          $etat = false;
+                }
+              
+
+?>
 
 
 </body>

@@ -6,6 +6,7 @@ use PHPMailer\PHPMailer\PHPMailer;
         
     }
 include("../../db/db.php");
+$etat = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    // formation form 
    $nom = $_POST['nom'];
@@ -87,14 +88,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $pdo_statement->bindParam(14, $filename4);
         $pdo_statement->bindParam(15, $filename5);
   $pdo_statement->execute();
-         echo "File upload successfully";
-       }
-       else{
-        echo "File upload nooot";
-       }
-     }else{
-       echo "extensint !!! ";
-     }
+  $etat = true;
+       }}
 
    $content =
       "<h1>FEDE</h1>
@@ -220,6 +215,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>inscription fede</title>
+
+   <link href="../../assets/vendor/bootstrap/boxicons.min.css" rel="stylesheet">
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
    <!--  bootstrap  link  -->
@@ -227,6 +224,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
    <!-- custom css file link  -->
    <link rel="stylesheet" href="../../assets/css/style.css">
+   <!-- toast links -->
+   <link rel="stylesheet" href="../../toast/beautyToast.css">
    <link rel="shortcut icon" href="../../../images/LOGO.jpg" type="image/x-icon">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script type="text/javascript">
@@ -240,11 +239,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                dataType: 'json',
                success:function(response){
                      var len = response.length;
+                     var count = 1;
+                     var etat1 = false;
+                        var etat2 = false;
                      $(".sel_user").empty();
                      for( var i = 0; i<len; i++){
                         var id = response[i]['id'];
                         var name = response[i]['name'];
-                        $(".sel_user").append("<option value='"+name+"'>"+name+"</option>");
+                        var CountBac2 = response[i]['CountBac2'];
+                        var CountBac3 = response[i]['CountBac3'];
+                        
+                        
+                        if(deptid =='BAC+2')
+                           {
+                              $(".sel_user").append("<option value='"+name+"'>"+name+"</option>");
+                           }
+                        else
+                           {
+                              if(count <= CountBac2 )
+                                 {  
+                                    if(count == 1)
+                                       {
+                                          $(".sel_user").append("<optgroup label='Licence'>");
+                                          etat1 = true;
+                                       }
+                                       $(".sel_user").append(" <option value='"+name+"'>"+name+"</option>");
+                                       count = count +1 ;
+                                 }
+                              else
+                                 {
+                                    if(etat1 == true )
+                                       {
+                                          $(".sel_user").append("</optgroup><optgroup label='Master'>");
+                                          etat1 = false;
+                                          etat2 = true;
+                                       }
+                                    $(".sel_user").append("<option value='"+name+"'>"+name+"</option> ");
+                                    if(etat2 == true )
+                                       {
+                                          $(".sel_user").append("</optgroup>");
+                                       }
+                                 }
+                           }
                      }
                }
             });
@@ -383,6 +419,41 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          </div>
          <input type="submit" value="Inscrire" class="btn-info" onclick="return checkform()">
       </form>
+        <!-- ======= F.A.Q Section ======= -->
+    <section id="faq" class="faq section-bg">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h1> <i class="fa-regular fa-credit-card"></i> Method de payment : </h1>
+        </div>
+        <div class="faq-list">
+         <ul>
+         <li data-aos="fade-up">
+         <i class="fa-solid fa-circle-question icon-help"></i><a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam : <i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i> </a>
+              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                <p>
+                  illa urna porttitor rhoncus dolor purus non.
+                </p>
+              </div>
+            <li data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Payment PAr hhhhhhh : <i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Dolor sit amet consectetur  turpis massa tincidunt dui.
+                </p>
+              </div>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="fa-solid fa-circle-question icon-help"></i>  <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Payment PAr hhhhhhh :<i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Eleifend mi in nulla posuetra eu facilisis sed odio morbi quis
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section><!-- End F.A.Q Section -->
    </div>
    <!-- end  inscription container -->
    <!-- footer section starts  -->
@@ -455,7 +526,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <!-- footer section ends -->
    <script src="../../assets/js/fileInput.js"></script>
    <script src="../../assets/js/formvalidation.js">
+   <script src="../../assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
    </script>
+   <!-- TOAST LINK-->
+<script src="../../toast/beautyToast.js"></script>
+<?php
+
+                if($etat ==true){
+          
+          echo "<script>
+          beautyToast.success({
+            title: 'Success', 
+            message: 'Inscription Bien Ajouter.' 
+          });
+          </script>";
+          echo '<script>
+          function greet() {
+            window.location="inscriFormation.php"
+           }
+           setTimeout(greet, 1500); </script>';
+          $etat = false;
+                }
+              
+
+?>
 </body>
 
 </html>
