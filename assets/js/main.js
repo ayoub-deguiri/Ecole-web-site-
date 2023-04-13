@@ -51,7 +51,6 @@ var swiper = new Swiper(".logo-slider", {
     },
   },
 });
-
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
   /**
