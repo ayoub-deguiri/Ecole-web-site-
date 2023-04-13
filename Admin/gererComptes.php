@@ -12,15 +12,12 @@ if( $_SESSION['Role'] !== 'SuperAdmin')
 <?php
 
 include('../db/db.php');
-<<<<<<< HEAD
 $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
 $pdo_statement -> bindParam(1,$_SESSION['Id']);
 $pdo_statement->execute();
 $resultPrf = $pdo_statement->fetch();
 
-=======
 $etat = $etat1  = false;
->>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
 $pdo_statement = $pdo_conn->prepare("SELECT * FROM compte");
 $pdo_statement->execute();
 $mesComptes = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
