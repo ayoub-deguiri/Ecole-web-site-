@@ -311,8 +311,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <a href="../../index.php"> <i class="fas fa-home"></i> Acceuil </a>
          <a href="../../diplomes.html"><i class="fa-solid fa-certificate"></i> Diplômes</a>
          <a href="../../formations.html"> <i class="fa-solid fa-book"></i> Formations</a>
-         <a href="../../albums.html"> <i class="fa-solid fa-image"></i> Albums</a>
-         <a href="../../contact.html"> <i class="fa-solid fa-comment"></i> Contactez nous</a>
+         <a href="../../albums.php"> <i class="fa-solid fa-image"></i> Albums</a>
+         <a href="../../contact.php"> <i class="fa-solid fa-comment"></i> Contactez nous</a>
       </nav>
       <div class="icons">
          <div id="account-btn"></div>
@@ -498,8 +498,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                      <a href="../../index.php" class="link">acceuil</a>
                      <a href="../../diplomes.html" class="link">diplomes</a>
                      <a href="../../formations.html" class="link">formations</a>
-                     <a href="../../albums.html" class="link">Albums</a>
-                     <a href="../../contact.html" class="link">contact</a>
+                     <a href="../../albums.php" class="link">Albums</a>
+                     <a href="../../contact.php" class="link">contact</a>
                   </div>
                </div>
                <div class="col">

@@ -76,12 +76,24 @@ $Ourresult = $pdo_statement->fetch();
       </nav>
       <div class="icons">
          <div id="menu-btn" class="fas fa-bars" onclick="test()"></div>
+         <div id="account-btn" ></div>
+         <div id="menu-btn"></div>
       </div>
    </div>
    <!-- header section ends -->
-   <!-- AfterHeader section starts -->
+  <!-- AfterHeader section starts -->
 
-   <!-- AfterHeader section ends -->
+  <div class="account-form">
+
+<div id="close-form" class="fas fa-times"></div>
+
+<div class="buttons">
+   <span class="btn active login-btn"></span>
+   <span class="btn register-btn"></span>
+</div>
+</div>
+
+<!-- AfterHeader section ends -->
    <!-- carousel section starts  -->
    <div class="row">
       <div class="col-xl-3"></div>
@@ -621,6 +633,7 @@ $Ourresult = $pdo_statement->fetch();
 
  
    <script src="assets/js/functions.js"></script>
+   <script src="assets/js/script.js"></script>
    <script src="assets/js/main.js"></script>
    <script src="assets/js/main1.js"></script>
          <script>
