@@ -217,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <meta http-equiv="X-UA-Compatible" content="IE=edge">
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>inscription fede</title>
-
+<script src="https://www.google.com/recaptcha/api.js" async defer></script>
    <link href="../../assets/vendor/bootstrap/boxicons.min.css" rel="stylesheet">
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
@@ -419,6 +419,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          </div>
          <div id="check">
          </div>
+         <div class="g-recaptcha" data-sitekey="6Ld32IMlAAAAAH-N-Z4nOnLi3u6SYMRqKmfaymJx"></div>
          <input type="submit" value="Inscrire" class="btn-info" onclick="return checkform()">
       </form>
         <!-- ======= F.A.Q Section ======= -->
