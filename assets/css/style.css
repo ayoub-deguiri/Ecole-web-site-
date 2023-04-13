@@ -2438,3 +2438,26 @@ a {
     padding: 0;
   }
 }
+
+/* media */    
+@media (max-width: 1400px) {
+  .home-image4 {
+    width: 590px !important;
+  }
+  .courses{
+    padding: 3rem 3%;
+  }
+  .courses .box-container {
+    grid-template-columns: repeat(auto-fit, minmax(28rem, 1fr));
+}
+.box-container .content h3 {
+  font-size: 1.8em !important;
+}
+.box-container .btn {
+  padding: 1rem 3rem;
+  font-size: 1.5rem;
+}
+.title-partieo1::after {
+  right: 0em;
+}
+}

@@ -42,6 +42,7 @@
 
     <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet"> 
     <link href='https://unpkg.com/css.gg@2.0.0/icons/css/zoom-in.css' rel='stylesheet'>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 </head>
 <body>
    
