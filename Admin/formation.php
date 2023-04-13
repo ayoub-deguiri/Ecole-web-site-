@@ -5,53 +5,58 @@ if (!isset($_SESSION['Role'])) {
 }
 ?>
 <?php
-include('../db/db.php');
-$etat1 =false;
-$pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
-$pdo_statement->execute();
-$mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
-$DefaultRes = $mesformations;
-$TypeFormation = '';
-$etat =false;
+        include('../db/db.php');
+        $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
+                $pdo_statement -> bindParam(1,$_SESSION['Id']);
+                $pdo_statement->execute();
+                $resultPrf = $pdo_statement->fetch();
+        $pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
+        $pdo_statement->execute();
+        $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+        $DefaultRes = $mesformations;
+        $TypeFormation = '';
+        $etat =false;
 $etat1 =false;
 $etat3 =false;
-if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    
-    if (isset($_POST['modifier'])) {
-        $Sql = " UPDATE formation
-                                    SET Nom = ? 
-                                    WHERE Id = ? ";
-        $pdo_statement =  $pdo_conn->prepare($Sql);
-        $pdo_statement->bindParam(1, $_POST['nomformation']);
-        $pdo_statement->bindParam(2, $_POST['idformation']);
-        // var_dump($idcompte);
-        $pdo_statement->execute();
-        $etat1 =true;
-    }
-    if (isset($_POST["FilterType"])) {
-        if ($_POST['FilterType'] == 'tous') {
-            $mesformations = $DefaultRes;
-            $TypeFormation = 'tous';
-        } else {
-            $pdo_statement = $pdo_conn->prepare("SELECT * from formation  WHERE type = ?");
-            $pdo_statement->bindParam(1, $_POST['FilterType']);
-            $pdo_statement->execute();
-            $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
-            $TypeFormation = $_POST['FilterType'];
+
+        if($_SERVER['REQUEST_METHOD'] == "POST" )
+        { 
+
+            if (isset($_POST['modifier'])) {
+                $Sql = " UPDATE formation
+                                            SET Nom = ? 
+                                            WHERE Id = ? ";
+                $pdo_statement =  $pdo_conn->prepare($Sql);
+                $pdo_statement->bindParam(1, $_POST['nomformation']);
+                $pdo_statement->bindParam(2, $_POST['idformation']);
+                // var_dump($idcompte);
+                $pdo_statement->execute();
+                $etat1 =true;
+            }
+            if (isset($_POST["FilterType"])) {
+                if ($_POST['FilterType'] == 'tous') {
+                    $mesformations = $DefaultRes;
+                    $TypeFormation = 'tous';
+                } else {
+                    $pdo_statement = $pdo_conn->prepare("SELECT * from formation  WHERE type = ?");
+                    $pdo_statement->bindParam(1, $_POST['FilterType']);
+                    $pdo_statement->execute();
+                    $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
+                    $TypeFormation = $_POST['FilterType'];
+                }
+            }
+            if(isset($_POST['ajoute']))
+            {
+                $Sql = " INSERT into formation values(null,?,?,?)";
+                $pdo_statement =  $pdo_conn->prepare($Sql);
+                $pdo_statement->bindParam(1, $_POST['nom']);
+                $pdo_statement->bindParam(2, $_POST['type']);
+                $pdo_statement->bindParam(3, $_POST['niveau']);
+                // var_dump($idcompte);
+                $pdo_statement->execute();
+                $etat =true;
+            }
         }
-    }
-    
-    if (isset($_POST['ajoute'])) {
-        $Sql = " INSERT into formation values(null,?,?)";
-        $pdo_statement =  $pdo_conn->prepare($Sql);
-        $pdo_statement->bindParam(1, $_POST['nom']);
-        $pdo_statement->bindParam(2, $_POST['type']);
-        //var_dump($idcompte);
-        $pdo_statement->execute();
-        $etat =true;
-        
-    }
-}
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -339,38 +344,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" method="post">
-                    <div class="modal-body">
-                        <table class="table table-hover">
-                            <tbody>
-                                <tr>
-                                    <th>Nom de formation </th>
-                                    <td><input type="text" name="nom" required style=" padding:3px;"></td>
-                                </tr>
-                                <tr>
-                                    <th>Type de formation </th>
-                                    <td>
-                                        <select name="type" class="form-select form-select-sm" aria-label=".form-select-lg example" required>
-                                            <option value="" disabled selected>Open this select menu</option>
-                                            <option value="Diplome">Diplome</option>
-                                            <option value="Formation">Formation</option>
-                                            <option value="FEDE">FEDE</option>
-                                        </select>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                            retour
-                        </button>
-                        <button type="submit" class="btn btn-primary" name="ajoute">Ajoute</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <form action="" method="post">
             <div class="modal-body">
             <table class="table table-hover">
               <tbody>
@@ -413,6 +386,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             <button type="submit" class="btn btn-primary" name="ajoute">Ajoute</button>
           </div>
         </form>
+            </div>
+        </div>
       </div>
     </div>
     <!-- end  modal box  -->
