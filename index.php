@@ -624,17 +624,7 @@ $Ourresult = $pdo_statement->fetch();
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/aos/aos.js"></script>
    <script src="assets/js/main.js"></script>
-   <script>
-     
-      document.querySelector('#menu-btn').addEventListener('click', function(){
-        document.querySelector('.navbar').classList.add('active');
-      })
 
-      document.querySelector('#close-navbar').addEventListener('click', function(){
-        document.querySelector('.navbar').classList.remove('active');
-      })
-
-   </script>
 
 </body>
 
