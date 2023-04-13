@@ -344,38 +344,6 @@ $etat3 =false;
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <form action="" method="post">
-                    <div class="modal-body">
-                        <table class="table table-hover">
-                            <tbody>
-                                <tr>
-                                    <th>Nom de formation </th>
-                                    <td><input type="text" name="nom" required style=" padding:3px;"></td>
-                                </tr>
-                                <tr>
-                                    <th>Type de formation </th>
-                                    <td>
-                                        <select name="type" class="form-select form-select-sm" aria-label=".form-select-lg example" required>
-                                            <option value="" disabled selected>Open this select menu</option>
-                                            <option value="Diplome">Diplome</option>
-                                            <option value="Formation">Formation</option>
-                                            <option value="FEDE">FEDE</option>
-                                        </select>
-                                    </td>
-                                </tr>
-
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                            retour
-                        </button>
-                        <button type="submit" class="btn btn-primary" name="ajoute">Ajoute</button>
-                    </div>
-                </form>
-            </div>
-        </div>
-        <form action="" method="post">
             <div class="modal-body">
             <table class="table table-hover">
               <tbody>
@@ -418,6 +386,8 @@ $etat3 =false;
             <button type="submit" class="btn btn-primary" name="ajoute">Ajoute</button>
           </div>
         </form>
+            </div>
+        </div>
       </div>
     </div>
     <!-- end  modal box  -->
