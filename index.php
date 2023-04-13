@@ -630,24 +630,7 @@ $Ourresult = $pdo_statement->fetch();
    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/aos/aos.js"></script>
-
- 
-   <script src="assets/js/functions.js"></script>
-   <script src="assets/js/script.js"></script>
    <script src="assets/js/main.js"></script>
-   <script src="assets/js/main1.js"></script>
-         <script>
-            
-            function test()
-            {
-               
-              // navbar.classList.add('active');
-               console.log('fwe')
-            }
-
-
-
-         </script>
 
 </body>
 

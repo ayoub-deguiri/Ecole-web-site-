@@ -364,10 +364,9 @@
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/aos/aos.js"></script>
 
-   <script src="assets/js/script.js"></script>
-   <script src="assets/js/functions.js"></script>
+
    <script src="assets/js/main.js"></script>
-   <script src="assets/js/main1.js"></script>
+
 
 </body>
 </html>
