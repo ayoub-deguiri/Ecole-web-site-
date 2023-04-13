@@ -18,15 +18,15 @@ if( $Etat == 'etat1')
          $sql = '';
          if( $departid == '9AEF')
             {
-               $sql = "SELECT Id,Nom FROM formation WHERE niveau ='$departid'";
+               $sql = "SELECT Id,Nom FROM formation WHERE type='Diplome' and niveau ='$departid'";
             }
          elseif($departid == '2BAC')
             {
-               $sql = "SELECT Id,Nom FROM formation WHERE niveau ='2BAC' or niveau ='9AEF'";
+               $sql = "SELECT Id,Nom FROM formation WHERE  type='Diplome' and niveau ='2BAC' or niveau ='9AEF'";
             }
          elseif($departid == 'BACOUPlus')
             {
-               $sql = "SELECT Id,Nom FROM formation WHERE niveau ='2BAC' or niveau ='BACOUPlus' or niveau ='9AEF'";
+               $sql = "SELECT Id,Nom FROM formation WHERE type='Diplome'and niveau ='2BAC' or niveau ='BACOUPlus' or niveau ='9AEF'";
             }
          $pdo_statement = $pdo_conn->prepare($sql);
          $pdo_statement->execute();
@@ -45,11 +45,11 @@ elseif($Etat == 'etat2')
          $sql = '';
          if( $departid == 'BAC+2')
             {
-               $sql = "SELECT Id,Nom FROM formation WHERE niveau ='$departid'";
+               $sql = "SELECT Id,Nom FROM formation WHERE type='Licence' and niveau ='$departid'";
             }
          elseif($departid == 'BAC+3')
             {
-               $sql = "SELECT Id,Nom FROM formation WHERE niveau ='BAC+2' or niveau ='BAC+3' order by type";
+               $sql = "SELECT Id,Nom FROM formation WHERE type='Master' and ( niveau ='BAC+2' or niveau ='BAC+3' ) order by type";
             }
          $pdo_statement = $pdo_conn->prepare($sql);
          $pdo_statement->execute();

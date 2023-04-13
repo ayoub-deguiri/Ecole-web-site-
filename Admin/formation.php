@@ -24,11 +24,15 @@ $etat3 =false;
 
             if (isset($_POST['modifier'])) {
                 $Sql = " UPDATE formation
-                                            SET Nom = ? 
-                                            WHERE Id = ? ";
-                $pdo_statement =  $pdo_conn->prepare($Sql);
-                $pdo_statement->bindParam(1, $_POST['nomformation']);
-                $pdo_statement->bindParam(2, $_POST['idformation']);
+                                SET Nom = ? ,
+                                 type = ? ,
+                                 niveau = ? 
+                                WHERE Id = ? ";
+            $pdo_statement =  $pdo_conn->prepare($Sql);
+            $pdo_statement->bindParam(1, $_POST['nomformation']);
+            $pdo_statement->bindParam(2, $_POST['type']);
+            $pdo_statement->bindParam(3, $_POST['niveau']);
+            $pdo_statement->bindParam(4, $_POST['idformation']);
                 // var_dump($idcompte);
                 $pdo_statement->execute();
                 $etat1 =true;
@@ -256,9 +260,12 @@ $etat3 =false;
                                     <option value="Formation" <?php if ($TypeFormation == 'Formation') {
                                                                     echo 'selected';
                                                                 } ?>>Formation</option>
-                                    <option value="FEDE" <?php if ($TypeFormation == 'FEDE') {
+                                    <option value="Licence" <?php if ($TypeFormation == 'Licence') {
                                                                 echo 'selected';
-                                                            } ?>>FEDE</option>
+                                                            } ?>>Licence</option>
+                                    <option value="Master" <?php if ($TypeFormation == 'Master') {
+                                        echo 'selected';
+                                    } ?>>Master</option>
                                 </select>
                             </form>
                         </div>
@@ -358,7 +365,8 @@ $etat3 =false;
                                 <option value="" disabled selected>Open this select menu</option>
                                 <option value="Diplome">Diplome</option>
                                 <option value="Formation">Formation</option>
-                                <option value="FEDE">FEDE</option>
+                                <option value="Licence">Licence</option>
+                                <option value="Master">Master</option>
                             </select>
                   </td>
                 </tr>
