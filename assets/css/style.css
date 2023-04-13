@@ -1106,11 +1106,17 @@ a {
   font-size: 1.5em;
 }
 }
+.header #menu-btn  {
+   font-size: 3em;
+    
+}
 @media (max-width: 768px) {
   .header #menu-btn {
     display: inline-block;
-    width: 40px;
+  
+    
   }
+ 
 
   .header .navbar {
     position: fixed;
@@ -1130,6 +1136,7 @@ a {
     -ms-flex-pack: center;
     justify-content: center;
     z-index: 1200;
+    transition: 700ms;
   }
 
   .header .navbar #close-navbar {
@@ -1139,7 +1146,7 @@ a {
   .header .navbar.active {
     -webkit-box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
     box-shadow: 0 0 0 100vw rgba(0, 0, 0, 0.8);
-    right: 10%;
+    right: 0;
   }
 
   .header .navbar a {

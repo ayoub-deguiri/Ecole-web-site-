@@ -66,7 +66,7 @@ $Ourresult = $pdo_statement->fetch();
       <h6 class="home-header99">
          JAH INFORMATIQUE PLUS
       </h6>
-      <nav class="navbar">
+      <nav class="navbar ">
 
          <div id="close-navbar" class="fas fa-times"></div>
          <a href="index.php"> <i class="fas fa-home"></i> Acceuil </a>
@@ -76,9 +76,9 @@ $Ourresult = $pdo_statement->fetch();
          <a href="contact.php"> <i class="fa-solid fa-comment"></i> Contactez nous</a>
       </nav>
       <div class="icons">
-         <div id="menu-btn" class="fas fa-bars" onclick="test()"></div>
+        
          <div id="account-btn" ></div>
-         <div id="menu-btn"></div>
+         <div id="menu-btn" class="fas fa-bars" ></div>
       </div>
    </div>
    <!-- header section ends -->
@@ -567,7 +567,6 @@ $Ourresult = $pdo_statement->fetch();
          </path>
       </svg>
    </div>
-
    <section class="footer">
       <div id="Myfooter">
          <div class="container">
@@ -582,7 +581,6 @@ $Ourresult = $pdo_statement->fetch();
                      </div>
                   </div>
                </div>
-
                <div class="col">
                   <div class="box lien-rapid">
                      <h3>Liens rapides</h3>
@@ -609,7 +607,6 @@ $Ourresult = $pdo_statement->fetch();
                      <a href="https://www.facebook.com/EcoleJahModeliste" class="link"> <i class="fab fa-facebook-f"> </i> Ecole JAH Marrakech Modélisme Stylisme</a>
                      <a href="https://www.facebook.com/EcoleJahEPS" class="link"> <i class="fab fa-facebook-f"> </i>Ecole JAH Education Physique et Sportive</a>
                      <a href="https://www.facebook.com/profile.php?id=100086481996373" class="link"> <i class="fab fa-facebook-f"> </i>Ecole JAH des Métiers Marrakech</a>
-
                   </div>
                </div>
             </div>
@@ -619,16 +616,15 @@ $Ourresult = $pdo_statement->fetch();
       </div>
    </section>
    <!-- footer section ends -->
-
    <!-- swiper js link  -->
    <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
-
    <!-- js file link  -->
    <script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/aos/aos.js"></script>
    <script src="assets/js/main.js"></script>
+
 
 </body>
 
