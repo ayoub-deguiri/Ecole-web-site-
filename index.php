@@ -532,11 +532,8 @@ $Ourresult = $pdo_statement->fetch();
          </div>
       </div>
    </section>
-
    <!-- students reviews section ends -->
-
    <section class="logo-container">
-
       <div id="Myslider" class="swiper logo-slider">
          <h1 class="heading headingH6"> NOS PARTENAIRES </h1>
          <div class="swiper-wrapper">
