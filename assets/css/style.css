@@ -1163,17 +1163,25 @@ a {
   /*page index.php*/
   .carousel {
  
-    width: 91%;
+    width: 91% !important;
   }
     #carousel-inner2 {
-      margin-left: 5em;
+      margin-left: 3em !important;
   }
   .headingH1::after {
     width: 55%;
     left: 26%;
   }
+  .home-heading04 {
+     margin-left: 5px !important;
+}
+.home-caption03 {
+  font-size: 15px !important;
+}
+
   .home-image4 {
     height: 380px;
+    margin-right: 0px !important;
 }
 
 .headingH2::after {
@@ -1184,9 +1192,28 @@ a {
   width: 80%;
   left: 69px;
 }
-#service{
-  border: 1px solid #000;
+.headingH5::after {
+ 
+  width: 402px;
+
+  left: 179px;
 }
+.headingH4::after {
+ 
+  width: 219px;
+  left: 273px;
+}
+.headingH6::after {
+
+  width: 294px;
+
+  left: 221px;
+}
+
+
+
+
+
 
   
 
