@@ -290,8 +290,8 @@ $Ourresult = $pdo_statement->fetch();
 
          <div id="Myfeatured" class="container">
             <h1 class="heading headingH3"> <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> CE QUI NOUS CARACTÉRISE ?</h1>
-            <div class="row gy-4" style="margin-left: -130px; margin-right: -150px;">
-               <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
+            <div class="row gy-4 classFatr">
+               <div class="col-xl-3 col-md-3 d-flex" data-aos="zoom-out">
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa-solid fa-user-group" style="color: blue;"></i></div>
                      <h4><span class="stretched-link">ÉQUIPE QUALIFIÉE </span></h4>
@@ -299,7 +299,7 @@ $Ourresult = $pdo_statement->fetch();
                   </div>
                </div><!-- End Service Item -->
 
-               <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="200">
+               <div class="col-xl-3 col-md-3 d-flex" data-aos="zoom-out" data-aos-delay="200">
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa fa-repeat" style="font-size:36px;color:blue"></i></div>
                      <h4><span class="stretched-link">INFRASTRUCTURE ADAPTÉE </span></h4>
@@ -307,7 +307,7 @@ $Ourresult = $pdo_statement->fetch();
                   </div>
                </div><!-- End Service Item -->
 
-               <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
+               <div class="col-xl-3 col-md-3 d-flex" data-aos="zoom-out" data-aos-delay="400">
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa fa-random" style="font-size:36px;color:blue"></i></div>
                      <h4><span class="stretched-link">COLLABORATION</span></h4>
@@ -315,7 +315,7 @@ $Ourresult = $pdo_statement->fetch();
                   </div>
                </div><!-- End Service Item -->
 
-               <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
+               <div class="col-xl-3 col-md-3 d-flex" data-aos="zoom-out" data-aos-delay="600">
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa fa-heart" style="font-size:36px;color:blue"></i></div>
                      <h4><span class="stretched-link">RESPECT</span></h4>

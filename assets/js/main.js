@@ -4,21 +4,6 @@
       time: 1000
   });
 });
-$(document).scroll(function() {
-  // Show element after user scrolls past 
-  // the top edge of its parent 
-  $("#Myfeatured").each(function () {
-    var y = $(document).scrollTop();
-    var t = $(this).parent().offset().top;
-    if (y > t-430 ) {
-        $(this).fadeIn();
-        $(this).removeClass("okk");
-    } else {
-        $(this).fadeOut();
-        $(this).addClass("okk");
-    }
-});
-});
 var swiper = new Swiper(".home-slider", {
   pagination: {
     el: ".swiper-pagination",
@@ -66,7 +51,6 @@ var swiper = new Swiper(".logo-slider", {
     },
   },
 });
-
 document.addEventListener('DOMContentLoaded', () => {
   "use strict";
   /**
