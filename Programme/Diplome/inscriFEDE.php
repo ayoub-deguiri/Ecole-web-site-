@@ -230,8 +230,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <link rel="stylesheet" href="../../toast/beautyToast.css">
    <link rel="shortcut icon" href="../../../images/LOGO.jpg" type="image/x-icon">
    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript">
-        $(document).ready(function(){
+   <script type="text/javascript">
+         $(document).ready(function(){
          $(".sel_depart").click(function(){
             var deptid = $(this).val();
             $.ajax({

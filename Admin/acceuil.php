@@ -268,7 +268,8 @@ if(!isset($_SESSION['Role']))
                           <option value="tous" <?php if($TypeFormation == 'tous' ){echo 'selected';} ?>>All</option>
                           <option value="Diplome" <?php if($TypeFormation == 'Diplome' ){echo 'selected';} ?>>Diplome</option>
                           <option value="Formation" <?php if($TypeFormation == 'Formation' ){echo 'selected';} ?>>Formation</option>
-                          <option value="FEDE" <?php if($TypeFormation == 'FEDE' ){echo 'selected';} ?>>FEDE</option>
+                          <option value="Licence" <?php if($TypeFormation == 'Licence' ){echo 'selected';} ?>>Licence</option>
+                          <option value="Master" <?php if($TypeFormation == 'Master' ){echo 'selected';} ?>>Master</option>
                       </select>
                   </form>
                 </div>

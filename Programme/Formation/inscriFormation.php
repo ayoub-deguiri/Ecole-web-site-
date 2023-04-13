@@ -20,8 +20,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $Typeformation = 'Formation';
    $type = 'encoure';
    $date = date("Y-m-d ");
+   $heure = date("h:i:s");
    $img = 'img';
-   $query = "INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,null,null,null)";
+   $query = "INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,null,null,null)";
    
    $pdo_statement = $pdo_conn->prepare($query);
    // File name
@@ -64,8 +65,9 @@ and move_uploaded_file($_FILES['files2']['tmp_name'],$target_file2)
    $pdo_statement->bindParam(8, $email);
    $pdo_statement->bindParam(9, $type);
    $pdo_statement->bindParam(10, $date);
-   $pdo_statement->bindParam(11, $filename1);
-   $pdo_statement->bindParam(12, $filename2);
+   $pdo_statement->bindParam(11, $heure);
+   $pdo_statement->bindParam(12, $filename1);
+   $pdo_statement->bindParam(13, $filename2);
    $pdo_statement->execute();
    $etat = true;
 }
