@@ -45,8 +45,6 @@ $Ourresult = $pdo_statement->fetch();
 
    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
    <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
-
-   <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
    <link href='https://unpkg.com/css.gg@2.0.0/icons/css/zoom-in.css' rel='stylesheet'>
 </head>
 
@@ -97,8 +95,8 @@ $Ourresult = $pdo_statement->fetch();
 <!-- AfterHeader section ends -->
    <!-- carousel section starts  -->
    <div class="row">
-      <div class="col-xl-3"></div>
-      <div class="col-xl-6">
+      <div class="col-xl-3 col-3"></div>
+      <div class="col-xl-6 col-6">
          <div class="carousel slide" data-bs-ride="carousel">
             <div id="carousel-inner2" class="carousel-inner">
                <div class="carousel-item active" style="width: 700px;">
@@ -116,7 +114,7 @@ $Ourresult = $pdo_statement->fetch();
             </div>
          </div>
       </div>
-      <div class="col-xl-3"></div>
+      <div class="col-xl-3 col-3"></div>
    </div>
    <!-- carousel section ends -->
    <!-- About section starts  -->
