@@ -2513,3 +2513,14 @@ a {
   font-size: 1.7rem;
 }
 }
+
+
+@media (max-width: 576px) {
+  .HeaderTop {
+    height: 100%;
+    display: block;
+    justify-content: end;
+    padding-right: 0px;
+    padding-left: 56px;
+}
+}
