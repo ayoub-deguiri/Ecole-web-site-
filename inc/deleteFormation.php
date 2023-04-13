@@ -16,9 +16,5 @@ $internId = $_GET['internId'];
     
 
 ?>
-<?php
 
-//header("location:../Admin/inscription.html");
-
-?>
 

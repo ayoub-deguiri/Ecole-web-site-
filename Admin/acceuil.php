@@ -70,14 +70,6 @@ if(!isset($_SESSION['Role']))
                                   $pdo_statement -> bindParam(1,$_POST['btn1']);
                                   $pdo_statement->execute();
                                   $etat =true ;
-                                  
-                              }
-                                              // delete inscripiton
-                              if(isset($_POST["btn2"])){
-                                $pdo_statement = $pdo_conn->prepare("DELETE FROM `inscription` WHERE `inscription`.`Id` = ?");
-                                $pdo_statement -> bindParam(1,$_POST['btn2']);
-                                $pdo_statement->execute();
-                                $etat2 =true ;
                               }
                       }
 ?>
@@ -88,11 +80,9 @@ if(!isset($_SESSION['Role']))
             <title> Acceuil </title>
             <!-- Style Link -->
             <link rel="stylesheet" href="./assets/style.css">
-
             <!-- Boxicons CDN Link -->
             <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
               <!--  bootstrap links-->
               <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
               integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
@@ -100,16 +90,12 @@ if(!isset($_SESSION['Role']))
               integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
               crossorigin="anonymous">
               </script>
-
               <!-- awesom link -->
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-
               <!-- incos page link -->
               <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
-
               <!-- jq Link -->
               <script src="./scripts/jquery-3.6.3.min.js"></script>
-
               <!-- toast links -->
               <link rel="stylesheet" href="../toast/beautyToast.css">
     <script>
@@ -118,7 +104,6 @@ if(!isset($_SESSION['Role']))
             $('#exampleModal').on('show.bs.modal', function(event) {
                 var button = $(event.relatedTarget);
                 var internId = button.data('id');
-                
                 // Make an AJAX request to retrieve intern information
                 $.ajax({
                     url: '../inc/ajaxModal2.php',
@@ -135,12 +120,45 @@ if(!isset($_SESSION['Role']))
                     }
                 });
             });
+            // ajax deleting inscription
+            $('.delete-intern').on('click', function() {
+              var internId = $(this).data('id');
+                alert(internId)
+                $('#confirmation-dialog').show();
+                $('.confirm-yes').on('click', function() {
+                    $.ajax({
+                        url: '../inc/deleteInsc.php',
+                        type: 'GET',
+                        data: {
+                            internId: internId
+                        },
+                        success: function(response) {
+                            // Handle success
+                            beautyToast.success({
+                                title: 'Success', 
+                                message: 'inscription bien supprimer ' 
+                                });
+                            function greet() {
+                                window.location="acceuil.php"
+                              }
+                            setTimeout(greet, 1000); 
+                            },
+                        error: function(xhr, status, error) {
+                        }
+                    });
+                    // Hide the confirmation dialog
+                    $('#confirmation-dialog').hide();
+                });
+                $('.confirm-no').on('click', function() {
+                    // If the user cancels the deletion, hide the confirmation dialog
+                    $('#confirmation-dialog').hide();
+                });
+            });
           });
             // ajax deleting formation
         </script>
   </head>
 <body>
-
   <!-- start  slide bar-->
   <div class="sidebar">
     <div class="logo-details">
@@ -280,7 +298,7 @@ if(!isset($_SESSION['Role']))
                 </form>
                 </div>
             </div>
-            <form method="POST" action="" onclick="this.form.submit()">
+            
             <div class="table-responsive">
                           <table class="table table-hover">
                             <thead>
@@ -320,13 +338,12 @@ if(!isset($_SESSION['Role']))
                                               </button>
                                           </td>
                                           <td>
-                                          
+                                          <form method="POST" action="" onclick="this.form.submit()">
                                           <button value="'.$row["Id"].'" name="btn1" class="btn-actions"> <i class="bx bxs-user-check"></i></button>
+                                          </form>
                                           </td>
                                           <td>
-                                          
-                                            <button value="'.$row["Id"].'" name="btn2" class="btn-actions"><i class="bx bxs-trash-alt"></i></button>
-                                          
+                                            <button  data-id="'.$row["Id"].'" name="btn2 " class="btn-actions delete-intern"><i class="bx bxs-trash-alt"></i></button>
                                           </td>
                                           
                                   </tr>';
@@ -336,7 +353,6 @@ if(!isset($_SESSION['Role']))
                   ' ;
                 }
         ?>
-        </form>
         </table>
               </div>
         </div>
@@ -366,7 +382,12 @@ if(!isset($_SESSION['Role']))
           </div>
       </div>
   </div>
-
+  <!-- Confirmation dialog box -->
+  <div id="confirmation-dialog">
+        <p>Voulez-vous vraiment supprimer ce inscription !</p>
+        <button class="btn btn-primary confirm-yes">oui</button>
+        <button class="btn btn-secondary confirm-no">No</button>
+    </div>
   <script src="./assets/script.js"></script>
 <!-- TOAST LINK-->
 <script src="../toast/beautyToast.js"></script>

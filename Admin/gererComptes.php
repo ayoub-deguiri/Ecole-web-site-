@@ -17,7 +17,7 @@ $pdo_statement -> bindParam(1,$_SESSION['Id']);
 $pdo_statement->execute();
 $resultPrf = $pdo_statement->fetch();
 
-$etat = $etat1  = false;
+$etat = $etat1  =$etat3= false;
 $pdo_statement = $pdo_conn->prepare("SELECT * FROM compte");
 $pdo_statement->execute();
 $mesComptes = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
@@ -25,34 +25,57 @@ $mesComptes = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
   if (isset($_POST['modifier'])) {
-    $Sql = " UPDATE compte
-                                    SET Nom = ? ,Prenom = ? ,Email = ? ,UserName = ? ,Password = ? 
-                                    WHERE Id = ? ";
-    $pdo_statement =  $pdo_conn->prepare($Sql);
-    $pdo_statement->bindParam(1, $_POST['nom']);
-    $pdo_statement->bindParam(2, $_POST['prenom']);
-    $pdo_statement->bindParam(3, $_POST['email']);
-    $pdo_statement->bindParam(4, $_POST['username']);
-    $pdo_statement->bindParam(5, $_POST['password']);
-    $pdo_statement->bindParam(6, $_POST['id']);
+      // Display the results
+      $sql = "SELECT * FROM compte WHERE UserName =? and Id !=?";
+      $pdo_statement =  $pdo_conn->prepare($sql);
+      $pdo_statement->bindParam(1, $_POST['username']);
+      $pdo_statement->bindParam(2, $_POST['id']);
+      $pdo_statement->execute();
+      $resulta = $pdo_statement->fetch();
+      if(!empty($resulta))
+      {
+        $etat3 =true;
+       
+      }
+      else{
+        $Sql = " UPDATE compte
+        SET Nom = ? ,Prenom = ? ,Email = ? ,UserName = ? ,Password = ? 
+        WHERE Id = ? ";
+        $pdo_statement =  $pdo_conn->prepare($Sql);
+        $pdo_statement->bindParam(1, $_POST['nom']);
+        $pdo_statement->bindParam(2, $_POST['prenom']);
+        $pdo_statement->bindParam(3, $_POST['email']);
+        $pdo_statement->bindParam(4, $_POST['username']);
+        $pdo_statement->bindParam(5, $_POST['password']);
+        $pdo_statement->bindParam(6, $_POST['id']);
+        $pdo_statement->execute();
+        $etat =true;
+      }
 
-    // var_dump($idcompte);
-    $pdo_statement->execute();
-    $etat =true;
+   
   }
   if (isset($_POST['ajoute'])) {
      // Display the results
-    
-    $sql = 'INSERT INTO `compte` (`Nom`, `Prenom`, `Email`, `UserName`, `Password`) VALUES ( ?,?, ?,?,?)';
+    $sql = "SELECT * FROM compte WHERE UserName =?";
     $pdo_statement =  $pdo_conn->prepare($sql);
-    $pdo_statement->bindParam(1, $_POST['nom']);
-    $pdo_statement->bindParam(2, $_POST['prenom']);
-    $pdo_statement->bindParam(3, $_POST['email']);
-    $pdo_statement->bindParam(4, $_POST['username']);
-    $pdo_statement->bindParam(5,  $_POST['password']);
+    $pdo_statement->bindParam(1, $_POST['username']);
     $pdo_statement->execute();
-    $etat1 =true;
-    
+    $resulta = $pdo_statement->fetch();
+    if(!empty($resulta))
+    {
+      $etat3 =true;
+    }
+    else{
+      $sql = 'INSERT INTO `compte` (`Nom`, `Prenom`, `Email`, `UserName`, `Password`) VALUES ( ?,?, ?,?,?)';
+      $pdo_statement =  $pdo_conn->prepare($sql);
+      $pdo_statement->bindParam(1, $_POST['nom']);
+      $pdo_statement->bindParam(2, $_POST['prenom']);
+      $pdo_statement->bindParam(3, $_POST['email']);
+      $pdo_statement->bindParam(4, $_POST['username']);
+      $pdo_statement->bindParam(5,  $_POST['password']);
+      $pdo_statement->execute();
+      $etat1 =true;
+    }
   }
 }
 ?>
@@ -102,7 +125,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           });
       });
                 // ajax deleting formation
-            // Add a click event listener to the delete button
             $('.delete-intern').on('click', function() {
                 // Get the ID of the intern to delete from the data-id attribute
                 var internId = $(this).data('id');
@@ -110,7 +132,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $('#confirmation-dialog').show();
                 // Add click event listeners to the confirmation buttons
                 $('.confirm-yes').on('click', function() {
-                    
                     // If the user confirms the deletion, make an AJAX request to delete the intern
                     $.ajax({
                         url: '../inc/deleteCompte.php',
@@ -124,7 +145,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                                 title: 'Success', 
                                 message: 'compte bien supprimer ' 
                                 });
-                              
                             function greet() {
                                 window.location="gererComptes.php"
                               }
@@ -145,7 +165,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     });
   </script>
 </head>
-
 <body>
   <!-- start  slide bar-->
   <div class="sidebar">
@@ -218,7 +237,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </li>
     </ul>
   </div>
-
   <!-- end slide bar-->
   <!-- start home section-->
   <section class="home-section">
@@ -291,12 +309,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     <?php
                     }
                     ?>
-
                   </tr>
                 <?php
                   $id = $id + 1;
                 }
-
                 ?>
               </tbody>
             </table>
@@ -418,6 +434,22 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             setTimeout(greet, 1000); </script>';
             $etat1 = false;
     }
+    if ($etat3 ==true ) {
+
+      echo "<script>
+          beautyToast.error({
+          title: 'error', 
+          message: 'nom d'utilisateur existe déjà',
+          timeout : 3000 
+          });
+          </script>";
+          echo '<script>
+          function greet() {
+          window.location="gererComptes.php"
+          }
+          setTimeout(greet, 3000); </script>';
+          $etat1 = false;
+  }
     ?>
 
 </body>

@@ -533,11 +533,8 @@ $Ourresult = $pdo_statement->fetch();
          </div>
       </div>
    </section>
-
    <!-- students reviews section ends -->
-
    <section class="logo-container">
-
       <div id="Myslider" class="swiper logo-slider">
          <h1 class="heading headingH6"> NOS PARTENAIRES </h1>
          <div class="swiper-wrapper">
@@ -631,24 +628,7 @@ $Ourresult = $pdo_statement->fetch();
    <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/aos/aos.js"></script>
-
- 
-   <script src="assets/js/functions.js"></script>
-   <script src="assets/js/script.js"></script>
    <script src="assets/js/main.js"></script>
-   <script src="assets/js/main1.js"></script>
-         <script>
-            
-            function test()
-            {
-               
-              // navbar.classList.add('active');
-               console.log('fwe')
-            }
-
-
-
-         </script>
 
 </body>
 

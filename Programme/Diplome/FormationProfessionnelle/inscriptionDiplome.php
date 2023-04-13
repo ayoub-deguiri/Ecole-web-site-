@@ -211,7 +211,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
 
    <!-- font awesome cdn link  -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
-
+   <script src="https://www.google.com/recaptcha/api.js" async defer></script>
    <!--  bootstrap  link  -->
 
    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -350,7 +350,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
             <label for="name " class="labelInput">Photo de la CIN :</label>
             <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile1">*</span>
             <div>
-               <input type="file" name="files1" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files1" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner"  />
                <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
@@ -362,7 +362,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
             <label for="name " class="labelInput">Photo d'identité :</label>
             <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile2">*</span>
             <div>
-               <input type="file" name="files2" id="file-2" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files2" id="file-2" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner"  />
                <label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
@@ -374,7 +374,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
             <label for="name " class="labelInput">Photo d'acte de naissance' :</label>
             <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile3">*</span>
             <div>
-               <input type="file" name="files3" id="file-3" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files3" id="file-3" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner"  />
                <label for="file-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
@@ -386,7 +386,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
             <label for="name " class="labelInput">Certificat Scolaire :</label>
             <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile4">*</span>
             <div>
-               <input type="file" name="files4" id="file-4" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner" multiple />
+               <input type="file" name="files4" id="file-4" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner"  />
                <label for="file-4"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
                      <path d="M10 0l-5.2 4.9h3.3v5.1h3.8v-5.1h3.3l-5.2-4.9zm9.3 11.5l-3.2-2.1h-2l3.4 2.6h-3.5c-.1 0-.2.1-.2.1l-.8 2.3h-6l-.8-2.2c-.1-.1-.1-.2-.2-.2h-3.6l3.4-2.6h-2l-3.2 2.1c-.4.3-.7 1-.6 1.5l.6 3.1c.1.5.7.9 1.2.9h16.3c.6 0 1.1-.4 1.3-.9l.6-3.1c.1-.5-.2-1.2-.7-1.5z" />
                   </svg>
@@ -397,10 +397,11 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
          <div id="check">
 
          </div>
+         <div class="g-recaptcha" data-sitekey="6Ld32IMlAAAAAH-N-Z4nOnLi3u6SYMRqKmfaymJx"></div>
          <input type="submit" class="btn-info" onclick="return checkform()" value="Inscrire">
       </form>
-     <!-- ======= F.A.Q Section ======= -->
-     <section id="faq" class="faq section-bg">
+  <!-- ======= F.A.Q Section ======= -->
+  <section id="faq" class="faq section-bg">
       <div class="container">
         <div class="section-title" data-aos="fade-up">
           <h1> <i class="fa-regular fa-credit-card"></i> Method de payment : </h1>
@@ -408,25 +409,31 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
         <div class="faq-list">
          <ul>
          <li data-aos="fade-up">
-         <i class="fa-solid fa-circle-question icon-help"></i><a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam : <i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i> </a>
+         <i class="fa-solid fa-circle-question icon-help"></i><a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1"> 1 - paiement par Rib :<i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i> </a>
               <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                <p>
-                  illa urna porttitor rhoncus dolor purus non.
+                <p style="    margin-left: 7em;">
+              <b> Références bancaires (RIB) : <br>
+                          <span style=" color: red;">    007450001016200030042318 </span> .</b>
                 </p>
               </div>
             <li data-aos="fade-up" data-aos-delay="200">
-            <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Payment PAr hhhhhhh : <i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i></a>
+            <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">2 - paiement par wafacash: <i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i></a>
               <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Dolor sit amet consectetur  turpis massa tincidunt dui.
-                </p>
+              <b > <p style="margin-left: 7em;">
+                 Nom  : <br>
+                 <span style=" color: red;">
+                 Nouiti jamal
+                 </span>
+                </p> </b>
               </div>
             </li>
             <li data-aos="fade-up" data-aos-delay="300">
-              <i class="fa-solid fa-circle-question icon-help"></i>  <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Payment PAr hhhhhhh :<i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i></a>
+              <i class="fa-solid fa-circle-question icon-help"></i>  <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">3 - paiement espèces :<i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i></a>
               <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
-                <p>
-                  Eleifend mi in nulla posuetra eu facilisis sed odio morbi quis
+               
+                <p style="margin-left: 7em;">
+              <b>   Veuillez nous rendre visite à l'institution à l'adresse: <br>
+              <span class="link" style="color :red"><i class="fa-solid fa-location-dot"></i> &nbsp; Lo Houssna 2 Mhamid (coté de mosquéé al mouhcinine Marrakech) </span></b>
                 </p>
               </div>
             </li>
@@ -434,6 +441,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
         </div>
       </div>
     </section><!-- End F.A.Q Section -->
+    
    </div>
 
    <!-- end  inscription container -->
