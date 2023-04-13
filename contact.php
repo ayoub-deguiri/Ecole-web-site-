@@ -316,11 +316,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
 
-  <!-- swiper js link  -->
-  <script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
 
-  <!-- custom js file link  -->
-  <script src="assets/js/script.js"></script>
 
 </body>
 

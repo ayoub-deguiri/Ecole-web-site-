@@ -27,7 +27,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
         }
         else
         {
-            $erreur =" password or user name are incoreecrt";
+            $erreur =" mot de passe ou nom d'utilisateur incorrect";
         }    
     }
 }
