@@ -24,11 +24,14 @@ $etat3 =false;
 
             if (isset($_POST['modifier'])) {
                 $Sql = " UPDATE formation
-                                            SET Nom = ? 
+                                            SET Nom = ? ,
+                                            type =?,niveau =?
                                             WHERE Id = ? ";
                 $pdo_statement =  $pdo_conn->prepare($Sql);
                 $pdo_statement->bindParam(1, $_POST['nomformation']);
-                $pdo_statement->bindParam(2, $_POST['idformation']);
+                $pdo_statement->bindParam(2, $_POST['type']);
+                $pdo_statement->bindParam(3, $_POST['niveau']);
+                $pdo_statement->bindParam(4, $_POST['idformation']);
                 // var_dump($idcompte);
                 $pdo_statement->execute();
                 $etat1 =true;

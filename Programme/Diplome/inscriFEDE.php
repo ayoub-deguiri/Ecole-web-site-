@@ -20,7 +20,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $Typeformation = 'FEDE';
    $type = 'encoure';
    $date = date("Y-m-d ");
-   $query = "INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+   $heure =date("H:i:s");
+   $query = "INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 
    $pdo_statement = $pdo_conn->prepare($query);
            // File name
@@ -82,11 +83,12 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          $pdo_statement->bindParam(8, $email);
          $pdo_statement->bindParam(9, $type);
          $pdo_statement->bindParam(10, $date);
-         $pdo_statement->bindParam(11, $filename1);
-        $pdo_statement->bindParam(12, $filename2);
-        $pdo_statement->bindParam(13, $filename3);
-        $pdo_statement->bindParam(14, $filename4);
-        $pdo_statement->bindParam(15, $filename5);
+         $pdo_statement->bindParam(11, $heure);
+         $pdo_statement->bindParam(12, $filename1);
+        $pdo_statement->bindParam(13, $filename2);
+        $pdo_statement->bindParam(14, $filename3);
+        $pdo_statement->bindParam(15, $filename4);
+        $pdo_statement->bindParam(16, $filename5);
   $pdo_statement->execute();
   $etat = true;
        }}
@@ -306,7 +308,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       </h6>
       <nav class="navbar">
          <div id="close-navbar" class="fas fa-times"></div>
-         <a href="../../index.html"> <i class="fas fa-home"></i> Acceuil </a>
+         <a href="../../index.php"> <i class="fas fa-home"></i> Acceuil </a>
          <a href="../../diplomes.html"><i class="fa-solid fa-certificate"></i> Diplômes</a>
          <a href="../../formations.html"> <i class="fa-solid fa-book"></i> Formations</a>
          <a href="../../albums.html"> <i class="fa-solid fa-image"></i> Albums</a>
@@ -492,7 +494,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                <div class="col">
                   <div class="box lien-rapid">
                      <h3>Liens rapides</h3>
-                     <a href="../../index.html" class="link">acceuil</a>
+                     <a href="../../index.php" class="link">acceuil</a>
                      <a href="../../diplomes.html" class="link">diplomes</a>
                      <a href="../../formations.html" class="link">formations</a>
                      <a href="../../albums.html" class="link">Albums</a>
@@ -525,9 +527,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    </section>
    <!-- footer section ends -->
    <script src="../../assets/js/fileInput.js"></script>
-   <script src="../../assets/js/formvalidation.js">
+   <script src="../../assets/js/formvalidation.js"></script>
    <script src="../../assets/vendor/bootstrap/bootstrap.bundle.min.js"></script>
-   </script>
+   
    <!-- TOAST LINK-->
 <script src="../../toast/beautyToast.js"></script>
 <?php
@@ -542,7 +544,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           </script>";
           echo '<script>
           function greet() {
-            window.location="inscriFormation.php"
+            window.location="inscriFEDE.php"
            }
            setTimeout(greet, 1500); </script>';
           $etat = false;
