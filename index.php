@@ -624,6 +624,7 @@ $Ourresult = $pdo_statement->fetch();
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/aos/aos.js"></script>
    <script src="assets/js/main.js"></script>
+   <script src="assets/js/navMobile.js"></script>
 
 
 </body>
