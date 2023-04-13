@@ -5,63 +5,6 @@ if (!isset($_SESSION['Role'])) {
 }
 ?>
 <?php
-<<<<<<< HEAD
-        include('../db/db.php');
-        $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
-                $pdo_statement -> bindParam(1,$_SESSION['Id']);
-                $pdo_statement->execute();
-                $resultPrf = $pdo_statement->fetch();
-        $pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
-        $pdo_statement->execute();
-        $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
-        $DefaultRes = $mesformations;
-        $TypeFormation = '';
-
-        if($_SERVER['REQUEST_METHOD'] == "POST" )
-        { 
-
-            if (isset($_POST['modifier'])) {
-                $Sql = " UPDATE formation
-                                    SET Nom = ? ,
-                                     type = ? ,
-                                     niveau = ? 
-                                    WHERE Id = ? ";
-                $pdo_statement =  $pdo_conn->prepare($Sql);
-                $pdo_statement->bindParam(1, $_POST['nomformation']);
-                $pdo_statement->bindParam(2, $_POST['type']);
-                $pdo_statement->bindParam(3, $_POST['niveau']);
-                $pdo_statement->bindParam(4, $_POST['idformation']);
-                // var_dump($idcompte);
-                $pdo_statement->execute();
-                header("location:formation.php");
-            }
-            if(isset($_POST["FilterType"])){
-                if($_POST['FilterType'] == 'tous' )
-                  {
-                    $mesformations = $DefaultRes;
-                    $TypeFormation = 'tous';
-                  }
-                else
-                {
-                  $pdo_statement = $pdo_conn->prepare("SELECT * from formation  WHERE type = ?");
-                  $pdo_statement -> bindParam(1,$_POST['FilterType']);
-                  $pdo_statement->execute();
-                  $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
-                  $TypeFormation = $_POST['FilterType'];
-                }
-              }
-            if(isset($_POST['ajoute']))
-            {
-                $Sql = " INSERT into formation values(null,?,?,?)";
-                $pdo_statement =  $pdo_conn->prepare($Sql);
-                $pdo_statement->bindParam(1, $_POST['nom']);
-                $pdo_statement->bindParam(2, $_POST['type']);
-                $pdo_statement->bindParam(3, $_POST['niveau']);
-                // var_dump($idcompte);
-                $pdo_statement->execute();
-                header('location:formation.php');
-            }
-=======
 include('../db/db.php');
 $etat1 =false;
 $pdo_statement = $pdo_conn->prepare("SELECT * FROM formation");
@@ -95,7 +38,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $pdo_statement->execute();
             $mesformations = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
             $TypeFormation = $_POST['FilterType'];
->>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
         }
     }
     
@@ -128,14 +70,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <!-- incos page link -->
     <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
-<<<<<<< HEAD
 <!-- toast links -->
 <link rel="stylesheet" href="../toast/beautyToast.css">
-=======
-        <!-- toast links -->
-        <link rel="stylesheet" href="../toast/beautyToast.css">
-
->>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
     <script src="./scripts/jquery-3.6.3.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -275,11 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 <div class="profile-details">
                     <img src="../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
-<<<<<<< HEAD
                         <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
-=======
-                        <div class="name"><?php echo  $_SESSION['Nom'] . ' ' . $_SESSION['Prenom'];  ?></div>
->>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>
                     </div>
                 </div>
@@ -294,13 +226,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     <!-- start home section-->
     <section class="home-section">
-<<<<<<< HEAD
     <div class="text">Espace <?php echo $_SESSION["Role"]." : Bonjour ". $resultPrf['Nom'].' '.$resultPrf['Prenom']; ?> </div>
         
-=======
-        <div class="text">Espace <?php echo $_SESSION["Role"] . " : Bonjour " . $_SESSION['Nom'] . ' ' . $_SESSION['Prenom']; ?> </div>
-
->>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
         <div class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8 chit-chat-layer1-left">
@@ -443,7 +370,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 </form>
             </div>
         </div>
-<<<<<<< HEAD
         <form action="" method="post">
             <div class="modal-body">
             <table class="table table-hover">
@@ -488,8 +414,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           </div>
         </form>
       </div>
-=======
->>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
     </div>
     <!-- end  modal box  -->
     <!-- Confirmation dialog box -->

@@ -399,7 +399,41 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
          </div>
          <input type="submit" class="btn-info" onclick="return checkform()" value="Inscrire">
       </form>
-
+     <!-- ======= F.A.Q Section ======= -->
+     <section id="faq" class="faq section-bg">
+      <div class="container">
+        <div class="section-title" data-aos="fade-up">
+          <h1> <i class="fa-regular fa-credit-card"></i> Method de payment : </h1>
+        </div>
+        <div class="faq-list">
+         <ul>
+         <li data-aos="fade-up">
+         <i class="fa-solid fa-circle-question icon-help"></i><a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam : <i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i> </a>
+              <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+                <p>
+                  illa urna porttitor rhoncus dolor purus non.
+                </p>
+              </div>
+            <li data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-solid fa-circle-question icon-help"></i> <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Payment PAr hhhhhhh : <i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i></a>
+              <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Dolor sit amet consectetur  turpis massa tincidunt dui.
+                </p>
+              </div>
+            </li>
+            <li data-aos="fade-up" data-aos-delay="300">
+              <i class="fa-solid fa-circle-question icon-help"></i>  <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Payment PAr hhhhhhh :<i class="fa-solid fa-angle-down icon-show"></i><i class="fa-solid fa-angle-up icon-close"></i></a>
+              <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+                <p>
+                  Eleifend mi in nulla posuetra eu facilisis sed odio morbi quis
+                </p>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section><!-- End F.A.Q Section -->
    </div>
 
    <!-- end  inscription container -->

@@ -36,13 +36,7 @@ if(!isset($_SESSION['Role']))
                 $CountDay = $pdo_statement1->fetchColumn();
                 $TypeFormation = '';
                 $dateMYY = '';
-<<<<<<< HEAD
-
-
                 $etat = $etat2 = false;
-=======
-                $etat =false;
->>>>>>> 47f59d274f9aca24d44a32a2c135002755a3eb25
                 if($_SERVER['REQUEST_METHOD'] == "POST" )
                       {   
                             // inscripitons by filter type
