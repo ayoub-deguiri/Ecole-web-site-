@@ -290,7 +290,7 @@ $Ourresult = $pdo_statement->fetch();
 
          <div id="Myfeatured" class="container">
             <h1 class="heading headingH3"> <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> CE QUI NOUS CARACTÉRISE ?</h1>
-            <div class="row gy-4" style="margin-left: -130px; margin-right: -150px;">
+            <div class="row gy-4 " style="margin-left: -130px; margin-right: -150px;"  id="service">
                <div class="col-xl-3 col-md-6 d-flex" data-aos="zoom-out">
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa-solid fa-user-group" style="color: blue;"></i></div>

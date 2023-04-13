@@ -1156,6 +1156,40 @@ a {
   .home .slide .content h3 {
     font-size: 3rem;
   }
+
+  /*page index.php*/
+  .carousel {
+ 
+    width: 91%;
+  }
+    #carousel-inner2 {
+      margin-left: 5em;
+  }
+  .headingH1::after {
+    width: 55%;
+    left: 26%;
+  }
+  .home-image4 {
+    height: 380px;
+}
+
+.headingH2::after {
+  width: 32%;
+  left: 268px;
+}
+.headingH3::after {
+  width: 80%;
+  left: 69px;
+}
+#service{
+  border: 1px solid #000;
+}
+#Myfeatured{
+  width: 100% !important;
+}
+  
+
+
 }
 
 @media (max-width: 450px) {
