@@ -156,7 +156,7 @@
            <h1 class="heading headingH4" > <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS ALBUMS </h1>
           <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
   
-            <ul class="portfolio-flters" style="margin-left: -128px;margin-right: -180px;">
+            <ul class="portfolio-flters" class="myyPort">
               <li data-filter="*" class="filter-active">All</li>
               <li data-filter=".filter-Diplome">Les Diplomes</li>
               <li data-filter=".filter-Secourisme">Secourisme</li>
