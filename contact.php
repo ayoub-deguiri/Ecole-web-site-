@@ -112,9 +112,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
       <a href="contact.php"> <i class="fa-solid fa-comment"></i> Contactez nous</a>
     </nav>
     <div class="icons">
-      <div id="account-btn"></div>
-      <div id="menu-btn"></div>
-    </div>
+        
+        <div id="account-btn" ></div>
+        <div id="menu-btn" class="fas fa-bars" ></div>
+     </div>
   </div>
 
   <!-- header section ends -->
@@ -309,7 +310,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
 
   <!-- footer section ends -->
-
+  <script src="assets/js/navMobile.js"></script>
 
 
 
