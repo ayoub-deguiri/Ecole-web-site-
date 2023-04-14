@@ -1170,10 +1170,11 @@ a {
     display: block;
     
 }
-  .carousel{
-  margin-left: -47em;
+  .index .carousel{
+    margin-left: 8em;
+    width: 90%;
 }
-    #carousel-inner2 {
+   .index #carousel-inner2 {
       
       height: 397px;
   }
@@ -1292,11 +1293,16 @@ a {
   }
 
   /* page programe */
+  .MysectionPrg{
+    width: 90% !important;
+  }
   .MysectionPrg .img1 {
-    margin-left: 0px !important;
+    margin-left: 100px !important;
     width: 540px !important;
     }
-   
+    .MysectionPrg .table .myp1 {
+      margin-right: 0px;
+  }
     .MysectionPrg .table {
      
       width: 100%;
@@ -1339,6 +1345,12 @@ a {
    
 
   }
+  .master .col-md-5
+  {
+    width: 100%;
+   
+
+  }
   .master .col-md-5 img
   {
     width: 50%;
@@ -1348,25 +1360,22 @@ a {
 
   }
   /*  formation */
-  .formation  .col-md-4 .carousel {
+  .formation  .col-md-4  {
      margin-left: 20em; 
      height: 100%;
      width: 50%;
-
-
   }
+  .formation  .col-md-8  {
+    width: 100%;
+ }
   .MysectionPrg .img2 {
-    /* margin-left: -22px; */
     width: 75% !important;
     margin-left: 9em !important;
 }
 .albumes p {
   font-size: 2em !important;
-  /* letter-spacing: 2px; */
   color: black;
   padding: 1em !important;
-  /* padding: 1em; */
-  /* padding: 1em 0em 1em 1em; */
 }
 .portfolio .portfolio-flters{
   margin-left: 0px !important;
@@ -1374,6 +1383,12 @@ a {
 }
 .portfolio .portfolio-flters li{
   margin-bottom: 1em !important;
+}
+.albumes .col-md-8{
+  width: 100%;
+}
+.albumes .carousel{
+  margin-left: 26em;
 }
 /* contact as*/
 .contact-ct {
