@@ -2648,6 +2648,9 @@ a {
   .home-image4 {
     width: 590px;
   }
+  .accuimg {
+    width: 495px !important;
+}
   .portfolio .portfolio-flters li {
     margin-top: 20px;
   }

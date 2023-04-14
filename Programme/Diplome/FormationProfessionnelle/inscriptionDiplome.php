@@ -18,9 +18,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $email = $_POST['email'];
    $Typeformation = 'Diplome';
    $type = 'encoure';
-   $date = date("Y-m-d H:i:s");
+   $date = date("Y-m-d ");
+   $heure =date("H:i:s");
    $img = 'img';
-   $query ="INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null)";
+   $query ="INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null)";
 
    $pdo_statement = $pdo_conn->prepare($query);
    // File name
@@ -75,10 +76,11 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
    $pdo_statement->bindParam(8, $email);
    $pdo_statement->bindParam(9, $type);
    $pdo_statement->bindParam(10, $date);
-   $pdo_statement->bindParam(11, $filename1);
-   $pdo_statement->bindParam(12, $filename2);
-   $pdo_statement->bindParam(13, $filename3);
-   $pdo_statement->bindParam(14, $filename4);
+   $pdo_statement->bindParam(11, $heure);
+   $pdo_statement->bindParam(12, $filename1);
+   $pdo_statement->bindParam(13, $filename2);
+   $pdo_statement->bindParam(14, $filename3);
+   $pdo_statement->bindParam(15, $filename4);
    $pdo_statement->execute();
    $etat = true;
 }

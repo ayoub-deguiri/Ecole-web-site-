@@ -233,7 +233,9 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    <script type="text/javascript">
          $(document).ready(function(){
          $(".sel_depart").click(function(){
+            
             var deptid = $(this).val();
+            
             $.ajax({
                url: '../getFormation.php',
                type: 'post',
@@ -250,8 +252,6 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         var name = response[i]['name'];
                         var CountBac2 = response[i]['CountBac2'];
                         var CountBac3 = response[i]['CountBac3'];
-                        
-                        
                         if(deptid =='BAC+2')
                            {
                               $(".sel_user").append("<option value='"+name+"'>"+name+"</option>");
