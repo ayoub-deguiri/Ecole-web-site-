@@ -70,9 +70,10 @@
          <a href="contact.php"> <i class="fa-solid fa-comment"></i> Contactez nous</a>
   </nav>
   <div class="icons">
-     <div id="account-btn" ></div>
-     <div id="menu-btn"></div>
-  </div>
+        
+        <div id="account-btn" ></div>
+        <div id="menu-btn" class="fas fa-bars" ></div>
+     </div>
 </div>
 
    <div class="container-md diplomes-ct albumes">
@@ -365,7 +366,7 @@
    <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
    <script src="assets/vendor/aos/aos.js"></script>
 
-
+   <script src="assets/js/navMobile.js"></script>
    <script src="assets/js/main.js"></script>
 
 

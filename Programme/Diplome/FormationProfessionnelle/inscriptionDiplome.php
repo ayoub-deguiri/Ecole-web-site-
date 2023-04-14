@@ -278,9 +278,10 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
          <a href="../../../contact.php"> <i class="fa-solid fa-comment"></i> Contactez nous</a>
       </nav>
       <div class="icons">
-         <div id="account-btn"></div>
-         <div id="menu-btn"></div>
-      </div>
+        
+        <div id="account-btn" ></div>
+        <div id="menu-btn" class="fas fa-bars" ></div>
+     </div>
    </div>
 
    <!-- header section ends -->
@@ -528,7 +529,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
 
 
    <script src="../../../assets/js/formvalidation2.js"> </script>
-
+   <script src="../../../assets/js/navMobile.js"></script>
 
    <!-- TOAST LINK-->
    <script src="../../../toast/beautyToast.js"></script>

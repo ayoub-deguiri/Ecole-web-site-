@@ -315,9 +315,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          <a href="../../contact.php"> <i class="fa-solid fa-comment"></i> Contactez nous</a>
       </nav>
       <div class="icons">
-         <div id="account-btn"></div>
-         <div id="menu-btn"></div>
-      </div>
+        
+        <div id="account-btn" ></div>
+        <div id="menu-btn" class="fas fa-bars" ></div>
+     </div>
    </div>
    <!-- header section ends -->
    <!-- start inscription formation  container -->
@@ -539,6 +540,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    
    <!-- TOAST LINK-->
 <script src="../../toast/beautyToast.js"></script>
+<script src="../../../assets/js/navMobile.js"></script>
 <?php
 
                 if($etat ==true){
