@@ -362,7 +362,7 @@ and move_uploaded_file($_FILES['files2']['tmp_name'],$target_file2)
           
 
           
-          <div class="g-recaptcha" data-sitekey="6Ld32IMlAAAAAH-N-Z4nOnLi3u6SYMRqKmfaymJx"></div>
+          <div class="g-recaptcha" data-sitekey="6Ld32IMlAAAAAH-N-Z4nOnLi3u6SYMRqKmfaymJx" require></div>
           <input type="submit" class="btn-info" onclick="return checkform()"  value="Inscrire">
     </form>
            <!-- ======= F.A.Q Section ======= -->

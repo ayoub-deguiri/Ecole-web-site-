@@ -95,9 +95,13 @@ $Ourresult = $pdo_statement->fetch();
 <!-- AfterHeader section ends -->
    <!-- carousel section starts  -->
    
+<<<<<<< HEAD
    <div class="row index">
+=======
+   <div class="row index"  >
+>>>>>>> a7b6d7929c8465a206542d1d1a2904034f1d055f
       <div class="col-xl-3 col-3"></div>
-      <div class="col-xl-6 col-6">
+      <div class="col-xl-6 ">
          <div class="carousel slide" data-bs-ride="carousel">
             <div id="carousel-inner2" class="carousel-inner">
                <div class="carousel-item active" style="width: 700px;">
@@ -306,7 +310,7 @@ $Ourresult = $pdo_statement->fetch();
                   </div>
                </div><!-- End Service Item -->
 
-               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa fa-random" style="font-size:36px;color:blue"></i></div>
                      <h4><span class="stretched-link">COLLABORATION</span></h4>
@@ -314,7 +318,7 @@ $Ourresult = $pdo_statement->fetch();
                   </div>
                </div><!-- End Service Item -->
 
-               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa fa-heart" style="font-size:36px;color:blue"></i></div>
                      <h4><span class="stretched-link">RESPECT</span></h4>

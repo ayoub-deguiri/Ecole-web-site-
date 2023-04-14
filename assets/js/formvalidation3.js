@@ -159,13 +159,24 @@
            cfile2.innerHTML ="*"
            test9 =false
         }
-  
-        })
-  
+  })
    function checkform()
    {
       var etat = true;
-      var check  =document.querySelector('#check')
+    
+      var response = grecaptcha.getResponse();
+      if(response.length == 0) 
+      { 
+      
+        beautyToast.error({
+         title: 'Error', 
+         message:"please verify you are humann!",
+         timeout : 3000
+       });
+      
+        etat= false;
+      }
+      
     if(test1 ==false || test2==false || test3==false || test4==false || test5==false || test7==false 
     || test8==false || test9==false )
     {
@@ -174,12 +185,16 @@
          message: 'touts les champs sont obligatoire !'
        });
       etat= false;
-    }
+   }
 
     return etat
       
       
    }
+
+
+  
+  
 
    
  
