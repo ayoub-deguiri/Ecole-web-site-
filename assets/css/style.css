@@ -1171,12 +1171,12 @@ a {
     
 }
   .index .carousel{
-    margin-left: 8em;
-    width: 90%;
+    margin-left: 8em !important;
+    width: 90% !important;
 }
    .index #carousel-inner2 {
       
-      height: 397px;
+      height: 397px !important;
   }
   
   .headingH1::after {
@@ -2739,8 +2739,11 @@ a {
   margin-right: 1.7rem;
   font-size: 1.9rem;
 }
-#carousel-inner2 {
-  margin-left: -32px;
+.index #carousel-inner2 {
+  margin-left: 216px;
+}
+.index .carousel {
+  width: 900px;
 }
 .diplomes-ct .carousel-inner {
   position: relative;

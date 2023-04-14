@@ -95,11 +95,7 @@ $Ourresult = $pdo_statement->fetch();
 <!-- AfterHeader section ends -->
    <!-- carousel section starts  -->
    
-<<<<<<< HEAD
    <div class="row index">
-=======
-   <div class="row index"  >
->>>>>>> a7b6d7929c8465a206542d1d1a2904034f1d055f
       <div class="col-xl-3 col-3"></div>
       <div class="col-xl-6 ">
          <div class="carousel slide" data-bs-ride="carousel">
