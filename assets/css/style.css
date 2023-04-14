@@ -2824,14 +2824,11 @@ a {
 {
   display: none;
 }
-.carousel-inner .carousel-item {
-  width: 78%;
-  margin-left: 69px;
+.formation .col-md-4 .carousel {
+  width: 68%;
+  margin-left: 78px;
 }
-.carousel-inner .carousel-item {
-  width: 78%;
-  margin-left: 69px;
-}
+
 .title-partieo1::after {
   height: 60px;
   top: 3px;
@@ -2898,9 +2895,6 @@ a {
 .MysectionPrg .table .myp1 {
   margin-left: 135px;
 }
-.MysectionPrg .table {
-  margin-left: 10px;
-}
 .master img{
   width: 430px;
   margin-left: 80px;
@@ -2911,9 +2905,35 @@ a {
   }
 .imgLicn img{
   width: 447px !important;
-  margin-left: 27px;
+  margin-left: -65px;
 }
-
+.diplome-partie02
+  {
+    margin-right: 46px;
+  }
+.part2 .carousel {
+    margin-left: 6em;
+    margin-top: 2em;
+}
+.MysectionPrg .table {
+  margin-left: 0em;
+}
+.home-image4 {
+  width: 434px !important;
+  margin-left: 47px !important;
+}
+#carousel-inner2 {
+  margin-left: 0px; 
+}
+.index .carousel{
+  margin-left: -12em;
+  height: 398px;
+    width: 500px;
+}
+.index #carousel-inner2 {
+      height: 397px;
+      width: 500px;
+  }
 }
 
 
