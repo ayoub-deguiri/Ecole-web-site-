@@ -123,7 +123,7 @@ if(!isset($_SESSION['Role']))
             // ajax deleting inscription
             $('.delete-intern').on('click', function() {
               var internId = $(this).data('id');
-                alert(internId)
+                
                 $('#confirmation-dialog').show();
                 $('.confirm-yes').on('click', function() {
                     $.ajax({
