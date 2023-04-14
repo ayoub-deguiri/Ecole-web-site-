@@ -680,6 +680,10 @@ a {
 .portfolio .portfolio-flters li:last-child {
   margin-right: 0;
 }
+.myyPort{
+  margin-left: -128px;
+  margin-right: -180px;
+}
 
 @media (max-width: 575px) {
   .portfolio .portfolio-flters li {
@@ -2682,6 +2686,9 @@ a {
   .home-image4 {
     width: 590px;
   }
+  .portfolio .portfolio-flters li {
+    margin-top: 20px;
+  }
   .courses{
     padding: 3rem 3%;
   }
@@ -2704,16 +2711,29 @@ a {
     font-size: 21px;
     left: 125px;
 }
+.header {
+  padding: 0rem 5%;
+}
+.portfolio .portfolio-flters li {
+  margin-top: 20px;
+}
 .header .navbar a {
   margin-right: 1.7rem;
   font-size: 1.9rem;
 }
-  #carousel-inner2 {
-    margin-left: 260px;
-  }
-  .carousel {
-    width: 700px;
+#carousel-inner2 {
+  margin-left: -32px;
 }
+.diplomes-ct .carousel-inner {
+  position: relative;
+  width: 55%;
+  overflow: hidden;
+  width: 350px !important;
+}
+.diplomes-ct .image1Pic
+  {
+    width: 373px ;
+  }
 .home-heading04 {
   margin-left: 50px;
 }
@@ -2750,5 +2770,158 @@ a {
     justify-content: end;
     padding-right: 0px;
     padding-left: 56px;
+}
+.home-highlight1 {
+    display: block;
+}
+.home-image4 {
+  margin-top: 26px;
+  width: 462px;
+  height: 450px;
+  margin-left: 30px;
+}
+.home-image5 {
+  width: 90%;
+}
+.header {
+  padding: 0.2rem;
+}
+.hideimg
+  {
+    display: none;
+  }
+.featured-services .classFatr {
+    margin-left: 80px;
+}
+.headingH2::after {
+  width: 41%;
+  left: 160px;
+}
+.about .content p {
+  font-size: 1.6rem;
+  padding: 1rem 26px;
+  font-weight: 700;
+}
+.headingH4::after {
+  width: 219px;
+  left: 151px;
+}
+.headingH5::after {
+  width: 402px;
+  left: 63px;
+}
+.headingH6::after {
+  width: 294px;
+  left: 115px;
+}
+.logo-container {
+  margin-bottom: 25px;
+}
+.image1Pic
+{
+  display: none;
+}
+.carousel-inner .carousel-item {
+  width: 78%;
+  margin-left: 69px;
+}
+.carousel-inner .carousel-item {
+  width: 78%;
+  margin-left: 69px;
+}
+.title-partieo1::after {
+  height: 60px;
+  top: 3px;
+}
+.portfolio .portfolio-flters li {
+  font-size: 14px;
+  margin: 0 5px;
+  margin-top: 24px;
+  margin-left: 14px;
+}
+.myyPort {
+      margin-left: 7px;
+      margin-right: 0px;
+      margin-top: 51px;
+  }
+.flayer{
+  display: block;
+}
+.contact-ct {
+  display: block;
+}
+.contact-ct iframe{
+  width: 500px;
+  margin-left: 30px;
+  margin-bottom: 40px;
+}
+.flayer
+{
+  display: none;
+}
+.MysectionPrg .img2 {
+  margin-top: 20px;
+  margin-left: 40px !important;
+  height: 272px;
+  width: 465px;
+}
+.Inscription-form {
+  width: 94% !important;
+}
+.Inscription-form input[type="text"] {
+  width: 78%;
+}
+.Inscription-form select {
+  width: 78%;
+}
+.inputfile-1 + label {
+    width: 78%;
+}
+#title {
+    font-size: 3.4em;
+    margin-top: 42px;
+}
+.faq .faq-list a {
+  font-size: 2em;
+  margin-left: 10px;
+}
+.faq .faq-list ul {
+  width: 354px;
+}
+.MysectionPrg .img1 {
+  margin-left: 34px !important;
+  width: 500px !important;
+}
+.MysectionPrg .table .myp1 {
+  margin-left: 135px;
+}
+.MysectionPrg .table {
+  margin-left: 10px;
+}
+.master img{
+  width: 430px;
+  margin-left: 80px;
+}
+.master .partie01
+  {
+    margin-left: 12px;
+  }
+.imgLicn img{
+  width: 447px !important;
+  margin-left: 27px;
+}
+
+}
+
+
+@media (max-width: 500px) {
+.diplome-partie02
+  {
+    margin-right: 37px;
+  }
+  .imgLicn img {
+    width: 388px !important;
+    margin-left: 27px;
+    margin-right: 20px;
 }
 }

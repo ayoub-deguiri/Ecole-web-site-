@@ -176,7 +176,11 @@ $Ourresult = $pdo_statement->fetch();
       <br /><br />
       <div class="home-highlight1">
          <div class="home-image4 hideimg">
+<<<<<<< HEAD
+            <img alt="image" src="images/acc.jpg" class="home-image5" />
+=======
             <img alt="image" src="images/acc.jpg" class="home-image5"  />
+>>>>>>> 6d630c2b2e9ca14f4592e926f92ba48ce33c0e1d
          </div>
          <div class="home-content04">
             <div class="home-heading04">
@@ -290,7 +294,11 @@ $Ourresult = $pdo_statement->fetch();
          <div id="Myfeatured" class="container">
             <h1 class="heading headingH3"> <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> CE QUI NOUS CARACTÉRISE ?</h1>
             <div class="row gy-4 classFatr">
+<<<<<<< HEAD
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6 d-flex" data-aos="zoom-out">
+=======
                <div class="col-xl-3 col-md-6 col-sm-6 d-flex" data-aos="zoom-out">
+>>>>>>> 6d630c2b2e9ca14f4592e926f92ba48ce33c0e1d
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa-solid fa-user-group" style="color: blue;"></i></div>
                      <h4><span class="stretched-link">ÉQUIPE QUALIFIÉE </span></h4>
@@ -298,7 +306,11 @@ $Ourresult = $pdo_statement->fetch();
                   </div>
                </div><!-- End Service Item -->
 
+<<<<<<< HEAD
+               <div class="col-xl-3 col-lg-3 col-md-6 col-sm-6  d-flex" data-aos="zoom-out" data-aos-delay="200">
+=======
                <div class="col-xl-3 col-md-6 col-sm-6  d-flex" data-aos="zoom-out" data-aos-delay="200">
+>>>>>>> 6d630c2b2e9ca14f4592e926f92ba48ce33c0e1d
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa fa-repeat" style="font-size:36px;color:blue"></i></div>
                      <h4><span class="stretched-link">INFRASTRUCTURE ADAPTÉE </span></h4>
@@ -306,7 +318,11 @@ $Ourresult = $pdo_statement->fetch();
                   </div>
                </div><!-- End Service Item -->
 
+<<<<<<< HEAD
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
+=======
                <div class="col-xl-3 col-md-6 col-sm-6 d-flex" data-aos="zoom-out" data-aos-delay="400">
+>>>>>>> 6d630c2b2e9ca14f4592e926f92ba48ce33c0e1d
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa fa-random" style="font-size:36px;color:blue"></i></div>
                      <h4><span class="stretched-link">COLLABORATION</span></h4>
@@ -314,7 +330,11 @@ $Ourresult = $pdo_statement->fetch();
                   </div>
                </div><!-- End Service Item -->
 
+<<<<<<< HEAD
+               <div class="col-xl-3 col-lg-3 col-md-3 col-sm-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
+=======
                <div class="col-xl-3 col-md-6 col-sm-6 d-flex" data-aos="zoom-out" data-aos-delay="600">
+>>>>>>> 6d630c2b2e9ca14f4592e926f92ba48ce33c0e1d
                   <div class="service-item position-relative">
                      <div class="icon"><i class="fa fa-heart" style="font-size:36px;color:blue"></i></div>
                      <h4><span class="stretched-link">RESPECT</span></h4>
@@ -373,7 +393,7 @@ $Ourresult = $pdo_statement->fetch();
                if (!empty($result1)) {
                   foreach ($result1 as $row1) {
                ?>
-                     <div class="col-xl-3 col-lg-4 col-md-6  portfolio-item filter-<?php echo $row1['type']; ?>">
+                     <div class="col-xl-3 col-lg-4 col-md-6  col-sm-6 portfolio-item1 portfolio-item filter-<?php echo $row1['type']; ?>">
                         <img src="Admin/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
                         <div class="portfolio-info">
                            <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
@@ -388,7 +408,7 @@ $Ourresult = $pdo_statement->fetch();
                if (!empty($result2)) {
                   foreach ($result2 as $row1) {
                ?>
-                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
+                     <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 portfolio-item1  portfolio-item filter-<?php echo $row1['type']; ?>">
                         <img src="Admin/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
                         <div class="portfolio-info">
                            <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
@@ -416,7 +436,7 @@ $Ourresult = $pdo_statement->fetch();
                if (!empty($result4)) {
                   foreach ($result4 as $row1) {
                ?>
-                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
+                     <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item1  portfolio-item filter-<?php echo $row1['type']; ?>">
                         <img src="Admin/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
                         <div class="portfolio-info">
                            <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
@@ -535,7 +555,7 @@ $Ourresult = $pdo_statement->fetch();
    <!-- students reviews section ends -->
    <section class="logo-container">
       <div id="Myslider" class="swiper logo-slider">
-         <h1 class="heading headingH6"> NOS PARTENAIRES </h1>
+         <h1 class="heading headingH6"> <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i>  NOS PARTENAIRES </h1>
          <div class="swiper-wrapper">
             <div class="swiper-slide "> <img src="images/cisco.png" alt=""> </div>
             <div class="swiper-slide"> <img src="images/fede.png" alt=""> </div>
