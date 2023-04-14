@@ -439,7 +439,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       echo "<script>
           beautyToast.error({
           title: 'error', 
-          message: 'nom d'utilisateur existe déjà',
+          message: 'nom d utilisateur existe deja',
           timeout : 3000 
           });
           </script>";
@@ -448,7 +448,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
           window.location="gererComptes.php"
           }
           setTimeout(greet, 3000); </script>';
-          $etat1 = false;
+          $etat3 = false;
   }
     ?>
 

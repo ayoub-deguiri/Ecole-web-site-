@@ -1245,30 +1245,59 @@ a {
   }
   .part1 {
     display: block;
-    border: 1px solid black;
     width: 100% !important;
   }
-  .slide-diplome{
-    
+  .part2{
+    width: 100% !important;
   }
-
+  .part2 #carouselExampleFade{
+    width: 68%;
+    margin-left: 11em !important;
+  }
+  .part2 .carousel {
+    margin-left: 18em;
+    margin-top: 2em;
+  }
+  .part2 .carousel-inner {
+    
+    width: 53%;
+   
+}
+.part3 {
+  display: block;
+  width: 100% !important;
+}
+.part4{
+  width: 100% !important;
+}
+.part4 #carouselExampleFade{
+  width: 68%;
+  margin-left: 11em !important;
+}
+.part4 .carousel {
+  margin-left: 18em;
+  margin-top: 2em;
+}
+.part4 .carousel-inner {
+  
+  width: 53%;
+ 
+}
   .diplomes-ct   #picdiplome{
     display: none !important;
   }
 
   /* page programe */
   .MysectionPrg .img1 {
-    margin-left: 98px !important;
+    margin-left: 0px !important;
     width: 540px !important;
     }
-    .MysectionPrg .table .myp1 {
-      margin-right: -9px;
-    }
+   
     .MysectionPrg .table {
      
-      width: 90%;
+      width: 100%;
       margin-left: 2em;
-      font-size: 15px;
+      font-size: 17px;
   }
   .MysectionPrg .table h1 {
   
@@ -1280,6 +1309,9 @@ a {
     max-width:380px ;
   }
   /*master and lecence*/
+  .master .partie01 {
+    width: 100% !important;
+  }
   .master .partie01 #p-fr {
     
     padding: 1em 0em;
@@ -1295,6 +1327,12 @@ a {
     height: fit-content;
     margin-left: 18em;
     margin-bottom: 3em;
+
+  }
+  .master .col-md-4
+  {
+    width: 100%;
+   
 
   }
   .master .col-md-5 img
