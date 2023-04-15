@@ -3,12 +3,12 @@
 session_start();
 if(!isset($_SESSION['Role']))
     {
-        header("location:../login.php");
+        header("location:../../login.php");
     }
 ?>
 <?php 
                 // connect db 
-                include('../db/db.php');
+                include('../../db/db.php');
                 $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
                 $pdo_statement -> bindParam(1,$_SESSION['Id']);
                 $pdo_statement->execute();
@@ -93,11 +93,11 @@ if(!isset($_SESSION['Role']))
               <!-- awesom link -->
               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
               <!-- incos page link -->
-              <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
+              <link rel="shortcut icon" href="../../images/LOGO.jpg" type="image/x-icon">
               <!-- jq Link -->
               <script src="./scripts/jquery-3.6.3.min.js"></script>
               <!-- toast links -->
-              <link rel="stylesheet" href="../toast/beautyToast.css">
+              <link rel="stylesheet" href="../../toast/beautyToast.css">
     <script>
         $(document).ready(function() {
             //ajax modla 
@@ -106,7 +106,7 @@ if(!isset($_SESSION['Role']))
                 var internId = button.data('id');
                 // Make an AJAX request to retrieve intern information
                 $.ajax({
-                    url: '../inc/ajaxModal2.php',
+                    url: '../../inc/ajaxModal2.php',
                     type: 'GET',
                     data: {
                         internId: internId
@@ -127,7 +127,7 @@ if(!isset($_SESSION['Role']))
                 $('#confirmation-dialog').show();
                 $('.confirm-yes').on('click', function() {
                     $.ajax({
-                        url: '../inc/deleteInsc.php',
+                        url: '../../inc/deleteInsc.php',
                         type: 'GET',
                         data: {
                             internId: internId
@@ -139,7 +139,7 @@ if(!isset($_SESSION['Role']))
                                 message: 'inscription bien supprimer ' 
                                 });
                             function greet() {
-                                window.location="acceuil.php"
+                                window.location="index.php"
                               }
                             setTimeout(greet, 1000); 
                             },
@@ -168,7 +168,7 @@ if(!isset($_SESSION['Role']))
     </div>
     <ul class="nav-list">
       <li class="NavSelect">
-        <a href="acceuil.php">
+        <a href="index.php">
           <i class='bx bx-home'></i>
           <span class="links_name">Acceuil</span>
         </a>
@@ -224,7 +224,7 @@ if(!isset($_SESSION['Role']))
       </li>
       <li class="profile">
                 <div class="profile-details">
-                    <img src="../images/homme-daffaire.png" alt="profileImg">
+                    <img src="../../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
                         <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>
@@ -390,7 +390,7 @@ if(!isset($_SESSION['Role']))
     </div>
   <script src="./assets/script.js"></script>
 <!-- TOAST LINK-->
-<script src="../toast/beautyToast.js"></script>
+<script src="../../toast/beautyToast.js"></script>
 <?php
 
                 if($etat ==true){
@@ -403,7 +403,7 @@ if(!isset($_SESSION['Role']))
           </script>";
           echo '<script>
           function greet() {
-            window.location="acceuil.php"
+            window.location="index.php"
            }
            setTimeout(greet, 1500); </script>';
           $etat = false;
@@ -418,7 +418,7 @@ if(!isset($_SESSION['Role']))
                   </script>";
                   echo '<script>
                   function greet() {
-                    window.location="acceuil.php"
+                    window.location="index.php"
                    }
                    setTimeout(greet, 1500); </script>';
                   $etat2 = false;

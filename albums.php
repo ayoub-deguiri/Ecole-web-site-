@@ -179,9 +179,9 @@
                      {           
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
-                <img src = "Admin/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
+                <img src = "admin/@woul@ti/<?php echo $row1['image']; ?>"  class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                  <a href="admin/@woul@ti/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
               </div>
               </div>
                   <?php         
@@ -194,9 +194,9 @@
                      {          
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row2['type']; ?>">
-                <img src = "Admin/<?php echo $row2['image']; ?>" class="img-fluid" alt="">
+                <img src = "admin/@woul@ti/<?php echo $row2['image']; ?>" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <a href="Admin/<?php echo $row2['image']; ?>" data-gallery="portfolio-gallery<?php echo $row2['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                  <a href="admin/@woul@ti/<?php echo $row2['image']; ?>" data-gallery="portfolio-gallery<?php echo $row2['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
               </div>
               </div>
                   <?php         
@@ -209,9 +209,9 @@
                      {            
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row3['type']; ?>">
-                <img src = "Admin/<?php echo $row3['image']; ?>" class="img-fluid" alt="">
+                <img src = "admin/@woul@ti/<?php echo $row3['image']; ?>" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <a href="Admin/<?php echo $row3['image']; ?>" data-gallery="portfolio-gallery<?php echo $row3['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                  <a href="admin/@woul@ti/<?php echo $row3['image']; ?>" data-gallery="portfolio-gallery<?php echo $row3['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
               </div>
               </div>
                   <?php         
@@ -224,9 +224,9 @@
                      {          
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row4['type']; ?>">
-                <img src = "Admin/<?php echo $row4['image']; ?>" class="img-fluid" alt="">
+                <img src = "admin/@woul@ti/<?php echo $row4['image']; ?>" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <a href="Admin/<?php echo $row4['image']; ?>" data-gallery="portfolio-gallery<?php echo $row4['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                  <a href="admin/@woul@ti/<?php echo $row4['image']; ?>" data-gallery="portfolio-gallery<?php echo $row4['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
               </div>
               </div>
                   <?php         
@@ -239,9 +239,9 @@
                      {           
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row5['type']; ?>">
-                <img src = "Admin/<?php echo $row5['image']; ?>" class="img-fluid" alt="">
+                <img src = "admin/@woul@ti/<?php echo $row5['image']; ?>" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <a href="Admin/<?php echo $row5['image']; ?>" data-gallery="portfolio-gallery<?php echo $row5['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                  <a href="admin/@woul@ti/<?php echo $row5['image']; ?>" data-gallery="portfolio-gallery<?php echo $row5['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
               </div>
               </div>
                   <?php         
@@ -254,9 +254,9 @@
                      {            
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row6['type']; ?>">
-                <img src = "Admin/<?php echo $row6['image']; ?>" class="img-fluid" alt="">
+                <img src = "admin/@woul@ti/<?php echo $row6['image']; ?>" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <a href="Admin/<?php echo $row6['image']; ?>" data-gallery="portfolio-gallery<?php echo $row6['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                  <a href="admin/@woul@ti/<?php echo $row6['image']; ?>" data-gallery="portfolio-gallery<?php echo $row6['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
               </div>
               </div>
                   <?php         
@@ -269,9 +269,9 @@
                      {         
                 ?>
                 <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row7['type']; ?>">
-                <img src = "Admin/<?php echo $row7['image']; ?>" class="img-fluid" alt="">
+                <img src = "admin/@woul@ti/<?php echo $row7['image']; ?>" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <a href="Admin/<?php echo $row7['image']; ?>" data-gallery="portfolio-gallery<?php echo $row7['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                  <a href="admin/@woul@ti/<?php echo $row7['image']; ?>" data-gallery="portfolio-gallery<?php echo $row7['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
               </div>
               </div>
                   <?php         
@@ -351,7 +351,7 @@
                      </div>
             </div>
          </div>
-         <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus  -all right reserved by - ayoub-deguiri/abdelghafour-lahnida
+         <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus  -all right reserved  
          </div>
       </div>
    </section>

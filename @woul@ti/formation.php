@@ -1,11 +1,11 @@
 <?php
 session_start();
 if (!isset($_SESSION['Role'])) {
-    header("location:../login.php");
+    header("location:../../login.php");
 }
 ?>
 <?php
-        include('../db/db.php');
+        include('../../db/db.php');
         $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
                 $pdo_statement -> bindParam(1,$_SESSION['Id']);
                 $pdo_statement->execute();
@@ -78,9 +78,9 @@ $etat3 =false;
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     <!-- incos page link -->
-    <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/LOGO.jpg" type="image/x-icon">
 <!-- toast links -->
-<link rel="stylesheet" href="../toast/beautyToast.css">
+<link rel="stylesheet" href="../../toast/beautyToast.css">
     <script src="./scripts/jquery-3.6.3.min.js"></script>
     <script>
         $(document).ready(function() {
@@ -91,7 +91,7 @@ $etat3 =false;
 
                 // Make an AJAX request to retrieve intern information
                 $.ajax({
-                    url: '../inc/ajaxModal.php',
+                    url: '../../inc/ajaxModal.php',
                     type: 'GET',
                     data: {
                         internId: internId
@@ -119,7 +119,7 @@ $etat3 =false;
 
                     // If the user confirms the deletion, make an AJAX request to delete the intern
                     $.ajax({
-                        url: '../inc/deleteFormation.php',
+                        url: '../../inc/deleteFormation.php',
                         type: 'GET',
                         data: {
                             internId: internId
@@ -163,7 +163,7 @@ $etat3 =false;
         </div>
         <ul class="nav-list">
             <li>
-                <a href="acceuil.php">
+                <a href="index.php">
                     <i class='bx bx-home'></i>
                     <span class="links_name">Acceuil</span>
                 </a>
@@ -218,7 +218,7 @@ $etat3 =false;
             </li>
             <li class="profile">
                 <div class="profile-details">
-                    <img src="../images/homme-daffaire.png" alt="profileImg">
+                    <img src="../../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
                         <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>
@@ -407,7 +407,7 @@ $etat3 =false;
     </div>
 
     <script src="./assets/script.js"></script>
-    <script src="../toast/beautyToast.js"></script>
+    <script src="../../toast/beautyToast.js"></script>
     <?php
 
     if ($etat ==true ) {

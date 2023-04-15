@@ -2,16 +2,16 @@
 session_start();
 if (!isset($_SESSION['Role']) ) {
 
-  header("location:../login.php");
+  header("location:../../login.php");
 }
 if( $_SESSION['Role'] !== 'SuperAdmin')
 {
-  header("location:../login.php");
+  header("location:../../login.php");
 }
 ?>
 <?php
 
-include('../db/db.php');
+include('../../db/db.php');
 $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
 $pdo_statement -> bindParam(1,$_SESSION['Id']);
 $pdo_statement->execute();
@@ -97,9 +97,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css">
 
   <!-- incos page link -->
-  <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
+  <link rel="shortcut icon" href="../../images/LOGO.jpg" type="image/x-icon">
   <!-- toast links -->
-  <link rel="stylesheet" href="../toast/beautyToast.css">
+  <link rel="stylesheet" href="../../toast/beautyToast.css">
   <script src="./scripts/jquery-3.6.3.min.js"></script>
   <script>
     $(document).ready(function() {
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
           // Make an AJAX request to retrieve intern information
           $.ajax({
-            url: '../inc/modalCompte.php',
+            url: '../../inc/modalCompte.php',
             type: 'GET',
             data: {
               internId: internId
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                 $('.confirm-yes').on('click', function() {
                     // If the user confirms the deletion, make an AJAX request to delete the intern
                     $.ajax({
-                        url: '../inc/deleteCompte.php',
+                        url: '../../inc/deleteCompte.php',
                         type: 'GET',
                         data: {
                             internId: internId
@@ -175,7 +175,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
     </div>
     <ul class="nav-list">
       <li>
-        <a href="acceuil.php">
+        <a href="index.php">
           <i class='bx bx-home'></i>
           <span class="links_name">Acceuil</span>
         </a>
@@ -225,7 +225,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
       </li>
       <li class="profile">
                 <div class="profile-details">
-                    <img src="../images/homme-daffaire.png" alt="profileImg">
+                    <img src="../../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
                         <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>
@@ -401,7 +401,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         <button class="btn btn-secondary confirm-no">No</button>
     </div>
   <script src="./assets/script.js"></script>
-  <script src="../toast/beautyToast.js"></script>
+  <script src="../../toast/beautyToast.js"></script>
     <?php
 
     if ($etat ==true ) {

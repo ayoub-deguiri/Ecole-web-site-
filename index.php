@@ -356,7 +356,7 @@ $Ourresult = $pdo_statement->fetch();
       $result4 = $statement4->fetchAll(PDO::FETCH_ASSOC);
       ?>
       <div class="container-fluid" id="Myportfolio" data-aos="fade-up" data-aos-delay="200">
-         <h1 class="heading headingH4"> <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS ALBUMS </h1>
+         <h1 class="heading headingH4"> <i class="fa fa-chevron-circle-right" style="font-size:40px;color:blue"></i> NOS FLAYERS </h1>
          <div class="portfolio-isotope" data-portfolio-filter="*" data-portfolio-layout="masonry" data-portfolio-sort="original-order">
 
             <ul class="portfolio-flters">
@@ -374,9 +374,9 @@ $Ourresult = $pdo_statement->fetch();
                   foreach ($result1 as $row1) {
                ?>
                      <div class="col-xl-3 col-lg-4 col-md-6  col-sm-6 portfolio-item1 portfolio-item filter-<?php echo $row1['type']; ?>">
-                        <img src="Admin/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
+                        <img src="admin/@woul@ti/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                           <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                           <a href="admin/@woul@ti/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
                         </div>
                      </div>
                <?php
@@ -389,9 +389,9 @@ $Ourresult = $pdo_statement->fetch();
                   foreach ($result2 as $row1) {
                ?>
                      <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6 portfolio-item1  portfolio-item filter-<?php echo $row1['type']; ?>">
-                        <img src="Admin/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
+                        <img src="admin/@woul@ti/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                           <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                           <a href="admin/@woul@ti/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
                         </div>
                      </div>
                <?php
@@ -403,9 +403,9 @@ $Ourresult = $pdo_statement->fetch();
                   foreach ($result3 as $row1) {
                ?>
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item filter-<?php echo $row1['type']; ?>">
-                        <img src="Admin/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
+                        <img src="admin/@woul@ti/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                           <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                           <a href="admin/@woul@ti/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
                         </div>
                      </div>
                <?php
@@ -417,9 +417,9 @@ $Ourresult = $pdo_statement->fetch();
                   foreach ($result4 as $row1) {
                ?>
                      <div class="col-xl-3 col-lg-4 col-md-6 portfolio-item1  portfolio-item filter-<?php echo $row1['type']; ?>">
-                        <img src="Admin/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
+                        <img src="admin/@woul@ti/<?php echo $row1['image']; ?>" class="img-fluid" alt="">
                         <div class="portfolio-info">
-                           <a href="Admin/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
+                           <a href="admin/@woul@ti/<?php echo $row1['image']; ?>" data-gallery="portfolio-gallery<?php echo $row1['type']; ?>" class="glightbox preview-link"><i class="fa-solid fa-magnifying-glass-plus" style="color: red;"></i></a>
                         </div>
                      </div>
                <?php
@@ -610,7 +610,7 @@ $Ourresult = $pdo_statement->fetch();
                </div>
             </div>
          </div>
-         <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus -all right reserved by - ayoub-deguiri/abdelghafour-lahnida
+         <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus -all right reserved 
          </div>
       </div>
    </section>

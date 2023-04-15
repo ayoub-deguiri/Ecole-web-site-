@@ -3,11 +3,11 @@
 session_start();
 if(!isset($_SESSION['Role']))
     {
-        header("location:inscription.php");
+        header("location:../../login.php");
     }
 ?>
 <?php
-                include('../db/db.php');
+                include('../../db/db.php');
                 $pdo_statement = $pdo_conn->prepare("select * from compte where Id = ? ");
                 $pdo_statement -> bindParam(1,$_SESSION['Id']);
                 $pdo_statement->execute();
@@ -67,7 +67,7 @@ if(!isset($_SESSION['Role']))
         crossorigin="anonymous"></script>
 
     <!-- incos page link -->
-    <link rel="shortcut icon" href="../images/LOGO.jpg" type="image/x-icon">
+    <link rel="shortcut icon" href="../../images/LOGO.jpg" type="image/x-icon">
 
     <script src="./scripts/jquery-3.6.3.min.js"></script>
     
@@ -80,7 +80,7 @@ if(!isset($_SESSION['Role']))
                 
                 // Make an AJAX request to retrieve intern information
                 $.ajax({
-                    url: '../inc/ajaxModal2.php',
+                    url: '../../inc/ajaxModal2.php',
                     type: 'GET',
                     data: {
                         internId: internId
@@ -109,7 +109,7 @@ if(!isset($_SESSION['Role']))
     </div>
     <ul class="nav-list">
       <li >
-        <a href="acceuil.php">
+        <a href="index.php">
           <i class='bx bx-home'></i>
           <span class="links_name">Acceuil</span>
         </a>
@@ -165,7 +165,7 @@ if(!isset($_SESSION['Role']))
       </li>
       <li class="profile">
                 <div class="profile-details">
-                    <img src="../images/homme-daffaire.png" alt="profileImg">
+                    <img src="../../images/homme-daffaire.png" alt="profileImg">
                     <div class="name_job">
                         <div class="name"><?php echo  $resultPrf['Nom'].' '.$resultPrf['Prenom'];  ?></div>
                         <div class="job"><?php echo $_SESSION["Role"] ?></div>

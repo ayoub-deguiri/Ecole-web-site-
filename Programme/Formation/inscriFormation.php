@@ -474,7 +474,7 @@ and move_uploaded_file($_FILES['files2']['tmp_name'],$target_file2)
                      </div>
             </div>
          </div>
-         <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus  -all right reserved by - ayoub-deguiri/abdelghafour-lahnida
+         <div class="credit"> Copyright &copy; 2023 Jah Informatique Plus  -all right reserved  
          </div>
       </div>
    </section>

@@ -21,7 +21,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                 $_SESSION['Id'] = $compte['Id'];
                 $_SESSION['Nom'] = $compte['Nom'];
                 $_SESSION['Prenom'] = $compte['Prenom'];
-                    header("location:Admin/acceuil.php");
+                    header("location:Admin/index.php");
                 
             }
         }
