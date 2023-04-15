@@ -22,12 +22,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <p>".$message."</p>
   </div>";
   $name = "Ecole JAH Marrakech";  // Name of your website or yours
-  $to = "ayoubdakiri2002@gmail.com";  // mail of reciever
+  $to = "Jah.informatique@gmail.com";  // mail of reciever
   $subject = "contact suport";
   $body = $content;
-  $from = "vodkaayoub1@gmail.com";  // you mail  vodkaayoub1@gmail.com"
-  $password = "qlipazmcsezqwwfg";  // your mail password   qlipazmcsezqwwfg
-
+  $from = "jamaljahnouiti@gmail.com";  // you mail  vodkaayoub1@gmail.com"
+  $password = "hifofyctbopxgkew";  // your mail password   
   // Ignore from here
   require 'PHPMailer/src/Exception.php';
   require 'PHPMailer/src/PHPMailer.php';
@@ -86,6 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
   <!-- custom css file link  -->
   <link rel="stylesheet" href="assets/css/style.css">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 <body>
   <!-- header section starts  -->
@@ -140,14 +140,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
           <input type="text" placeholder="Objet " class="profile-textinput1 Small input" required  name="objet"/>
           <label class="profile-text23 Label">Votre message</label>
           <textarea rows="8" placeholder="Je veux dire que..." class="profile-textarea textarea Small" name="message" required></textarea>
-
+        <div>
+        <div class="g-recaptcha" data-sitekey="6Ld32IMlAAAAAH-N-Z4nOnLi3u6SYMRqKmfaymJx"></div>
+        </div>
           <div class="profile-container10">
             <div class="profile-container11">
-
+              
               <input type="submit" value="envoyer" class="primary-blue-button-button button ButtonSmall" />
-
-
-
             </div>
           </div>
         </form>
