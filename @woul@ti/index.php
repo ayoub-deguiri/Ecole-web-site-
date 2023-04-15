@@ -64,13 +64,7 @@ if(!isset($_SESSION['Role']))
                                   $result = $pdo_statement->fetchAll(PDO::FETCH_ASSOC);
                                   $dateMYY = $_POST["FilterDate"];
                               }
-                                              // accepter insciption
-                            if(isset($_POST["btn1"])){
-                                  $pdo_statement = $pdo_conn->prepare("UPDATE inscription SET Type = 'Accepter' WHERE `inscription`.`Id` = ?");
-                                  $pdo_statement -> bindParam(1,$_POST['btn1']);
-                                  $pdo_statement->execute();
-                                  $etat =true ;
-                              }
+                          
                       }
 ?>
 <!DOCTYPE html>
@@ -123,7 +117,6 @@ if(!isset($_SESSION['Role']))
             // ajax deleting inscription
             $('.delete-intern').on('click', function() {
               var internId = $(this).data('id');
-                
                 $('#confirmation-dialog').show();
                 $('.confirm-yes').on('click', function() {
                     $.ajax({
@@ -154,8 +147,43 @@ if(!isset($_SESSION['Role']))
                     $('#confirmation-dialog').hide();
                 });
             });
+
+            // ajax accepter inscription
+            $('.accepter-intern').on('click', function() {
+              var internId = $(this).data('id');
+             
+                $('#confirmation-dialog').show();
+                $('.confirm-yes').on('click', function() {
+                    $.ajax({
+                        url: '../inc/accepterInsc.php',
+                        type: 'GET',
+                        data: {
+                            internId: internId
+                        },
+                        success: function(response) {
+                            // Handle success
+                            beautyToast.success({
+                                title: 'Success', 
+                                message: 'inscription bien accepter ' 
+                                });
+                            function greet() {
+                                window.location="acceuil.php"
+                              }
+                            setTimeout(greet, 1000); 
+                            },
+                        error: function(xhr, status, error) {
+                        }
+                    });
+                    // Hide the confirmation dialog
+                    $('#confirmation-dialog').hide();
+                });
+                $('.confirm-no').on('click', function() {
+                    // If the user cancels the deletion, hide the confirmation dialog
+                    $('#confirmation-dialog').hide();
+                });
+            });
           });
-            // ajax deleting formation
+            
         </script>
   </head>
 <body>
@@ -338,9 +366,9 @@ if(!isset($_SESSION['Role']))
                                               </button>
                                           </td>
                                           <td>
-                                          <form method="POST" action="" onclick="this.form.submit()">
-                                          <button value="'.$row["Id"].'" name="btn1" class="btn-actions"> <i class="bx bxs-user-check"></i></button>
-                                          </form>
+                                       
+                                          <button data-id="'.$row["Id"].'" name="btn1" class="btn-actions accepter-intern""> <i class="bx bxs-user-check"></i></button>
+                                          
                                           </td>
                                           <td>
                                             <button  data-id="'.$row["Id"].'" name="btn2 " class="btn-actions delete-intern"><i class="bx bxs-trash-alt"></i></button>
@@ -388,6 +416,11 @@ if(!isset($_SESSION['Role']))
         <button class="btn btn-primary confirm-yes">oui</button>
         <button class="btn btn-secondary confirm-no">No</button>
     </div>
+  <div id="confirmation-dialog">
+        <p>Voulez-vous vraiment accepter ce inscription !</p>
+        <button class="btn btn-primary confirm-yes">oui</button>
+        <button class="btn btn-secondary confirm-no">No</button>
+  </div>
   <script src="./assets/script.js"></script>
 <!-- TOAST LINK-->
 <script src="../../toast/beautyToast.js"></script>

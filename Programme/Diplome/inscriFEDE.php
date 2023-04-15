@@ -156,11 +156,11 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
          </table>
          ";
    $name = "Ecole JAH Marrakech";  // Name of your website or yours
-   $to = "nvabdouamanu@gmail.com";  // mail of reciever
+   $to = "Jah.informatique@gmail.com";  // mail of reciever
    $subject = "Inscription FEDE";
    $body = $content;
-   $from = "vodkaayoub1@gmail.com";  // you mail  vodkaayoub1@gmail.com"
-   $password = "qlipazmcsezqwwfg";  // your mail password   qlipazmcsezqwwfg
+   $from = "jamaljahnouiti@gmail.com";  // you mail  vodkaayoub1@gmail.com"
+   $password = "hifofyctbopxgkew";  // your mail password   
 
    // Ignore from here
    require '../../PHPMailer/src/Exception.php';
@@ -436,7 +436,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
               <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
                 <p style="    margin-left: 7em;">
               <b> Références bancaires (RIB) : <br>
-                          <span style=" color: red;">    007450001016200030042318 </span> .</b>
+                          <span style=" color: red;"> Nouiti jamal Compte bancaire Attijari wafa bank numéro 007450001016200030042318 </span> .</b>
                 </p>
               </div>
             <li data-aos="fade-up" data-aos-delay="200">
