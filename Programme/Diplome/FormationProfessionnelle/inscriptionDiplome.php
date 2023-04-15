@@ -150,11 +150,11 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
          </table>
          ";
    $name = "Ecole JAH Marrakech";  // Name of your website or yours
-   $to = "nvabdouamanu@gmail.com";  // mail of reciever
+   $to = "Jah.informatique@gmail.com";  // mail of reciever
    $subject = "Inscription FEDE";
    $body = $content;
-   $from = "vodkaayoub1@gmail.com";  // you mail  vodkaayoub1@gmail.com"
-   $password = "qlipazmcsezqwwfg";  // your mail password   qlipazmcsezqwwfg
+   $from = "jamaljahnouiti@gmail.com";  // you mail  vodkaayoub1@gmail.com"
+   $password = "hifofyctbopxgkew";  // your mail password   qlipazmcsezqwwfg
 
    // Ignore from here
    require '../../../PHPMailer/src/Exception.php';

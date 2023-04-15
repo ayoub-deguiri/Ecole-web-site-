@@ -421,29 +421,31 @@ a {
   color: #0646c6;
   background-color: #0646c6;
   bottom: -10px;
-  left: 400px;
+
+  left: 468px;
+
 }
 
 .headingH5::after {
   content: "";
   position: absolute;
-  width: 620px;
+  width: 658px;
   height: 4px;
   color: #0646c6;
   background-color: #0646c6;
   bottom: -10px;
-  left: 240px;
+  left: 301px;
 }
 
 .headingH6::after {
   content: "";
   position: absolute;
-  width: 380px;
+  width: 467px;
   height: 4px;
   color: #0646c6;
   background-color: #0646c6;
   bottom: -10px;
-  left: 350px;
+  left: 394px;
 }
 
 .subjects .box-container {

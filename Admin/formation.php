@@ -378,7 +378,7 @@ $etat3 =false;
                                 <option value="Aucun">Aucun&nbsp; بدون</option>
                                 <option value="9AEF">9AEF &nbsp; الثالثة اعدادي</option>
                                 <option value="2BAC">2ème Année BAC   الثانية بكالوريا</option>
-                                <option value="BACOuPlus"> BAC ou Plus &nbsp; بكالوريا فما فوق</option>
+                                <option value="BACOUPlus"> BAC ou Plus &nbsp; بكالوريا فما فوق</option>
                                 <option value="BAC+2">BAC +2(Technicien / Technicien spécialisé / DEUG)</option>
                                 <option value="BAC+3">BAC +3(Licence / Bachelor)</option>
                             </select>

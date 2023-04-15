@@ -304,8 +304,8 @@ and move_uploaded_file($_FILES['files2']['tmp_name'],$target_file2)
             <span style="color: red; font-size: 2em; padding-left: 10px;" id="cniveau" >*</span>
            
             <div class="form-check">
-                <input type="radio" class="form-check-input" value="aucun" name='niveau'  id="r4" >
-               <label class="form-check-label label-radio"> Aucun&nbsp; بدون</label>
+                <input type="radio" class="form-check-input sel_depart" value="aucun" name='niveau'  id="r4" >
+               <label class="form-check-label label-radio "> Aucun&nbsp; بدون</label>
               </div>
             <div class="form-check">
                 <input type="radio" class="form-check-input sel_depart" value="9AEF" name='niveau'id="r3" >
