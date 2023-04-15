@@ -2954,6 +2954,13 @@ a {
       height: 397px;
       width: 500px;
   }
+  .albumes .carousel {
+    margin-left: 11em;
+}
+.formation .col-md-4 {
+  margin-left: 3em;
+  width: 85%;
+}
 }
 
 
