@@ -101,16 +101,16 @@ $Ourresult = $pdo_statement->fetch();
          <div class="carousel slide" data-bs-ride="carousel">
             <div id="carousel-inner2" class="carousel-inner">
                <div class="carousel-item active" style="width: 700px;">
-                  <img src="images/1.jpg" style=" margin-top: 10px;" height="470px" alt="gestion" class="d-block w-100">
+                  <img src="images/slide/1.jpg" style=" margin-top: 10px;" height="470px" alt="gestion" class="d-block w-100">
                </div>
                <div class="carousel-item " style="width: 700px;">
-                  <img src="images/2.jpg" style=" margin-top: 10px;" height="470px" alt="gestion" class="d-block w-100">
+                  <img src="images/slide/2.jpg" style=" margin-top: 10px;" height="470px" alt="gestion" class="d-block w-100">
                </div>
                <div class="carousel-item" style="width: 700px;">
-                  <img src="images/3.JPG" style=" margin-top: 10px;" height="470px" alt="QOS" class="d-block w-100">
+                  <img src="images/slide/3.jpg" style=" margin-top: 10px;" height="470px" alt="QOS" class="d-block w-100">
                </div>
                <div class="carousel-item" style="width: 700px;">
-                  <img src="images/4.jpeg" style=" margin-top: 10px;" height="470px" alt="fede" class="d-block w-100">
+                  <img src="images/slide/4.jpg" style=" margin-top: 10px;" height="470px" alt="fede" class="d-block w-100">
                </div>
             </div>
          </div>
