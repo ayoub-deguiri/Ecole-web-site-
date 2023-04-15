@@ -14,7 +14,7 @@ if(isset($_POST['Etat'])){
 $Formation_arr = array();
 if( $Etat == 'etat1')
    {
-      if($departid > 0){
+      
          $sql = '';
          if( $departid == '9AEF')
             {
@@ -22,11 +22,19 @@ if( $Etat == 'etat1')
             }
          elseif($departid == '2BAC')
             {
+<<<<<<< HEAD
                $sql = "SELECT Id,Nom FROM formation WHERE  type='Diplome' and (niveau ='2BAC' or niveau ='9AEF')";
             }
          elseif($departid == 'BACOUPlus')
             {
                $sql = "SELECT Id,Nom FROM formation WHERE type='Diplome'and (niveau ='2BAC' or niveau ='bacouPlus' or niveau ='9AEF')";
+=======
+               $sql = "SELECT Id,Nom FROM formation WHERE  type='Diplome' and( niveau ='2BAC' or niveau ='9AEF')";
+            }
+         elseif($departid == 'BACOUPlus')
+            {
+               $sql = "SELECT Id,Nom FROM formation WHERE type='Diplome'and (niveau ='2BAC' or niveau ='BACOUPlus' or niveau ='9AEF')";
+>>>>>>> ea1bae2eb9d9e37f261fbfab652daee61fb9061b
             }
          $pdo_statement = $pdo_conn->prepare($sql);
          $pdo_statement->execute();
@@ -37,11 +45,11 @@ if( $Etat == 'etat1')
             $name = $row1['Nom'];
             $Formation_arr[] = array("id" => $id, "name" => $name);
             }
-      }
+      
    }
 elseif($Etat == 'etat2')
    {
-      if($departid > 0){
+     
          $sql = '';
          if( $departid == 'BAC+2')
             {
@@ -71,11 +79,15 @@ elseif($Etat == 'etat2')
                $name = $row1['Nom'];
                $Formation_arr[] = array("id" => $id, "name" => $name,"CountBac2" => $CountBac2, "CountBac3" => $CountBac3);
             }
-      }
+      
    }
    elseif($Etat == 'etat3')
    {
+<<<<<<< HEAD
  
+=======
+      
+>>>>>>> ea1bae2eb9d9e37f261fbfab652daee61fb9061b
          $sql = "SELECT Id,Nom FROM formation WHERE type ='Formation'";
          $pdo_statement = $pdo_conn->prepare($sql);
          $pdo_statement->execute();

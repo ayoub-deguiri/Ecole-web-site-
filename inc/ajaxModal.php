@@ -14,7 +14,7 @@ $niveau = $formation['niveau'];
 $id = $formation['Id'];
 
 $Mylist = array("Diplome","Formation","Master","Licence");
-$Mylist2 = array("Aucun","9AEF","2BAC","BACOuPlus","BAC+2","BAC+3");
+$Mylist2 = array("Aucun","9AEF","2BAC","BACOUPlus","BAC+2","BAC+3");
 
 ?>
 
