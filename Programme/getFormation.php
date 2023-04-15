@@ -22,11 +22,11 @@ if( $Etat == 'etat1')
             }
          elseif($departid == '2BAC')
             {
-               $sql = "SELECT Id,Nom FROM formation WHERE  type='Diplome' and( niveau ='2BAC' or niveau ='9AEF')";
+               $sql = "SELECT Id,Nom FROM formation WHERE  type='Diplome' and (niveau ='2BAC' or niveau ='9AEF')";
             }
          elseif($departid == 'BACOUPlus')
             {
-               $sql = "SELECT Id,Nom FROM formation WHERE type='Diplome'and (niveau ='2BAC' or niveau ='BACOUPlus' or niveau ='9AEF')";
+               $sql = "SELECT Id,Nom FROM formation WHERE type='Diplome'and (niveau ='2BAC' or niveau ='bacouPlus' or niveau ='9AEF')";
             }
          $pdo_statement = $pdo_conn->prepare($sql);
          $pdo_statement->execute();
@@ -75,7 +75,7 @@ elseif($Etat == 'etat2')
    }
    elseif($Etat == 'etat3')
    {
-      
+ 
          $sql = "SELECT Id,Nom FROM formation WHERE type ='Formation'";
          $pdo_statement = $pdo_conn->prepare($sql);
          $pdo_statement->execute();
