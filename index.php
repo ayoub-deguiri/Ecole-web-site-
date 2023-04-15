@@ -104,13 +104,13 @@ $Ourresult = $pdo_statement->fetch();
                   <img src="images/1.jpg" style=" margin-top: 10px;" height="470px" alt="gestion" class="d-block w-100">
                </div>
                <div class="carousel-item " style="width: 700px;">
-                  <img src="images/3.jpg" style=" margin-top: 10px;" height="470px" alt="gestion" class="d-block w-100">
+                  <img src="images/2.jpg" style=" margin-top: 10px;" height="470px" alt="gestion" class="d-block w-100">
                </div>
                <div class="carousel-item" style="width: 700px;">
-                  <img src="images/2.JPG" style=" margin-top: 10px;" height="470px" alt="QOS" class="d-block w-100">
+                  <img src="images/3.JPG" style=" margin-top: 10px;" height="470px" alt="QOS" class="d-block w-100">
                </div>
                <div class="carousel-item" style="width: 700px;">
-                  <img src="images/7.jpeg" style=" margin-top: 10px;" height="470px" alt="fede" class="d-block w-100">
+                  <img src="images/4.jpeg" style=" margin-top: 10px;" height="470px" alt="fede" class="d-block w-100">
                </div>
             </div>
          </div>
@@ -347,7 +347,7 @@ $Ourresult = $pdo_statement->fetch();
       $statement2->execute();
       $result2 = $statement2->fetchAll(PDO::FETCH_ASSOC);
       //
-      $statement3 = $pdo_conn->prepare('SELECT * FROM flayers where type = "License"');
+      $statement3 = $pdo_conn->prepare('SELECT * FROM flayers where type = "Modeliste"');
       $statement3->execute();
       $result3 = $statement3->fetchAll(PDO::FETCH_ASSOC);
       //
@@ -363,7 +363,7 @@ $Ourresult = $pdo_statement->fetch();
                <li data-filter="*" class="filter-active">All</li>
                <li data-filter=".filter-Secourisme">Secourisme</li>
                <li data-filter=".filter-Gestion">Gestion Et Marketing</li>
-               <li data-filter=".filter-License">License</li>
+               <li data-filter=".filter-Modeliste">Modeliste</li>
                <li data-filter=".filter-Hijama">Hijama</li>
             </ul><!-- End Portfolio Filters -->
 

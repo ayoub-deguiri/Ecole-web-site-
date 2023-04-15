@@ -109,9 +109,9 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
         {
           $target_file = 'Flayers/Gestion/'.$filename;
         }
-        elseif($FileeeeTy == 'License')
+        elseif($FileeeeTy == 'Modeliste')
         {
-          $target_file = 'Flayers/License/'.$filename;
+          $target_file = 'Flayers/Modeliste/'.$filename;
         }
         elseif($FileeeeTy == 'Hijama')
         {
