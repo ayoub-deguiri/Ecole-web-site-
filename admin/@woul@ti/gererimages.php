@@ -308,7 +308,7 @@ if($_SERVER['REQUEST_METHOD'] == "POST" )
                                                 <option value="" selected disabled>Open this select menu</option>
                                                 <option value="Secourisme">Secourisme</option>
                                                 <option value="Gestion">Gestion</option>
-                                                <option value="License">License</option>
+                                                <option value="Modeliste">Modeliste</option>
                                                 <option value="Hijama">Hijama</option>
                                             </select>
                                         </div>

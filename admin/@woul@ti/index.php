@@ -155,7 +155,7 @@ if(!isset($_SESSION['Role']))
                 $('#confirmation-dialog').show();
                 $('.confirm-yes').on('click', function() {
                     $.ajax({
-                        url: '../inc/accepterInsc.php',
+                        url: '../../inc/accepterInsc.php',
                         type: 'GET',
                         data: {
                             internId: internId
@@ -167,7 +167,7 @@ if(!isset($_SESSION['Role']))
                                 message: 'inscription bien accepter ' 
                                 });
                             function greet() {
-                                window.location="acceuil.php"
+                                window.location="index.php"
                               }
                             setTimeout(greet, 1000); 
                             },

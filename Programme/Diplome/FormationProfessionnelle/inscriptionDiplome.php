@@ -8,7 +8,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 include("../../../db/db.php");
 $etat = false;
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-   // formation form 
+   $newImageName = NULL;
+   $newImageName2 = NULL;
+   $newImageName3 = NULL;
+   $newImageName4 = NULL;
    $nom = $_POST['nom'];
    $cin = $_POST['cin'];
    $adresse = $_POST['adresse'];
@@ -16,76 +19,84 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
    $niveau = $_POST['niveau'];
    $choix = $_POST['choix'];
    $email = $_POST['email'];
+
    $Typeformation = 'Diplome';
    $type = 'encoure';
    $date = date("Y-m-d ");
    $heure =date("H:i:s");
-   $img = 'img';
-   $query ="INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null)";
 
-   $pdo_statement = $pdo_conn->prepare($query);
-   // File name
-$filename1 = $_FILES['files1']['name'];
-$filename2 = $_FILES['files2']['name'];
-$filename3 = $_FILES['files3']['name'];
-$filename4 = $_FILES['files4']['name'];
+   //   for cin
+   $fileName = $_FILES["files1"]["name"];
+   $fileSize = $_FILES["files1"]["size"];
+   $tmpName = $_FILES["files1"]["tmp_name"];
+   $validImageExtension = ['jpg', 'jpeg', 'png'];
+   $imageExtension = explode('.', $fileName);
+   $imageExtension = strtolower(end($imageExtension));
 
-$target_file1 = '../../Images/Inscription/'.$filename1;
-$target_file2 = '../../Images/Inscription/'.$filename2;
-$target_file3 = '../../Images/Inscription/'.$filename3;
-$target_file4 = '../../Images/Inscription/'.$filename4;
+   // for identite
+   $fileName2 = $_FILES["files2"]["name"];
+   $fileSize2 = $_FILES["files2"]["size"];
+   $tmpName2 = $_FILES["files2"]["tmp_name"];
+   $validImageExtension2 = ['jpg', 'jpeg', 'png'];
+   $imageExtension2 = explode('.', $fileName2);
+   $imageExtension2 = strtolower(end($imageExtension2));
 
-   // file extension
-$file_extension1 = pathinfo($target_file1, PATHINFO_EXTENSION);
-$file_extension1 = strtolower($file_extension1);
-   // file extension
-$file_extension2 = pathinfo($target_file2, PATHINFO_EXTENSION);
-$file_extension2 = strtolower($file_extension2);
-// file extension
-$file_extension3 = pathinfo($target_file3, PATHINFO_EXTENSION);
-$file_extension3 = strtolower($file_extension3);
+   // for naissance
+   $fileName3 = $_FILES["files3"]["name"];
+   $fileSize3 = $_FILES["files3"]["size"];
+   $tmpName3 = $_FILES["files3"]["tmp_name"];
+   $validImageExtension3 = ['jpg', 'jpeg', 'png'];
+   $imageExtension3 = explode('.', $fileName3);
+   $imageExtension3 = strtolower(end($imageExtension3));
+   // for Certificat
+   $fileName4 = $_FILES["files4"]["name"];
+   $fileSize4 = $_FILES["files4"]["size"];
+   $tmpName4 = $_FILES["files4"]["tmp_name"];
+   $validImageExtension4 = ['jpg', 'jpeg', 'png'];
+   $imageExtension4 = explode('.', $fileName4);
+   $imageExtension4 = strtolower(end($imageExtension4));
 
-// file extension
-$file_extension4 = pathinfo($target_file4, PATHINFO_EXTENSION);
-$file_extension4 = strtolower($file_extension4);
 
 
-   // Valid image extension
-$valid_extension = array("png","jpeg","jpg","PNG","JPEG","JPG");
 
-if(in_array($file_extension1 ,$valid_extension)
-and in_array($file_extension2 ,$valid_extension)
-and in_array($file_extension3 ,$valid_extension)
-and in_array($file_extension4 ,$valid_extension)
 
-){
-   // Upload file
-if(move_uploaded_file($_FILES['files1']['tmp_name'],$target_file1) 
-and move_uploaded_file($_FILES['files2']['tmp_name'],$target_file2)
-and move_uploaded_file($_FILES['files3']['tmp_name'],$target_file3)
-and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
-){
-   // Execute query
+   $newImageName = uniqid();
+   $newImageName .= '.' . $imageExtension;
+   move_uploaded_file($tmpName, '../../Images/Inscription/' . $newImageName);
+
+   $newImageName2 = uniqid();
+   $newImageName2 .= '.' . $imageExtension2;
+   move_uploaded_file($tmpName2, '../../Images/Inscription/' . $newImageName2);
+
+   $newImageName3 = uniqid();
+   $newImageName3 .= '.' . $imageExtension3;
+   move_uploaded_file($tmpName3, '../../Images/Inscription/' . $newImageName3);
+
+   $newImageName4 = uniqid();
+   $newImageName4 .= '.' . $imageExtension4;
+   move_uploaded_file($tmpName4, '../../Images/Inscription/' . $newImageName4);
+
+
+
+
+   $pdo_statement = $pdo_conn->prepare("INSERT INTO inscription values(null,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,null)");
    $pdo_statement->bindParam(1, $nom);
-   $pdo_statement->bindParam(2, $cin);
-   $pdo_statement->bindParam(3, $adresse);
-   $pdo_statement->bindParam(4, $tel);
-   $pdo_statement->bindParam(5, $niveau);
-   $pdo_statement->bindParam(6, $choix);
-   $pdo_statement->bindParam(7, $Typeformation);
-   $pdo_statement->bindParam(8, $email);
-   $pdo_statement->bindParam(9, $type);
-   $pdo_statement->bindParam(10, $date);
-   $pdo_statement->bindParam(11, $heure);
-   $pdo_statement->bindParam(12, $filename1);
-   $pdo_statement->bindParam(13, $filename2);
-   $pdo_statement->bindParam(14, $filename3);
-   $pdo_statement->bindParam(15, $filename4);
-   $pdo_statement->execute();
-   $etat = true;
-}
-
-}
+         $pdo_statement->bindParam(2, $cin);
+         $pdo_statement->bindParam(3, $adresse);
+         $pdo_statement->bindParam(4, $tel);
+         $pdo_statement->bindParam(5, $niveau);
+         $pdo_statement->bindParam(6, $choix);
+         $pdo_statement->bindParam(7, $Typeformation);
+         $pdo_statement->bindParam(8, $email);
+         $pdo_statement->bindParam(9, $type);
+         $pdo_statement->bindParam(10, $date);
+         $pdo_statement->bindParam(11, $heure);
+         $pdo_statement->bindParam(12, $newImageName);
+        $pdo_statement->bindParam(13, $newImageName2);
+        $pdo_statement->bindParam(14, $newImageName3);
+        $pdo_statement->bindParam(15,$newImageName4);
+  $pdo_statement->execute();
+  $etat = true;
 
    $content =
       "<h1>DIPLOME </h1>
@@ -187,10 +198,10 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
    $mail->addAddress($to); // enter email address whom you want to send
 
    //$mail->addAttachment("images/1.jpg"); // for CIN
-   $mail->addAttachment($target_file1);
-   $mail->addAttachment($target_file2);
-   $mail->addAttachment($target_file3);
-   $mail->addAttachment($target_file4);
+   $mail->addAttachment("../../Images/Inscription/" . $newImageName); // for CIN
+   $mail->addAttachment("../../Images/Inscription/" . $newImageName2);    // for identité
+   $mail->addAttachment("../../Images/Inscription/" . $newImageName3); // for naissance
+   $mail->addAttachment("../../Images/Inscription/" . $newImageName4);    // for certificat
 
    $mail->Subject = ($subject);
    $mail->Body = $body;
@@ -298,11 +309,11 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
 
          </div>
          <div class="mb-3 mt-3">
-            <label class="labelInput">Numéro de CIN </label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="ccin">*</span>
+            <label class="labelInput">Numéro de CIN </label>&ensp; 
             <input type="text" class="form-control" id="cin" name="cin" placeholder="Numéro de CIN">
          </div>
          <div class="mb-3 mt-3">
-            <label class="labelInput">Adresse </label>&ensp; <span style="color: red; font-size: 2em; padding-left: 10px;" id="cadresse">*</span>
+            <label class="labelInput">Adresse </label>&ensp; 
 
             <input type="text" class="form-control" id="Adresse" name="adresse" placeholder="Adresse">
          </div>
@@ -345,13 +356,13 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
 
          <div class="mb-3 mt-3">
             <label class="labelInput">Email :</label>&ensp;
-            <span style="color: red; font-size: 2em; padding-left: 10px;" id="cemail">*</span>
+            
             <input type="text" class="form-control" id="email" name="email" placeholder="Email">
          </div>
 
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Photo de la CIN :</label>
-            <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile1">*</span>
+           
             <div>
                <input type="file" name="files1" id="file-1" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner"  />
                <label for="file-1"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
@@ -363,7 +374,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
          </div>
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Photo d'identité :</label>
-            <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile2">*</span>
+
             <div>
                <input type="file" name="files2" id="file-2" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner"  />
                <label for="file-2"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
@@ -375,7 +386,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
          </div>
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Photo d'acte de naissance' :</label>
-            <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile3">*</span>
+    
             <div>
                <input type="file" name="files3" id="file-3" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner"  />
                <label for="file-3"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
@@ -387,7 +398,7 @@ and move_uploaded_file($_FILES['files4']['tmp_name'],$target_file4)
          </div>
          <div class="mb-3 mt-3">
             <label for="name " class="labelInput">Certificat Scolaire :</label>
-            <span style="color: red; font-size: 2em; padding-left: 10px;" id="cfile4">*</span>
+           
             <div>
                <input type="file" name="files4" id="file-4" class="inputfile inputfile-1" data-multiple-caption="{count} files sélectionner"  />
                <label for="file-4"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="17" viewBox="0 0 20 17">
